@@ -482,4 +482,175 @@ class Admin extends CI_Controller {
         
         redirect('admin/contact');
     }
+
+    // Change Password
+    public function change_password()
+    {
+        if (!$this->session->userdata('admin_logged_in')) {
+            redirect('login');
+        }
+
+        if ($this->input->method() === 'post') {
+            $this->load->library('form_validation');
+            
+            // Validation rules
+            $this->form_validation->set_rules('current_password', 'Password Lama', 'required');
+            $this->form_validation->set_rules('new_password', 'Password Baru', 'required|min_length[6]');
+            $this->form_validation->set_rules('confirm_password', 'Konfirmasi Password', 'required|matches[new_password]');
+            
+            if ($this->form_validation->run() == FALSE) {
+                $this->session->set_flashdata('error', validation_errors());
+                redirect('admin/settings/password');
+                return;
+            }
+            
+            $current_password = $this->input->post('current_password');
+            $new_password = $this->input->post('new_password');
+            $username = $this->session->userdata('admin_username');
+            
+            // Verify current password
+            $this->db->where('username', $username);
+            $this->db->where('status', 'active');
+            $user = $this->db->get('admin_users')->row();
+            
+            if (!$user || !password_verify($current_password, $user->password)) {
+                $this->session->set_flashdata('error', 'Password lama tidak sesuai!');
+                redirect('admin/settings/password');
+                return;
+            }
+            
+            // Update password
+            $hashed_password = password_hash($new_password, PASSWORD_DEFAULT);
+            $this->db->where('username', $username);
+            $update_result = $this->db->update('admin_users', array('password' => $hashed_password));
+            
+            if ($update_result) {
+                $this->session->set_flashdata('success', 'Password berhasil diubah!');
+            } else {
+                $this->session->set_flashdata('error', 'Gagal mengubah password!');
+            }
+            
+            redirect('admin/settings/password');
+        }
+        
+        // Show change password form
+        $data['title'] = 'Ganti Password - Admin Dashboard';
+        $data['page_title'] = 'Ganti Password';
+        $data['content'] = $this->load->view('admin/content/change_password', $data, TRUE);
+        $this->load->view('admin/layout', $data);
+    }
+
+    // Settings Dashboard
+    public function settings()
+    {
+        if (!$this->session->userdata('admin_logged_in')) {
+            redirect('login');
+        }
+
+        $data['title'] = 'Pengaturan - Admin Dashboard';
+        $data['page_title'] = 'Pengaturan';
+        $data['content'] = $this->load->view('admin/content/settings', $data, TRUE);
+        $this->load->view('admin/layout', $data);
+    }
+
+    // Edit Profile
+    public function edit_profile()
+    {
+        if (!$this->session->userdata('admin_logged_in')) {
+            redirect('login');
+        }
+
+        $username = $this->session->userdata('admin_username');
+        
+        // Get admin profile data
+        $this->db->where('username', $username);
+        $admin_profile = $this->db->get('admin_users')->row();
+        
+        $data['title'] = 'Edit Profil - Admin Dashboard';
+        $data['page_title'] = 'Edit Profil';
+        $data['admin_profile'] = $admin_profile;
+        $data['content'] = $this->load->view('admin/content/edit_profile', $data, TRUE);
+        $this->load->view('admin/layout', $data);
+    }
+
+    // Update Profile
+    public function update_profile()
+    {
+        if (!$this->session->userdata('admin_logged_in')) {
+            redirect('login');
+        }
+
+        if ($this->input->method() === 'post') {
+            $this->load->library('form_validation');
+            
+            // Validation rules
+            $this->form_validation->set_rules('username', 'Username', 'required|trim|min_length[3]|max_length[50]');
+            $this->form_validation->set_rules('email', 'Email', 'required|valid_email|trim');
+            $this->form_validation->set_rules('full_name', 'Nama Lengkap', 'required|trim|min_length[2]|max_length[100]');
+            $this->form_validation->set_rules('phone', 'Nomor Telepon', 'trim|max_length[20]');
+            
+            if ($this->form_validation->run() == FALSE) {
+                $this->session->set_flashdata('error', validation_errors());
+                redirect('admin/settings/profile');
+                return;
+            }
+            
+            $username = $this->session->userdata('admin_username');
+            $new_username = $this->input->post('username');
+            $email = $this->input->post('email');
+            $full_name = $this->input->post('full_name');
+            $phone = $this->input->post('phone');
+            
+            // Check if username is being changed and if it's already taken
+            if ($new_username !== $username) {
+                $this->db->where('username', $new_username);
+                $this->db->where('username !=', $username);
+                $existing_user = $this->db->get('admin_users')->row();
+                
+                if ($existing_user) {
+                    $this->session->set_flashdata('error', 'Username sudah digunakan!');
+                    redirect('admin/settings/profile');
+                    return;
+                }
+            }
+            
+            // Check if email is already taken
+            $this->db->where('email', $email);
+            $this->db->where('username !=', $username);
+            $existing_email = $this->db->get('admin_users')->row();
+            
+            if ($existing_email) {
+                $this->session->set_flashdata('error', 'Email sudah digunakan!');
+                redirect('admin/settings/profile');
+                return;
+            }
+            
+            // Update profile data
+            $update_data = array(
+                'username' => $new_username,
+                'email' => $email,
+                'full_name' => $full_name,
+                'phone' => $phone,
+                'updated_at' => date('Y-m-d H:i:s')
+            );
+            
+            $this->db->where('username', $username);
+            $update_result = $this->db->update('admin_users', $update_data);
+            
+            if ($update_result) {
+                // Update session if username changed
+                if ($new_username !== $username) {
+                    $this->session->set_userdata('admin_username', $new_username);
+                }
+                
+                $this->session->set_flashdata('success', 'Profil berhasil diperbarui!');
+            } else {
+                $this->session->set_flashdata('error', 'Gagal memperbarui profil!');
+            }
+            
+            redirect('admin/settings/profile');
+        }
+        
+        redirect('admin/settings/profile');
+    }
 }
