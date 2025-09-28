@@ -52,6 +52,21 @@
                 <a href="<?php echo base_url('gallery'); ?>">Galeri</a>
                 <a href="<?php echo base_url('kontak'); ?>" <?php echo (isset($page) && $page == 'contact') ? 'class="active"' : ''; ?>>Kontak</a>
             </nav>
+
+            <!-- Shopping Cart Button -->
+            <div class="nav-actions">
+                <a href="<?php echo base_url('keranjang'); ?>" class="cart-btn" title="Keranjang Belanja">
+                    <i class="fas fa-shopping-cart"></i>
+                    <span class="cart-count">0</span>
+                </a>
+            </div>
+
+            <!-- Mobile Hamburger Menu -->
+            <button class="hamburger" id="hamburger" aria-label="Toggle Menu">
+                <span></span>
+                <span></span>
+                <span></span>
+            </button>
         </div>
     </header>
 
