@@ -38,4 +38,14 @@ class Home extends CI_Controller {
         $this->load->view('home/contact', $data);
         $this->load->view('templates/footer', $data);
     }
+
+    public function gallery()
+    {
+        $data['title'] = 'Galeri - Meat Shop & Grocery';
+        $data['page'] = 'gallery';
+        
+        $this->load->view('templates/header', $data);
+        $this->load->view('home/gallery', $data);
+        $this->load->view('templates/footer', $data);
+    }
 }

@@ -1,9 +1,9 @@
 <!-- ========== Hero Section ========== -->
 <section class="py-20 bg-gradient-to-br from-gray-50 to-gray-100">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="w-full px-4 sm:px-6 lg:px-8">
         <div class="text-center">
             <h1 class="text-5xl font-bold text-gray-900 mb-6">Tentang Kami</h1>
-            <p class="text-xl text-gray-600 max-w-3xl mx-auto">
+            <p class="text-xl text-gray-600">
                 CV. Semarang Boga Utama 
                 <span class="text-primary font-semibold">(Jawa Tengah, Indonesia)</span>
             </p>
@@ -13,7 +13,7 @@
 
 <!-- ========== Main Content Section ========== -->
 <section class="py-20 bg-white">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="w-full px-4 sm:px-6 lg:px-8">
         <div class="grid lg:grid-cols-2 gap-16 items-center">
             <!-- Content -->
             <div class="space-y-8">
@@ -34,7 +34,7 @@
             
             <!-- Image -->
             <div class="flex justify-center lg:justify-end">
-                <div class="w-full max-w-lg">
+                <div class="w-full">
                     <img src="<?php echo base_url('gambar/gambar3.jpg'); ?>" 
                          alt="Agro Meat Shop" 
                          class="w-full h-96 object-cover rounded-2xl shadow-lg">
@@ -46,11 +46,11 @@
 
 <!-- ========== Company Info Section ========== -->
 <section class="py-20 bg-gray-50">
-    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+    <div class="w-full px-4 sm:px-6 lg:px-8">
         <!-- Section Header -->
         <div class="text-center mb-16">
             <h2 class="text-4xl font-bold text-gray-900 mb-4">Informasi Perusahaan</h2>
-            <p class="text-xl text-gray-600 max-w-2xl mx-auto">
+            <p class="text-xl text-gray-600">
                 Profil lengkap CV. Semarang Boga Utama dalam melayani kebutuhan daging dan grocery terbaik
             </p>
         </div>

@@ -62,7 +62,7 @@
                         <div class="relative">
                             <span class="absolute top-3 left-3 bg-secondary text-white px-2 py-1 text-xs font-semibold rounded uppercase tracking-wide">BARU</span>
                             <img src="<?php echo base_url('assets/img/prod-1.jpg'); ?>" alt="Keju Premium" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
-                        </div>
+                    </div>
                         <div class="p-6">
                             <p class="text-sm text-primary font-semibold mb-2 uppercase tracking-wide">Olahan</p>
                             <h4 class="text-lg font-bold text-gray-900 mb-4">Keju Premium</h4>
@@ -74,18 +74,18 @@
                                     </button>
                                     <button class="bg-surface text-muted p-2 rounded hover:bg-primary hover:text-white transition-colors">
                                         <i class='bx bx-cart-add text-xl'></i>
-                                    </button>
+                            </button>
                                 </div>
-                            </div>
                         </div>
                     </div>
+                </div>
 
                     <!-- Card Produk Susu 4 -->
                     <div class="bg-card border border-border overflow-hidden hover:border-primary transition-colors duration-300 group">
                         <div class="relative">
                             <span class="absolute top-3 left-3 bg-primary text-white px-2 py-1 text-xs font-semibold rounded uppercase tracking-wide">HOT</span>
                             <img src="<?php echo base_url('assets/img/prod-1.jpg'); ?>" alt="Butter Premium" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
-                        </div>
+                    </div>
                         <div class="p-6">
                             <p class="text-sm text-primary font-semibold mb-2 uppercase tracking-wide">Olahan</p>
                             <h4 class="text-lg font-bold text-gray-900 mb-4">Butter Premium</h4>
@@ -97,18 +97,18 @@
                                     </button>
                                     <button class="bg-surface text-muted p-2 rounded hover:bg-primary hover:text-white transition-colors">
                                         <i class='bx bx-cart-add text-xl'></i>
-                                    </button>
+                            </button>
                                 </div>
-                            </div>
                         </div>
                     </div>
+                </div>
 
                     <!-- Card Produk Susu 5 -->
                     <div class="bg-card border border-border overflow-hidden hover:border-primary transition-colors duration-300 group">
                         <div class="relative">
                             <span class="absolute top-3 left-3 bg-accent text-white px-2 py-1 text-xs font-semibold rounded uppercase tracking-wide">PROMO</span>
                             <img src="<?php echo base_url('assets/img/prod-1.jpg'); ?>" alt="Krim Premium" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
-                        </div>
+                    </div>
                         <div class="p-6">
                             <p class="text-sm text-primary font-semibold mb-2 uppercase tracking-wide">Olahan</p>
                             <h4 class="text-lg font-bold text-gray-900 mb-4">Krim Premium</h4>
@@ -120,18 +120,18 @@
                                     </button>
                                     <button class="bg-surface text-muted p-2 rounded hover:bg-primary hover:text-white transition-colors">
                                         <i class='bx bx-cart-add text-xl'></i>
-                                    </button>
+                            </button>
                                 </div>
-                            </div>
                         </div>
                     </div>
+                </div>
 
                     <!-- Card Produk Susu 6 -->
                     <div class="bg-card border border-border overflow-hidden hover:border-primary transition-colors duration-300 group">
                         <div class="relative">
                             <span class="absolute top-3 left-3 bg-secondary text-white px-2 py-1 text-xs font-semibold rounded uppercase tracking-wide">BARU</span>
                             <img src="<?php echo base_url('assets/img/prod-1.jpg'); ?>" alt="Susu Bubuk Premium" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
-                        </div>
+                    </div>
                         <div class="p-6">
                             <p class="text-sm text-primary font-semibold mb-2 uppercase tracking-wide">Susu</p>
                             <h4 class="text-lg font-bold text-gray-900 mb-4">Susu Bubuk Premium</h4>
@@ -143,9 +143,9 @@
                                     </button>
                                     <button class="bg-surface text-muted p-2 rounded hover:bg-primary hover:text-white transition-colors">
                                         <i class='bx bx-cart-add text-xl'></i>
-                                    </button>
-                                </div>
-                            </div>
+                            </button>
+                        </div>
+                    </div>
                         </div>
                     </div>
 
