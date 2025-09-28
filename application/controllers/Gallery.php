@@ -20,13 +20,12 @@ class Gallery extends CI_Controller {
 
         // Get search and filter parameters
         $search = $this->input->get('search') ?: null;
-        $category = $this->input->get('category') ?: null;
         $status = $this->input->get('status') ?: null;
         
         // Pagination
         $this->load->library('pagination');
         $config['base_url'] = base_url('admin/gallery');
-        $config['total_rows'] = $this->Gallery_model->count_gallery($search, $category, $status);
+        $config['total_rows'] = $this->Gallery_model->count_gallery($search, $status);
         $config['per_page'] = 10;
         $config['uri_segment'] = 3;
         $config['num_links'] = 2;
@@ -34,16 +33,13 @@ class Gallery extends CI_Controller {
         $this->pagination->initialize($config);
         
         $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
-        $data['gallery'] = $this->Gallery_model->get_gallery($config['per_page'], $page, $search, $category, $status);
+        $data['gallery'] = $this->Gallery_model->get_gallery($config['per_page'], $page, $search, $status);
         $data['pagination'] = $this->pagination->create_links();
         
         $data['title'] = 'Kelola Galeri - Admin Dashboard';
         $data['page_title'] = 'Kelola Galeri';
         $data['search'] = $search;
-        $data['category'] = $category;
         $data['status'] = $status;
-        $data['selected_category'] = $category;
-        $data['categories'] = $this->Gallery_model->get_categories();
         $data['content'] = $this->load->view('admin/content/gallery', $data, TRUE);
         $this->load->view('admin/layout', $data);
     }
@@ -54,14 +50,11 @@ class Gallery extends CI_Controller {
             redirect('login');
         }
         
-        // Get categories for the form
-        $categories = $this->Gallery_model->get_categories();
         
         if ($this->input->method() === 'post') {
             // Validate required fields
             $this->load->library('form_validation');
             $this->form_validation->set_rules('title', 'Judul', 'required|trim');
-            $this->form_validation->set_rules('category', 'Kategori', 'required');
             $this->form_validation->set_rules('description', 'Deskripsi', 'trim');
             
             if ($this->form_validation->run() == FALSE) {
@@ -73,7 +66,6 @@ class Gallery extends CI_Controller {
             // Handle form submission
             $gallery_data = array(
                 'title' => $this->input->post('title'),
-                'category' => $this->input->post('category'),
                 'description' => $this->input->post('description'),
                 'status' => $this->input->post('status') ?: 'active'
             );
@@ -131,7 +123,6 @@ class Gallery extends CI_Controller {
         
         $data['title'] = 'Tambah Galeri - Admin Dashboard';
         $data['page_title'] = 'Tambah Galeri';
-        $data['categories'] = $categories;
         $data['content'] = $this->load->view('admin/content/add_gallery', $data, TRUE);
         $this->load->view('admin/layout', $data);
     }
@@ -151,7 +142,6 @@ class Gallery extends CI_Controller {
             // Validate required fields
             $this->load->library('form_validation');
             $this->form_validation->set_rules('title', 'Judul', 'required|trim');
-            $this->form_validation->set_rules('category', 'Kategori', 'required');
             $this->form_validation->set_rules('description', 'Deskripsi', 'trim');
             
             if ($this->form_validation->run() == FALSE) {
@@ -163,7 +153,6 @@ class Gallery extends CI_Controller {
             // Handle form submission
             $gallery_data = array(
                 'title' => $this->input->post('title'),
-                'category' => $this->input->post('category'),
                 'description' => $this->input->post('description'),
                 'status' => $this->input->post('status') ?: 'active'
             );

@@ -903,3 +903,64 @@ DEBUG - 2025-09-28 20:42:21 --> UTF-8 Support Enabled
 DEBUG - 2025-09-28 20:42:21 --> No URI present. Default controller set.
 DEBUG - 2025-09-28 20:42:21 --> Global POST, GET and COOKIE data sanitized
 DEBUG - 2025-09-28 20:42:21 --> Total execution time: 0.0031
+DEBUG - 2025-09-28 20:51:31 --> UTF-8 Support Enabled
+DEBUG - 2025-09-28 20:51:31 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2025-09-28 20:51:31 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2025-09-28 20:51:31 --> Total execution time: 0.0165
+DEBUG - 2025-09-28 20:51:37 --> UTF-8 Support Enabled
+DEBUG - 2025-09-28 20:51:37 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2025-09-28 20:51:37 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2025-09-28 20:51:37 --> UTF-8 Support Enabled
+DEBUG - 2025-09-28 20:51:37 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2025-09-28 20:51:37 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2025-09-28 20:51:37 --> Total execution time: 0.0024
+DEBUG - 2025-09-28 20:51:39 --> UTF-8 Support Enabled
+DEBUG - 2025-09-28 20:51:39 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2025-09-28 20:51:39 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2025-09-28 20:51:39 --> Total execution time: 0.0060
+DEBUG - 2025-09-28 20:51:40 --> UTF-8 Support Enabled
+DEBUG - 2025-09-28 20:51:40 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2025-09-28 20:51:40 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2025-09-28 20:51:40 --> Total execution time: 0.0045
+DEBUG - 2025-09-28 20:51:50 --> UTF-8 Support Enabled
+DEBUG - 2025-09-28 20:51:50 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2025-09-28 20:51:50 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2025-09-28 20:51:50 --> Total execution time: 0.0040
+DEBUG - 2025-09-28 20:53:10 --> UTF-8 Support Enabled
+DEBUG - 2025-09-28 20:53:10 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2025-09-28 20:53:10 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2025-09-28 20:53:10 --> Total execution time: 0.0089
+DEBUG - 2025-09-28 20:53:18 --> UTF-8 Support Enabled
+DEBUG - 2025-09-28 20:53:18 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2025-09-28 20:53:18 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2025-09-28 20:53:18 --> Gallery upload successful: 68d9a03ed39d6_1759092798.png
+DEBUG - 2025-09-28 20:53:18 --> UTF-8 Support Enabled
+DEBUG - 2025-09-28 20:53:18 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2025-09-28 20:53:18 --> Session class already loaded. Second attempt ignored.
+ERROR - 2025-09-28 20:53:18 --> Severity: Warning --> Undefined variable $category /Users/rhea/Downloads/Meatshop&Grocery/application/controllers/Gallery.php 28
+ERROR - 2025-09-28 20:53:18 --> Severity: Warning --> Undefined variable $category /Users/rhea/Downloads/Meatshop&Grocery/application/controllers/Gallery.php 36
+ERROR - 2025-09-28 20:53:18 --> Severity: Warning --> Undefined variable $category /Users/rhea/Downloads/Meatshop&Grocery/application/controllers/Gallery.php 42
+ERROR - 2025-09-28 20:53:18 --> Severity: Warning --> Undefined variable $category /Users/rhea/Downloads/Meatshop&Grocery/application/controllers/Gallery.php 44
+DEBUG - 2025-09-28 20:53:18 --> Total execution time: 0.1139
+DEBUG - 2025-09-28 20:53:28 --> UTF-8 Support Enabled
+DEBUG - 2025-09-28 20:53:28 --> Global POST, GET and COOKIE data sanitized
+ERROR - 2025-09-28 20:53:28 --> 404 Page Not Found: /Admin/gallery
+DEBUG - 2025-09-28 20:53:30 --> UTF-8 Support Enabled
+DEBUG - 2025-09-28 20:53:30 --> Global POST, GET and COOKIE data sanitized
+ERROR - 2025-09-28 20:53:30 --> 404 Page Not Found: /Admin/gallery
+DEBUG - 2025-09-28 20:53:31 --> UTF-8 Support Enabled
+DEBUG - 2025-09-28 20:53:31 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2025-09-28 20:53:31 --> Session class already loaded. Second attempt ignored.
+ERROR - 2025-09-28 20:53:31 --> Severity: Warning --> Undefined variable $categories /Users/rhea/Downloads/Meatshop&Grocery/application/views/admin/content/gallery.php 51
+ERROR - 2025-09-28 20:53:31 --> Severity: Warning --> foreach() argument must be of type array|object, null given /Users/rhea/Downloads/Meatshop&Grocery/application/views/admin/content/gallery.php 51
+DEBUG - 2025-09-28 20:53:31 --> Total execution time: 0.0071
+DEBUG - 2025-09-28 20:54:01 --> UTF-8 Support Enabled
+DEBUG - 2025-09-28 20:54:01 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2025-09-28 20:54:01 --> Session class already loaded. Second attempt ignored.
+ERROR - 2025-09-28 20:54:01 --> Severity: Warning --> Undefined variable $categories /Users/rhea/Downloads/Meatshop&Grocery/application/controllers/Gallery.php 126
+DEBUG - 2025-09-28 20:54:01 --> Total execution time: 0.0092
+DEBUG - 2025-09-28 20:54:03 --> UTF-8 Support Enabled
+DEBUG - 2025-09-28 20:54:03 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2025-09-28 20:54:03 --> Session class already loaded. Second attempt ignored.
+ERROR - 2025-09-28 20:54:03 --> Severity: Warning --> Undefined variable $categories /Users/rhea/Downloads/Meatshop&Grocery/application/controllers/Gallery.php 126
+DEBUG - 2025-09-28 20:54:03 --> Total execution time: 0.0148

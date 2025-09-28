@@ -31,7 +31,7 @@
 
     <!-- Search and Filter -->
     <div class="bg-card border border-border rounded-lg p-4">
-        <form method="GET" action="<?php echo base_url('admin/gallery'); ?>" class="grid grid-cols-1 md:grid-cols-4 gap-4">
+        <form method="GET" action="<?php echo base_url('admin/gallery'); ?>" class="grid grid-cols-1 md:grid-cols-3 gap-4">
             <!-- Search -->
             <div class="md:col-span-2">
                 <div class="relative">
@@ -44,17 +44,6 @@
                 </div>
             </div>
             
-            <!-- Category Filter -->
-            <div>
-                <select name="category" class="w-full px-3 py-2 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
-                    <option value="">Semua Kategori</option>
-                    <?php foreach ($categories as $category): ?>
-                        <option value="<?php echo htmlspecialchars($category); ?>" <?php echo ($selected_category == $category) ? 'selected' : ''; ?>>
-                            <?php echo htmlspecialchars($category); ?>
-                        </option>
-                    <?php endforeach; ?>
-                </select>
-            </div>
             
             <!-- Status Filter -->
             <div>
@@ -65,7 +54,7 @@
                 </select>
             </div>
             
-            <div class="md:col-span-4 flex justify-end">
+            <div class="md:col-span-3 flex justify-end">
                 <button type="submit" class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary-700 transition-colors duration-200">
                     <i class='bx bx-search mr-1'></i>
                     Filter
@@ -114,8 +103,7 @@
                             <p class="text-sm text-muted mb-3 line-clamp-2"><?php echo htmlspecialchars($item->description); ?></p>
                             
                             <!-- Meta Info -->
-                            <div class="flex items-center justify-between text-xs text-muted mb-3">
-                                <span class="bg-primary/10 text-primary px-2 py-1 rounded-full"><?php echo htmlspecialchars($item->category); ?></span>
+                            <div class="flex items-center justify-end text-xs text-muted mb-3">
                                 <span class="<?php echo $item->status == 'active' ? 'text-green-600' : 'text-red-600'; ?>">
                                     <?php echo $item->status == 'active' ? 'Aktif' : 'Tidak Aktif'; ?>
                                 </span>

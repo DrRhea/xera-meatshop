@@ -47,7 +47,7 @@
             <!-- Gallery Information -->
             <div class="mb-8">
                 <h3 class="text-lg font-semibold text-text mb-4">Informasi Galeri</h3>
-                <div class="grid grid-cols-1 md:grid-cols-2 gap-6">
+                <div class="space-y-6">
                     <div>
                         <label class="block text-sm font-medium text-text mb-2">
                             Judul <span class="text-red-500">*</span>
@@ -57,19 +57,6 @@
                                required
                                class="w-full px-3 py-2 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
                                placeholder="Masukkan judul galeri">
-                    </div>
-                    
-                    <div>
-                        <label class="block text-sm font-medium text-text mb-2">
-                            Kategori
-                        </label>
-                        <select name="category" required class="w-full px-3 py-2 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
-                            <option value="">Pilih Kategori</option>
-                            <option value="products">Produk</option>
-                            <option value="store">Toko</option>
-                            <option value="team">Tim</option>
-                            <option value="events">Acara</option>
-                        </select>
                     </div>
                     
                     <div>
@@ -84,46 +71,12 @@
                     
                     <div>
                         <label class="block text-sm font-medium text-text mb-2">
-                            Urutan Tampil
-                        </label>
-                        <input type="number" 
-                               class="w-full px-3 py-2 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-                               placeholder="0"
-                               value="0">
-                    </div>
-                    
-                    <div class="md:col-span-2">
-                        <label class="block text-sm font-medium text-text mb-2">
                             Deskripsi
                         </label>
                         <textarea name="description" 
                                   rows="4" 
                                   class="w-full px-3 py-2 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent resize-none"
                                   placeholder="Masukkan deskripsi galeri"></textarea>
-                    </div>
-                </div>
-            </div>
-
-            <!-- SEO Settings -->
-            <div class="bg-surface rounded-lg p-6">
-                <h3 class="text-lg font-semibold text-text mb-4">Pengaturan SEO</h3>
-                <div class="space-y-4">
-                    <div>
-                        <label class="block text-sm font-medium text-text mb-2">
-                            Alt Text
-                        </label>
-                        <input type="text" 
-                               class="w-full px-3 py-2 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-                               placeholder="Masukkan alt text untuk SEO">
-                    </div>
-                    
-                    <div>
-                        <label class="block text-sm font-medium text-text mb-2">
-                            Keywords
-                        </label>
-                        <input type="text" 
-                               class="w-full px-3 py-2 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-                               placeholder="Masukkan keywords (pisahkan dengan koma)">
                     </div>
                 </div>
             </div>

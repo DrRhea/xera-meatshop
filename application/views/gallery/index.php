@@ -48,10 +48,6 @@
                                 </div>
                             <?php endif; ?>
                             
-                            <!-- Category Badge -->
-                            <span class="absolute top-4 left-4 bg-primary text-white px-3 py-1 text-xs font-semibold rounded-full">
-                                <?php echo htmlspecialchars($item->category); ?>
-                            </span>
                         </div>
                         
                         <!-- Content -->
@@ -65,14 +61,10 @@
                             <?php endif; ?>
                             
                             <!-- Meta Info -->
-                            <div class="flex items-center justify-between text-xs text-gray-500">
+                            <div class="flex items-center justify-end text-xs text-gray-500">
                                 <span class="flex items-center">
                                     <i class='bx bx-calendar mr-1'></i>
                                     <?php echo date('d M Y', strtotime($item->created_at)); ?>
-                                </span>
-                                <span class="flex items-center">
-                                    <i class='bx bx-category mr-1'></i>
-                                    <?php echo htmlspecialchars($item->category); ?>
                                 </span>
                             </div>
                         </div>

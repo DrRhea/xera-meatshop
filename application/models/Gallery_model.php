@@ -10,7 +10,7 @@ class Gallery_model extends CI_Model {
     }
 
     // Get all gallery items with pagination
-    public function get_gallery($limit = null, $offset = null, $search = null, $category = null, $status = null)
+    public function get_gallery($limit = null, $offset = null, $search = null, $status = null)
     {
         $this->db->select('*');
         $this->db->from('gallery');
@@ -19,9 +19,6 @@ class Gallery_model extends CI_Model {
             $this->db->like('title', $search);
         }
         
-        if ($category && $category !== 'all') {
-            $this->db->where('category', $category);
-        }
         
         if ($status && $status !== 'all') {
             $this->db->where('status', $status);
@@ -65,15 +62,12 @@ class Gallery_model extends CI_Model {
     }
 
     // Count gallery items with filters
-    public function count_gallery($search = null, $category = null, $status = null)
+    public function count_gallery($search = null, $status = null)
     {
         if ($search) {
             $this->db->like('title', $search);
         }
         
-        if ($category && $category !== 'all') {
-            $this->db->where('category', $category);
-        }
         
         if ($status && $status !== 'all') {
             $this->db->where('status', $status);
@@ -82,24 +76,6 @@ class Gallery_model extends CI_Model {
         return $this->db->count_all_results('gallery');
     }
 
-    // Get categories
-    public function get_categories()
-    {
-        $this->db->select('category');
-        $this->db->distinct();
-        $this->db->from('gallery');
-        $this->db->where('category IS NOT NULL');
-        $this->db->where('category !=', '');
-        $this->db->order_by('category', 'ASC');
-        
-        $result = $this->db->get()->result();
-        $categories = array();
-        foreach ($result as $row) {
-            $categories[] = $row->category;
-        }
-        
-        return $categories;
-    }
 
     // Check if gallery item exists
     public function gallery_exists($id)
