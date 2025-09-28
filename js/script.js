@@ -3,7 +3,7 @@ document.addEventListener('DOMContentLoaded', () => {
   const navbar = document.getElementById('navbar');
   const hamburger = document.getElementById('hamburger');
   const navMenu = document.getElementById('navMenu');
-  const cartBadge = document.getElementById('cartBadge');
+  const cartBadge = document.querySelector('.cart-count');
 
   let cartCount = 0;
 
@@ -32,8 +32,37 @@ document.addEventListener('DOMContentLoaded', () => {
   // ===================== HAMBURGER MENU =====================
   if (hamburger && navMenu) {
     hamburger.addEventListener('click', () => {
-      navMenu.classList.toggle('open');
+      navMenu.classList.toggle('active');
+      hamburger.classList.toggle('active');
     });
+
+    // Close mobile menu when clicking outside
+    document.addEventListener('click', (e) => {
+      if (!hamburger.contains(e.target) && !navMenu.contains(e.target)) {
+        navMenu.classList.remove('active');
+        hamburger.classList.remove('active');
+      }
+    });
+
+    // Close mobile menu when clicking on nav links
+    navMenu.addEventListener('click', (e) => {
+      if (e.target.tagName === 'A') {
+        navMenu.classList.remove('active');
+        hamburger.classList.remove('active');
+      }
+    });
+
+    // Handle dropdown in mobile menu
+    const dropdown = navMenu.querySelector('.dropdown');
+    if (dropdown) {
+      const dropbtn = dropdown.querySelector('.dropbtn');
+      const dropdownContent = dropdown.querySelector('.dropdown-content');
+      
+      dropbtn.addEventListener('click', (e) => {
+        e.preventDefault();
+        dropdown.classList.toggle('active');
+      });
+    }
   }
 
 
