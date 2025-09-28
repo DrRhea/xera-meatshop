@@ -1,5 +1,5 @@
 <!DOCTYPE html>
-<html lang="id" x-data="{ sidebarOpen: false }">
+<html lang="id" x-data="{ sidebarOpen: false, showDeleteModal: false, deleteItem: null }">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -99,6 +99,11 @@
                    class="flex items-center px-3 py-2 <?php echo (strpos(uri_string(), 'gallery') !== false) ? 'bg-primary text-white rounded-lg mx-2 mb-1' : 'text-muted hover:bg-surface hover:text-text transition-colors duration-200 mx-2 mb-1'; ?>">
                     <i class='bx bx-images mr-2 text-base'></i>
                     <span class="text-sm <?php echo (strpos(uri_string(), 'gallery') !== false) ? 'font-medium' : ''; ?>">Galeri</span>
+                </a>
+                <a href="<?php echo base_url('admin/promo'); ?>" 
+                   class="flex items-center px-3 py-2 <?php echo (strpos(uri_string(), 'promo') !== false) ? 'bg-primary text-white rounded-lg mx-2 mb-1' : 'text-muted hover:bg-surface hover:text-text transition-colors duration-200 mx-2 mb-1'; ?>">
+                    <i class='bx bx-gift mr-2 text-base'></i>
+                    <span class="text-sm <?php echo (strpos(uri_string(), 'promo') !== false) ? 'font-medium' : ''; ?>">Promo Harian</span>
                 </a>
                 <a href="<?php echo base_url('admin/contact'); ?>" 
                    class="flex items-center px-3 py-2 <?php echo (strpos(uri_string(), 'contact') !== false) ? 'bg-primary text-white rounded-lg mx-2 mb-1' : 'text-muted hover:bg-surface hover:text-text transition-colors duration-200 mx-2 mb-1'; ?>">
@@ -283,5 +288,8 @@
             }
         });
     </script>
+
+    <!-- Include Delete Confirmation Modal -->
+    <?php $this->load->view('admin/components/delete_confirmation_modal'); ?>
 </body>
 </html>

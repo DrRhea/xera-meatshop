@@ -92,9 +92,18 @@ $route['admin/orders/edit/(:num)'] = 'orders/edit/$1';
 $route['admin/customers'] = 'customers';
 $route['admin/customers/add'] = 'customers/add';
 $route['admin/customers/edit/(:num)'] = 'customers/edit/$1';
-$route['admin/gallery'] = 'gallery';
+$route['admin/gallery'] = 'gallery/index';
 $route['admin/gallery/add'] = 'gallery/add';
 $route['admin/gallery/edit/(:num)'] = 'gallery/edit/$1';
+$route['admin/gallery/delete/(:num)'] = 'gallery/delete/$1';
+$route['gallery-delete/(:num)'] = 'gallery/delete/$1';
+
+// Promo routes
+$route['admin/promo'] = 'promo/index';
+$route['admin/promo/add'] = 'promo/add';
+$route['admin/promo/edit/(:num)'] = 'promo/edit/$1';
+$route['admin/promo/delete/(:num)'] = 'promo/delete/$1';
+$route['admin/promo/update_status/(:num)'] = 'promo/update_status/$1';
 $route['admin/settings'] = 'settings';
 $route['admin/settings/content'] = 'settings/content';
 $route['admin/settings/profile'] = 'settings/profile';

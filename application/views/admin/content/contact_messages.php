@@ -129,12 +129,20 @@
                                             </form>
                                         </div>
                                         
-                                        <a href="<?php echo base_url('admin/contact/delete/' . $message->id); ?>" 
-                                           onclick="return confirm('Apakah Anda yakin ingin menghapus pesan ini?')"
+                                        <button @click="
+                                            deleteItem = {
+                                                title: 'Hapus Pesan Kontak',
+                                                message: 'Apakah Anda yakin ingin menghapus pesan ini? Semua data terkait akan dihapus secara permanen.',
+                                                itemName: '<?php echo htmlspecialchars($message->subject, ENT_QUOTES); ?>',
+                                                url: '<?php echo base_url('admin/contact/delete/' . $message->id); ?>',
+                                                confirmText: 'Hapus Pesan'
+                                            };
+                                            showDeleteModal = true;
+                                        " 
                                            class="inline-flex items-center px-3 py-1.5 bg-red-100 text-red-700 text-xs font-medium rounded-lg hover:bg-red-200 transition-colors duration-200">
                                             <i class='bx bx-trash mr-1'></i>
                                             Hapus
-                                        </a>
+                                        </button>
                                     </div>
                                 </td>
                             </tr>
@@ -151,6 +159,7 @@
             <?php echo $pagination; ?>
         </div>
     <?php endif; ?>
+
 </div>
 
 <script>

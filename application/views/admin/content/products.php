@@ -113,12 +113,20 @@
                                        title="Edit Produk">
                                         <i class='bx bx-edit text-lg'></i>
                                     </a>
-                                    <a href="<?php echo base_url('admin/products/delete/' . $product->id); ?>" 
+                                    <button @click="
+                                        deleteItem = {
+                                            title: 'Hapus Produk',
+                                            message: 'Apakah Anda yakin ingin menghapus produk ini? Semua data terkait akan dihapus secara permanen.',
+                                            itemName: '<?php echo htmlspecialchars($product->name, ENT_QUOTES); ?>',
+                                            url: '<?php echo base_url('admin/products/delete/' . $product->id); ?>',
+                                            confirmText: 'Hapus Produk'
+                                        };
+                                        showDeleteModal = true;
+                                    " 
                                        class="inline-flex items-center justify-center w-8 h-8 text-red-600 hover:text-red-800 hover:bg-red-50 rounded-lg transition-colors duration-200"
-                                       onclick="return confirm('Apakah Anda yakin ingin menghapus produk ini?')"
                                        title="Hapus Produk">
                                         <i class='bx bx-trash text-lg'></i>
-                                    </a>
+                                    </button>
                                 </div>
                             </td>
                         </tr>
@@ -152,4 +160,7 @@
             </div>
         </div>
     <?php endif; ?>
+
+    <!-- Include Delete Confirmation Modal -->
+    <?php $this->load->view('admin/components/delete_confirmation_modal'); ?>
 </div>

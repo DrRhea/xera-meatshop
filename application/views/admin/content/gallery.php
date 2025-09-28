@@ -1,4 +1,4 @@
-<div class="space-y-6" x-data="{ showDeleteModal: false, selectedGallery: null }">
+<div class="space-y-6">
     <!-- Page Header -->
     <div class="flex flex-col sm:flex-row sm:items-center sm:justify-between">
         <div>
@@ -116,11 +116,19 @@
                                     <i class='bx bx-edit mr-1'></i>
                                     Edit
                                 </a>
-                                <a href="<?php echo base_url('admin/gallery/delete/' . $item->id); ?>" 
-                                   onclick="return confirm('Apakah Anda yakin ingin menghapus galeri ini?')"
+                                <button @click="
+                                    deleteItem = {
+                                        title: 'Hapus Galeri',
+                                        message: 'Apakah Anda yakin ingin menghapus galeri ini? Semua data terkait akan dihapus secara permanen.',
+                                        itemName: '<?php echo htmlspecialchars($item->title, ENT_QUOTES); ?>',
+                                        url: '<?php echo base_url('admin/gallery/delete/' . $item->id); ?>',
+                                        confirmText: 'Hapus Galeri'
+                                    };
+                                    showDeleteModal = true;
+                                " 
                                    class="bg-red-600 text-white py-2 px-3 rounded-lg hover:bg-red-700 transition-colors duration-200 text-sm">
                                     <i class='bx bx-trash'></i>
-                                </a>
+                                </button>
                             </div>
                         </div>
                     </div>
@@ -142,31 +150,3 @@
     <?php endif; ?>
 </div>
 
-<!-- Delete Confirmation Modal -->
-<div x-show="showDeleteModal" x-cloak
-     class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-50 p-4"
-     x-transition:enter="transition ease-out duration-300"
-     x-transition:enter-start="opacity-0 scale-90"
-     x-transition:enter-end="opacity-100 scale-100"
-     x-transition:leave="transition ease-in duration-200"
-     x-transition:leave-start="opacity-100 scale-100"
-     x-transition:leave-end="opacity-0 scale-90">
-    <div @click.away="showDeleteModal = false"
-         class="bg-card rounded-lg p-6 w-full max-w-sm mx-auto border border-border">
-        <div class="text-center">
-            <i class='bx bx-trash-alt text-red-500 text-5xl mb-4'></i>
-            <h3 class="text-xl font-semibold text-text mb-2">Konfirmasi Hapus</h3>
-            <p class="text-muted mb-6">Apakah Anda yakin ingin menghapus galeri ini? Tindakan ini tidak dapat dibatalkan.</p>
-            <div class="flex justify-center space-x-4">
-                <button @click="showDeleteModal = false" type="button"
-                        class="bg-surface text-text px-4 py-2 rounded-lg hover:bg-border transition-colors duration-200">
-                    Batal
-                </button>
-                <button type="button"
-                        class="bg-red-600 text-white px-4 py-2 rounded-lg hover:bg-red-700 transition-colors duration-200">
-                    Hapus
-                </button>
-            </div>
-        </div>
-    </div>
-</div>

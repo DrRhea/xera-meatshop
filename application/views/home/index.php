@@ -118,41 +118,97 @@
                 </div>
                 <!-- Grid produk Unggulan index -->
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-                    <!-- Card Produk 1 -->
-                     <div class="bg-white rounded-2xl transition-all duration-300 group overflow-hidden">
-                         <div class="relative h-64 bg-gradient-to-br from-primary/20 to-primary/10 flex items-center justify-center">
-                            <img src="<?php echo base_url('assets/img/gal-1.jpg'); ?>" 
-                                 alt="Produk 1" 
-                                  class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
-                             <span class="absolute top-4 left-4 bg-accent text-white px-3 py-1 text-xs font-semibold rounded-full">
-                                BARU
-                            </span>
-                        </div>
-                        <div class="p-6">
-                             <h4 class="text-xl font-bold text-gray-900 mb-3">De Cecco Spaghetti 500gr</h4>
-                             <div class="flex flex-wrap gap-2 mb-4">
-                                 <span class="px-3 py-1 border border-gray-300 rounded-full text-xs font-medium text-gray-700">Meat</span>
-                                 <span class="px-3 py-1 border border-gray-300 rounded-full text-xs font-medium text-gray-700">Premium</span>
+                    <?php if (!empty($latest_products)): ?>
+                        <?php foreach ($latest_products as $product): ?>
+                            <div class="bg-white rounded-2xl transition-all duration-300 group overflow-hidden flex flex-col h-full">
+                                <div class="relative h-64 bg-gradient-to-br from-primary/20 to-primary/10 flex items-center justify-center">
+                                    <?php if (!empty($product->image)): ?>
+                                        <img src="<?php echo base_url($product->image); ?>" 
+                                             alt="<?php echo htmlspecialchars($product->name); ?>" 
+                                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                                    <?php else: ?>
+                                        <img src="<?php echo base_url('assets/img/gal-1.jpg'); ?>" 
+                                             alt="<?php echo htmlspecialchars($product->name); ?>" 
+                                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                                    <?php endif; ?>
+                                    <span class="absolute top-4 left-4 bg-accent text-white px-3 py-1 text-xs font-semibold rounded-full">
+                                        BARU
+                                    </span>
                                 </div>
-                             <p class="text-sm text-gray-600 mb-6 leading-relaxed">
-                                 Pasta berkualitas premium dengan tekstur yang sempurna untuk hidangan lezat keluarga Anda.
-                             </p>
-                             <div class="space-y-4">
-                                 <div>
-                                     <span class="text-xs text-gray-500 uppercase tracking-wide">Harga</span>
-                                     <div class="text-2xl font-bold text-primary">Rp 44.000</div>
+                                <div class="p-6 flex flex-col h-full">
+                                    <div class="flex-1">
+                                        <h4 class="text-xl font-bold text-gray-900 mb-3"><?php echo htmlspecialchars($product->name); ?></h4>
+                                        <div class="flex flex-wrap gap-2 mb-4">
+                                            <span class="px-3 py-1 border border-gray-300 rounded-full text-xs font-medium text-gray-700">
+                                                <?php echo htmlspecialchars($product->category); ?>
+                                            </span>
+                                            <span class="px-3 py-1 border border-gray-300 rounded-full text-xs font-medium text-gray-700">
+                                                Stock: <?php echo $product->stock . ' ' . $product->unit; ?>
+                                            </span>
+                                        </div>
+                                        <?php if (!empty($product->description)): ?>
+                                            <p class="text-sm text-gray-600 mb-6 leading-relaxed">
+                                                <?php echo htmlspecialchars(substr($product->description, 0, 100)); ?>
+                                                <?php if (strlen($product->description) > 100): ?>...<?php endif; ?>
+                                            </p>
+                                        <?php endif; ?>
+                                    </div>
+                                    <div class="mt-auto">
+                                        <div class="mb-4">
+                                            <span class="text-xs text-gray-500 uppercase tracking-wide">HARGA</span>
+                                            <div class="text-2xl font-bold text-primary">Rp <?php echo number_format($product->price, 0, ',', '.'); ?></div>
+                                        </div>
+                                        <div class="flex items-center space-x-2">
+                                            <button class="bg-primary text-white px-6 py-3 rounded-xl hover:bg-primary-700 transition-colors font-semibold flex-1">
+                                                Pesan
+                                            </button>
+                                            <button class="bg-gray-100 text-gray-700 p-3 rounded-xl hover:bg-primary hover:text-white transition-colors">
+                                                <i class='bx bx-cart-add text-xl'></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
                             </div>
-                                 <div class="flex items-center space-x-2">
-                                     <button class="bg-primary text-white px-6 py-3 rounded-xl hover:bg-primary-700 transition-colors font-semibold">
-                                        Pesan
-                                    </button>
-                                     <button class="bg-gray-100 text-gray-700 p-3 rounded-xl hover:bg-primary hover:text-white transition-colors">
-                                        <i class='bx bx-cart-add text-xl'></i>
-                                    </button>
+                        <?php endforeach; ?>
+                    <?php else: ?>
+                        <!-- Fallback jika tidak ada produk -->
+                        <div class="bg-white rounded-2xl transition-all duration-300 group overflow-hidden flex flex-col h-full">
+                            <div class="relative h-64 bg-gradient-to-br from-primary/20 to-primary/10 flex items-center justify-center">
+                                <img src="<?php echo base_url('assets/img/gal-1.jpg'); ?>" 
+                                     alt="Produk Default" 
+                                     class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                                <span class="absolute top-4 left-4 bg-accent text-white px-3 py-1 text-xs font-semibold rounded-full">
+                                    BARU
+                                </span>
+                            </div>
+                            <div class="p-6 flex flex-col h-full">
+                                <div class="flex-1">
+                                    <h4 class="text-xl font-bold text-gray-900 mb-3">De Cecco Spaghetti 500gr</h4>
+                                    <div class="flex flex-wrap gap-2 mb-4">
+                                        <span class="px-3 py-1 border border-gray-300 rounded-full text-xs font-medium text-gray-700">Meat</span>
+                                        <span class="px-3 py-1 border border-gray-300 rounded-full text-xs font-medium text-gray-700">Premium</span>
+                                    </div>
+                                    <p class="text-sm text-gray-600 mb-6 leading-relaxed">
+                                        Pasta berkualitas premium dengan tekstur yang sempurna untuk hidangan lezat keluarga Anda.
+                                    </p>
+                                </div>
+                                <div class="mt-auto">
+                                    <div class="mb-4">
+                                        <span class="text-xs text-gray-500 uppercase tracking-wide">HARGA</span>
+                                        <div class="text-2xl font-bold text-primary">Rp 44.000</div>
+                                    </div>
+                                    <div class="flex items-center space-x-2">
+                                        <button class="bg-primary text-white px-6 py-3 rounded-xl hover:bg-primary-700 transition-colors font-semibold flex-1">
+                                            Pesan
+                                        </button>
+                                        <button class="bg-gray-100 text-gray-700 p-3 rounded-xl hover:bg-primary hover:text-white transition-colors">
+                                            <i class='bx bx-cart-add text-xl'></i>
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
+                    <?php endif; ?>
                 </div>
             </div>
         </section>
@@ -171,35 +227,80 @@
                 </div>
                 <div class="relative">
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
-                        <!-- Card Promo 1 -->
-                        <article class="bg-primary rounded-xl overflow-hidden hover:border-primary transition-colors duration-300 group">
-                            <div class="relative">
-                                <img src="<?php echo base_url('gambar_produk/Minuman/OKF FARMER ALOE POMEGRANATE 500ML Rp16.100.jpg'); ?>" 
-                                     alt="minuman" 
-                                     class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
-                                <span class="absolute top-3 left-3 bg-accent text-white px-3 py-1 text-sm font-bold rounded-full">
-                                    PROMO
-                                </span>
-                            </div>
-                            <div class="p-6">
-                                 <h5 class="text-sm text-white font-semibold mb-2 uppercase tracking-wide">Minuman</h5>
-                                <h4 class="text-lg font-bold text-white mb-4">Bull-Dog Vegetable & fruit sauce 1 botol / 300 ml</h4>
-                                 <div class="space-y-4">
-                                     <div>
-                                         <span class="text-xs text-white/70 uppercase tracking-wide">Harga</span>
-                                         <div class="text-2xl font-bold text-white">Rp 56.000</div>
-                                     </div>
-                                     <div class="flex items-center space-x-2">
-                                         <button class="bg-white text-primary px-6 py-3 rounded-xl hover:bg-primary hover:text-white transition-colors font-semibold">
-                                            Pesan
-                                        </button>
-                                         <button class="bg-white/20 text-white p-3 rounded-xl hover:bg-white hover:text-primary transition-colors">
-                                            <i class='bx bx-cart-add text-xl'></i>
-                                        </button>
+                        <?php if (!empty($daily_promos)): ?>
+                            <?php foreach ($daily_promos as $promo): ?>
+                                <article class="bg-primary rounded-xl overflow-hidden hover:border-primary transition-colors duration-300 group">
+                                    <div class="relative">
+                                        <?php if (!empty($promo->product_image)): ?>
+                                            <img src="<?php echo base_url($promo->product_image); ?>" 
+                                                 alt="<?php echo htmlspecialchars($promo->product_name); ?>" 
+                                                 class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+                                        <?php else: ?>
+                                            <img src="<?php echo base_url('gambar_produk/Minuman/OKF FARMER ALOE POMEGRANATE 500ML Rp16.100.jpg'); ?>" 
+                                                 alt="<?php echo htmlspecialchars($promo->product_name); ?>" 
+                                                 class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+                                        <?php endif; ?>
+                                        <span class="absolute top-3 left-3 bg-accent text-white px-3 py-1 text-sm font-bold rounded-full">
+                                            <?php echo $promo->discount_percentage; ?>% OFF
+                                        </span>
+                                    </div>
+                                    <div class="p-6">
+                                        <h5 class="text-sm text-white font-semibold mb-2 uppercase tracking-wide"><?php echo htmlspecialchars($promo->product_category); ?></h5>
+                                        <h4 class="text-lg font-bold text-white mb-4"><?php echo htmlspecialchars($promo->title); ?></h4>
+                                        <?php if (!empty($promo->description)): ?>
+                                            <p class="text-sm text-white/80 mb-4"><?php echo htmlspecialchars(substr($promo->description, 0, 80)); ?>...</p>
+                                        <?php endif; ?>
+                                        <div class="space-y-4">
+                                            <div>
+                                                <span class="text-xs text-white/70 uppercase tracking-wide">Harga Promo</span>
+                                                <div class="flex items-center space-x-2">
+                                                    <div class="text-lg text-white/60 line-through">Rp <?php echo number_format($promo->original_price, 0, ',', '.'); ?></div>
+                                                    <div class="text-2xl font-bold text-white">Rp <?php echo number_format($promo->promo_price, 0, ',', '.'); ?></div>
+                                                </div>
+                                            </div>
+                                            <div class="flex items-center space-x-2">
+                                                <button class="bg-white text-primary px-6 py-3 rounded-xl hover:bg-primary hover:text-white transition-colors font-semibold flex-1">
+                                                    Pesan Sekarang
+                                                </button>
+                                                <button class="bg-white/20 text-white p-3 rounded-xl hover:bg-white hover:text-primary transition-colors">
+                                                    <i class='bx bx-cart-add text-xl'></i>
+                                                </button>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </article>
+                            <?php endforeach; ?>
+                        <?php else: ?>
+                            <!-- Fallback jika tidak ada promo -->
+                            <article class="bg-primary rounded-xl overflow-hidden hover:border-primary transition-colors duration-300 group">
+                                <div class="relative">
+                                    <img src="<?php echo base_url('gambar_produk/Minuman/OKF FARMER ALOE POMEGRANATE 500ML Rp16.100.jpg'); ?>" 
+                                         alt="minuman" 
+                                         class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+                                    <span class="absolute top-3 left-3 bg-accent text-white px-3 py-1 text-sm font-bold rounded-full">
+                                        PROMO
+                                    </span>
+                                </div>
+                                <div class="p-6">
+                                     <h5 class="text-sm text-white font-semibold mb-2 uppercase tracking-wide">Minuman</h5>
+                                    <h4 class="text-lg font-bold text-white mb-4">Bull-Dog Vegetable & fruit sauce 1 botol / 300 ml</h4>
+                                     <div class="space-y-4">
+                                         <div>
+                                             <span class="text-xs text-white/70 uppercase tracking-wide">Harga</span>
+                                             <div class="text-2xl font-bold text-white">Rp 56.000</div>
+                                         </div>
+                                         <div class="flex items-center space-x-2">
+                                             <button class="bg-white text-primary px-6 py-3 rounded-xl hover:bg-primary hover:text-white transition-colors font-semibold flex-1">
+                                                Pesan
+                                            </button>
+                                             <button class="bg-white/20 text-white p-3 rounded-xl hover:bg-white hover:text-primary transition-colors">
+                                                <i class='bx bx-cart-add text-xl'></i>
+                                            </button>
+                                        </div>
                                     </div>
                                 </div>
-                            </div>
-                        </article>
+                            </article>
+                        <?php endif; ?>
                     </div>
                 </div>
             </div>
