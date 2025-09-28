@@ -9,9 +9,14 @@
         </div>
         <select class="px-3 py-2 border border-border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary">
             <option>Semua Kategori</option>
-            <option>Daging Segar</option>
-            <option>Daging Olahan</option>
-            <option>Seafood</option>
+            <option>DAGING</option>
+            <option>MINUMAN</option>
+            <option>SEAFOOD</option>
+            <option>BUMBU</option>
+            <option>ROTI</option>
+            <option>BUAH & SAYUR</option>
+            <option>DAGING & OLAHAN</option>
+            <option>SUSU & OLAHAN</option>
         </select>
     </div>
     <a href="<?php echo base_url('admin/products/add'); ?>" class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary-700 transition-colors duration-200 flex items-center space-x-2">

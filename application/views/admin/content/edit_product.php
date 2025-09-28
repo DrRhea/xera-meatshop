@@ -35,11 +35,14 @@
                             required
                             class="w-full px-3 py-2 border border-border rounded-lg text-text focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
                         <option value="">Pilih Kategori</option>
-                        <option value="daging-segar" selected>Daging Segar</option>
-                        <option value="daging-olahan">Daging Olahan</option>
-                        <option value="seafood">Seafood</option>
-                        <option value="sayur-buah">Sayur & Buah</option>
-                        <option value="susu-olahan">Susu & Olahan</option>
+                        <option value="daging" selected>DAGING</option>
+                        <option value="minuman">MINUMAN</option>
+                        <option value="seafood">SEAFOOD</option>
+                        <option value="bumbu">BUMBU</option>
+                        <option value="roti">ROTI</option>
+                        <option value="buah-sayur">BUAH & SAYUR</option>
+                        <option value="daging-olahan">DAGING & OLAHAN</option>
+                        <option value="susu-olahan">SUSU & OLAHAN</option>
                     </select>
                 </div>
                 
