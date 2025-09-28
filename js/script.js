@@ -235,3 +235,19 @@ document.addEventListener("DOMContentLoaded", () => {
 
   updatePromoSlider();
 });
+
+// ===================== IMAGE PREVIEW FUNCTION =====================
+function previewImage(input) {
+  if (input.files && input.files[0]) {
+    const reader = new FileReader();
+    const preview = document.getElementById('preview_img');
+    const previewContainer = document.getElementById('image_preview');
+    
+    reader.onload = function(e) {
+      preview.src = e.target.result;
+      previewContainer.classList.remove('hidden');
+    };
+    
+    reader.readAsDataURL(input.files[0]);
+  }
+}

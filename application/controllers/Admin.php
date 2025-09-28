@@ -76,14 +76,14 @@ class Admin extends CI_Controller {
         }
 
         // Get search and filter parameters
-        $search = $this->input->get('search');
-        $category = $this->input->get('category');
-        $status = $this->input->get('status');
+        $search = $this->input->get('search') ?: null;
+        $category = $this->input->get('category') ?: null;
+        $status = $this->input->get('status') ?: null;
         
         // Pagination
         $this->load->library('pagination');
         $config['base_url'] = base_url('admin/products');
-        $config['total_rows'] = $this->Product_model->get_total_products($search, $category);
+        $config['total_rows'] = $this->Product_model->count_products($search, $category, $status);
         $config['per_page'] = 10;
         $config['uri_segment'] = 3;
         $config['num_links'] = 2;
@@ -91,11 +91,16 @@ class Admin extends CI_Controller {
         $this->pagination->initialize($config);
         
         $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
-        $data['products'] = $this->Product_model->get_products($config['per_page'], $page, $search, $category);
+        $data['products'] = $this->Product_model->get_products($config['per_page'], $page, $search, $category, $status);
         $data['pagination'] = $this->pagination->create_links();
         
         $data['title'] = 'Kelola Produk - Admin Dashboard';
         $data['page_title'] = 'Kelola Produk';
+        $data['search'] = $search;
+        $data['category'] = $category;
+        $data['status'] = $status;
+        $data['selected_category'] = $category;
+        $data['categories'] = $this->Product_model->get_categories();
         $data['content'] = $this->load->view('admin/content/products', $data, TRUE);
         $this->load->view('admin/layout', $data);
     }
