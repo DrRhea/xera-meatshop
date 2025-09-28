@@ -42,7 +42,7 @@
                         <div class="order-1 lg:order-2 space-y-8">
                             <div class="space-y-6">
                                 <h2 class="text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
-                            Kenapa Memilih <span class="text-primary">Toko Kami?</span>
+                            Mengapa Memilih <span class="text-primary">Kami?</span>
                         </h2>
                                 <p class="text-lg text-gray-600 leading-relaxed">
                             Kami menyediakan produk berkualitas, bumbu berkualitas, dan kebutuhan dapur lengkap dengan harga terbaik. Setiap produk dipilih dengan teliti agar kualitas tetap terjaga.
@@ -119,7 +119,7 @@
                 <!-- Grid produk Unggulan index -->
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
                     <!-- Card Produk 1 -->
-                     <div class="bg-white rounded-2xl shadow-lg hover:shadow-xl transition-all duration-300 group overflow-hidden">
+                     <div class="bg-white rounded-2xl transition-all duration-300 group overflow-hidden">
                          <div class="relative h-64 bg-gradient-to-br from-primary/20 to-primary/10 flex items-center justify-center">
                             <img src="<?php echo base_url('assets/img/gal-1.jpg'); ?>" 
                                  alt="Produk 1" 
