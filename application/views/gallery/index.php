@@ -1,3 +1,8 @@
+<!-- Alpine.js x-cloak CSS -->
+<style>
+    [x-cloak] { display: none !important; }
+</style>
+
 <!-- Hero Section -->
 <section class="bg-gradient-to-br from-primary/10 to-primary/5 py-16">
     <div class="w-full px-4 sm:px-6 lg:px-8">
@@ -36,13 +41,18 @@
             <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8" x-data="{ openModal: false, selectedItem: null }">
                 <?php foreach ($gallery as $item): ?>
                     <div class="bg-white rounded-2xl transition-all duration-300 group overflow-hidden hover:shadow-lg cursor-pointer"
-                         @click="openModal = true; selectedItem = {
-                             id: <?php echo $item->id; ?>,
-                             title: '<?php echo htmlspecialchars($item->title, ENT_QUOTES); ?>',
-                             description: '<?php echo htmlspecialchars($item->description, ENT_QUOTES); ?>',
-                             image: '<?php echo base_url($item->image); ?>',
-                             date: '<?php echo date('d M Y', strtotime($item->created_at)); ?>'
-                         }">
+                         @click="
+                             console.log('Card clicked');
+                             openModal = true; 
+                             selectedItem = {
+                                 id: <?php echo $item->id; ?>,
+                                 title: '<?php echo htmlspecialchars($item->title, ENT_QUOTES); ?>',
+                                 description: '<?php echo htmlspecialchars($item->description, ENT_QUOTES); ?>',
+                                 image: '<?php echo base_url($item->image); ?>',
+                                 date: '<?php echo date('d M Y', strtotime($item->created_at)); ?>'
+                             };
+                             console.log('Selected item:', selectedItem);
+                         ">
                         <!-- Image Container -->
                         <div class="relative h-64 bg-gradient-to-br from-primary/20 to-primary/10 flex items-center justify-center overflow-hidden">
                             <?php if ($item->image && file_exists(FCPATH . $item->image)): ?>
@@ -112,7 +122,9 @@
      x-transition:leave="transition ease-in duration-200"
      x-transition:leave-start="opacity-100 scale-100"
      x-transition:leave-end="opacity-0 scale-90"
-     @click.self="openModal = false">
+     @click.self="openModal = false"
+     x-init="console.log('Modal initialized')"
+     x-effect="console.log('Modal state changed:', openModal)">
     
     <div class="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden"
          x-transition:enter="transition ease-out duration-300"
