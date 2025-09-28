@@ -276,7 +276,7 @@
                 <div class="relative">
                     <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
                         <!-- Card Promo 1 -->
-                        <article class="bg-gradient-to-br from-primary to-yellow-600 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 group">
+                        <article class="bg-primary rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 group">
                             <div class="relative">
                                 <img src="<?php echo base_url('gambar_produk/Minuman/OKF FARMER ALOE POMEGRANATE 500ML Rp16.100.jpg'); ?>" 
                                      alt="minuman" 
@@ -303,7 +303,7 @@
                         </article>
 
                         <!-- Card Promo 2 -->
-                        <article class="bg-gradient-to-br from-accent to-red-500 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 group">
+                        <article class="bg-accent rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 group">
                             <div class="relative">
                                 <img src="<?php echo base_url('gambar_produk/Minuman/OKF FARMER ALOE POMEGRANATE 500ML Rp16.100.jpg'); ?>" 
                                      alt="minuman" 
@@ -325,7 +325,7 @@
                         </article>
 
                         <!-- Card Promo 3 -->
-                        <article class="bg-gradient-to-br from-secondary to-brown-600 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 group">
+                        <article class="bg-secondary rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 group">
                             <div class="relative">
                                 <img src="<?php echo base_url('gambar_produk/Minuman/OKF FARMER ALOE POMEGRANATE 500ML Rp16.100.jpg'); ?>" 
                                      alt="minuman" 
@@ -347,7 +347,7 @@
                         </article>
 
                         <!-- Card Promo 4 -->
-                        <article class="bg-gradient-to-br from-green-500 to-emerald-600 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 group">
+                        <article class="bg-green-600 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 group">
                             <div class="relative">
                                 <img src="<?php echo base_url('gambar_produk/Minuman/OKF FARMER ALOE POMEGRANATE 500ML Rp16.100.jpg'); ?>" 
                                      alt="minuman" 
@@ -377,3 +377,382 @@
             <span class="close">&times;</span>
             <img id="lightboxImg" src="" alt="preview">
         </div>
+
+
+                        <div class="p-6">
+
+                            <p class="text-sm text-primary font-semibold mb-2">Meat</p>
+
+                            <h4 class="text-lg font-bold text-gray-900 mb-4">De Cecco Spaghetti 500gr</h4>
+
+                            <div class="flex items-center justify-between">
+
+                                <span class="text-2xl font-bold text-primary">Rp 44.000</span>
+
+                                <div class="flex space-x-2">
+
+                                    <button class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-yellow-600 transition-colors text-sm font-semibold">
+
+                                        Pesan
+
+                                    </button>
+
+                                    <button class="bg-gray-100 text-gray-700 p-2 rounded-lg hover:bg-gray-200 transition-colors">
+
+                                        <i class='bx bx-cart-add text-xl'></i>
+
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- Card Produk 5 -->
+
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 group">
+
+                        <div class="relative">
+
+                            <img src="<?php echo base_url('assets/img/gal-1.jpg'); ?>" 
+
+                                 alt="Produk 5" 
+
+                                 class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+
+                            <span class="absolute top-3 left-3 bg-accent text-white px-2 py-1 text-xs font-semibold rounded-full">
+
+                                BARU
+
+                            </span>
+
+                        </div>
+
+                        <div class="p-6">
+
+                            <p class="text-sm text-primary font-semibold mb-2">Meat</p>
+
+                            <h4 class="text-lg font-bold text-gray-900 mb-4">De Cecco Spaghetti 500gr</h4>
+
+                            <div class="flex items-center justify-between">
+
+                                <span class="text-2xl font-bold text-primary">Rp 44.000</span>
+
+                                <div class="flex space-x-2">
+
+                                    <button class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-yellow-600 transition-colors text-sm font-semibold">
+
+                                        Pesan
+
+                                    </button>
+
+                                    <button class="bg-gray-100 text-gray-700 p-2 rounded-lg hover:bg-gray-200 transition-colors">
+
+                                        <i class='bx bx-cart-add text-xl'></i>
+
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+
+
+                    <!-- Card Produk 6 -->
+
+                    <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 group">
+
+                        <div class="relative">
+
+                            <img src="<?php echo base_url('assets/img/gal-1.jpg'); ?>" 
+
+                                 alt="Produk 6" 
+
+                                 class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+
+                            <span class="absolute top-3 left-3 bg-accent text-white px-2 py-1 text-xs font-semibold rounded-full">
+
+                                BARU
+
+                            </span>
+
+                        </div>
+
+                        <div class="p-6">
+
+                            <p class="text-sm text-primary font-semibold mb-2">Meat</p>
+
+                            <h4 class="text-lg font-bold text-gray-900 mb-4">De Cecco Spaghetti 500gr</h4>
+
+                            <div class="flex items-center justify-between">
+
+                                <span class="text-2xl font-bold text-primary">Rp 44.000</span>
+
+                                <div class="flex space-x-2">
+
+                                    <button class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-yellow-600 transition-colors text-sm font-semibold">
+
+                                        Pesan
+
+                                    </button>
+
+                                    <button class="bg-gray-100 text-gray-700 p-2 rounded-lg hover:bg-gray-200 transition-colors">
+
+                                        <i class='bx bx-cart-add text-xl'></i>
+
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+                        </div>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- ========== Promo Harian ========== -->
+
+        <section class="py-20 bg-white">
+
+            <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+
+                <div class="text-center mb-16">
+
+                    <h3 class="text-4xl font-bold text-gray-900 mb-4">
+
+                        Promo <span class="text-primary">Harian</span>
+
+                    </h3>
+
+                    <p class="text-lg text-gray-600">Dapatkan penawaran terbaik setiap hari</p>
+
+                </div>
+
+
+
+                <div class="relative">
+
+                    <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 gap-8">
+
+                        <!-- Card Promo 1 -->
+
+                        <article class="bg-gradient-to-br from-primary to-yellow-600 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 group">
+
+                            <div class="relative">
+
+                                <img src="<?php echo base_url('gambar_produk/Minuman/OKF FARMER ALOE POMEGRANATE 500ML Rp16.100.jpg'); ?>" 
+
+                                     alt="minuman" 
+
+                                     class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+
+                                <span class="absolute top-3 left-3 bg-accent text-white px-3 py-1 text-sm font-bold rounded-full">
+
+                                    PROMO
+
+                                </span>
+
+                            </div>
+
+                            <div class="p-6">
+
+                                <h5 class="text-sm text-white font-semibold mb-2">Minuman</h5>
+
+                                <h4 class="text-lg font-bold text-white mb-4">Bull-Dog Vegetable & fruit sauce 1 botol / 300 ml</h4>
+
+                                <div class="flex items-center justify-between">
+
+                                    <span class="text-2xl font-bold text-white">Rp 56.000</span>
+
+                                    <div class="flex space-x-2">
+
+                                        <button class="bg-white text-primary px-4 py-2 rounded-lg hover:bg-gray-100 transition-colors text-sm font-semibold">
+
+                                            Pesan
+
+                                        </button>
+
+                                        <button class="bg-white bg-opacity-20 text-white p-2 rounded-lg hover:bg-opacity-30 transition-colors">
+
+                                            <i class='bx bx-cart-add text-xl'></i>
+
+                                        </button>
+
+                                    </div>
+
+                                </div>
+
+                            </div>
+
+                        </article>
+
+
+
+                        <!-- Card Promo 2 -->
+
+                        <article class="bg-gradient-to-br from-accent to-red-500 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 group">
+
+                            <div class="relative">
+
+                                <img src="<?php echo base_url('gambar_produk/Minuman/OKF FARMER ALOE POMEGRANATE 500ML Rp16.100.jpg'); ?>" 
+
+                                     alt="minuman" 
+
+                                     class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+
+                                <span class="absolute top-3 left-3 bg-white text-accent px-3 py-1 text-sm font-bold rounded-full">
+
+                                    PROMO
+
+                                </span>
+
+                            </div>
+
+                            <div class="p-6">
+
+                                <h5 class="text-sm text-white font-semibold mb-2">Minuman</h5>
+
+                                <h4 class="text-lg font-bold text-white mb-4">Bull-Dog Vegetable & fruit sauce 1 botol / 300 ml</h4>
+
+                                <div class="flex items-center justify-between">
+
+                                    <span class="text-2xl font-bold text-white">Rp 56.000</span>
+
+                                    <button class="bg-white text-accent px-4 py-2 rounded-lg hover:bg-gray-100 transition-colors text-sm font-semibold">
+
+                                        Pesan
+
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+                        </article>
+
+
+
+                        <!-- Card Promo 3 -->
+
+                        <article class="bg-gradient-to-br from-secondary to-brown-600 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 group">
+
+                            <div class="relative">
+
+                                <img src="<?php echo base_url('gambar_produk/Minuman/OKF FARMER ALOE POMEGRANATE 500ML Rp16.100.jpg'); ?>" 
+
+                                     alt="minuman" 
+
+                                     class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+
+                                <span class="absolute top-3 left-3 bg-white text-secondary px-3 py-1 text-sm font-bold rounded-full">
+
+                                    PROMO
+
+                                </span>
+
+                            </div>
+
+                            <div class="p-6">
+
+                                <h5 class="text-sm text-white font-semibold mb-2">Minuman</h5>
+
+                                <h4 class="text-lg font-bold text-white mb-4">Bull-Dog Vegetable & fruit sauce 1 botol / 300 ml</h4>
+
+                                <div class="flex items-center justify-between">
+
+                                    <span class="text-2xl font-bold text-white">Rp 56.000</span>
+
+                                    <button class="bg-white text-secondary px-4 py-2 rounded-lg hover:bg-gray-100 transition-colors text-sm font-semibold">
+
+                                        Pesan
+
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+                        </article>
+
+
+
+                        <!-- Card Promo 4 -->
+
+                        <article class="bg-gradient-to-br from-green-500 to-emerald-600 rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 group">
+
+                            <div class="relative">
+
+                                <img src="<?php echo base_url('gambar_produk/Minuman/OKF FARMER ALOE POMEGRANATE 500ML Rp16.100.jpg'); ?>" 
+
+                                     alt="minuman" 
+
+                                     class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+
+                                <span class="absolute top-3 left-3 bg-white text-green-600 px-3 py-1 text-sm font-bold rounded-full">
+
+                                    PROMO
+
+                                </span>
+
+                            </div>
+
+                            <div class="p-6">
+
+                                <h5 class="text-sm text-white font-semibold mb-2">Minuman</h5>
+
+                                <h4 class="text-lg font-bold text-white mb-4">Bull-Dog Vegetable & fruit sauce 1 botol / 300 ml</h4>
+
+                                <div class="flex items-center justify-between">
+
+                                    <span class="text-2xl font-bold text-white">Rp 56.000</span>
+
+                                    <button class="bg-white text-green-600 px-4 py-2 rounded-lg hover:bg-gray-100 transition-colors text-sm font-semibold">
+
+                                        Pesan
+
+                                    </button>
+
+                                </div>
+
+                            </div>
+
+                        </article>
+
+                    </div>
+
+                </div>
+
+            </div>
+
+        </section>
+
+
+
+        <!-- Lightbox Modal -->
+
+        <div id="lightbox" class="lightbox">
+
+            <span class="close">&times;</span>
+
+            <img id="lightboxImg" src="" alt="preview">
+
+        </div>
+
+
