@@ -7,8 +7,21 @@
             <p class="text-muted text-sm">Lengkapi informasi produk yang akan ditambahkan</p>
         </div>
         
+        <!-- Flash Messages -->
+        <?php if($this->session->flashdata('success')): ?>
+            <div class="bg-green-100 border border-green-400 text-green-700 px-4 py-3 rounded mb-4">
+                <?php echo $this->session->flashdata('success'); ?>
+            </div>
+        <?php endif; ?>
+        
+        <?php if($this->session->flashdata('error')): ?>
+            <div class="bg-red-100 border border-red-400 text-red-700 px-4 py-3 rounded mb-4">
+                <?php echo $this->session->flashdata('error'); ?>
+            </div>
+        <?php endif; ?>
+        
         <!-- Form Content -->
-        <form class="p-6 space-y-6">
+        <form action="<?php echo base_url('admin/add_product'); ?>" method="POST" enctype="multipart/form-data" class="p-6 space-y-6">
             <!-- Basic Information -->
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
                 <!-- Product Name -->
@@ -18,7 +31,7 @@
                     </label>
                     <input type="text" 
                            id="product_name" 
-                           name="product_name" 
+                           name="name" 
                            required
                            class="w-full px-3 py-2 border border-border rounded-lg text-text placeholder-muted focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
                            placeholder="Masukkan nama produk">
@@ -42,6 +55,11 @@
                         <option value="buah-sayur">BUAH & SAYUR</option>
                         <option value="daging-olahan">DAGING & OLAHAN</option>
                         <option value="susu-olahan">SUSU & OLAHAN</option>
+                        <?php if(isset($categories) && !empty($categories)): ?>
+                            <?php foreach($categories as $category): ?>
+                                <option value="<?php echo $category; ?>"><?php echo strtoupper($category); ?></option>
+                            <?php endforeach; ?>
+                        <?php endif; ?>
                     </select>
                 </div>
                 
@@ -112,11 +130,11 @@
                      onclick="document.getElementById('product_image').click()">
                     <i class='bx bx-cloud-upload text-4xl text-muted mb-2'></i>
                     <p class="text-muted text-sm mb-2">Klik untuk upload gambar atau drag & drop</p>
-                    <p class="text-xs text-muted">PNG, JPG, JPEG maksimal 2MB</p>
+                    <p class="text-xs text-muted">Format yang diizinkan: JPG, JPEG, PNG, GIF (maksimal 2MB)</p>
                     <input type="file" 
                            id="product_image"
                            name="product_image" 
-                           accept="image/*"
+                           accept="image/jpeg,image/jpg,image/png,image/gif"
                            class="hidden"
                            onchange="previewImage(this)">
                 </div>

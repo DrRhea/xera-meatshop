@@ -1,4 +1,7 @@
 <?php
+// Start output buffering to prevent header issues
+ob_start();
+
 // Load environment configuration
 require_once('application/config/environment.php');
 
