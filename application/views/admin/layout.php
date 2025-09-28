@@ -95,19 +95,31 @@
                     <i class='bx bx-box mr-2 text-base'></i>
                     <span class="text-sm <?php echo (strpos(uri_string(), 'admin/products') !== false) ? 'font-medium' : ''; ?>">Produk</span>
                 </a>
-                <a href="#" class="flex items-center px-3 py-2 text-muted hover:bg-surface hover:text-text transition-colors duration-200 mx-2 mb-1">
+                <a href="<?php echo base_url('admin/orders'); ?>" 
+                   class="flex items-center px-3 py-2 <?php echo (strpos(uri_string(), 'orders') !== false) ? 'bg-primary text-white rounded-lg mx-2 mb-1' : 'text-muted hover:bg-surface hover:text-text transition-colors duration-200 mx-2 mb-1'; ?>">
                     <i class='bx bx-cart-alt mr-2 text-base'></i>
-                    <span class="text-sm">Pesanan</span>
+                    <span class="text-sm <?php echo (strpos(uri_string(), 'orders') !== false) ? 'font-medium' : ''; ?>">Pesanan</span>
                 </a>
-                <a href="#" class="flex items-center px-3 py-2 text-muted hover:bg-surface hover:text-text transition-colors duration-200 mx-2 mb-1">
+                <a href="<?php echo base_url('admin/customers'); ?>" 
+                   class="flex items-center px-3 py-2 <?php echo (strpos(uri_string(), 'customers') !== false) ? 'bg-primary text-white rounded-lg mx-2 mb-1' : 'text-muted hover:bg-surface hover:text-text transition-colors duration-200 mx-2 mb-1'; ?>">
                     <i class='bx bx-group mr-2 text-base'></i>
-                    <span class="text-sm">Pelanggan</span>
+                    <span class="text-sm <?php echo (strpos(uri_string(), 'customers') !== false) ? 'font-medium' : ''; ?>">Pelanggan</span>
                 </a>
-                <a href="#" class="flex items-center px-3 py-2 text-muted hover:bg-surface hover:text-text transition-colors duration-200 mx-2 mb-1">
-                    <i class='bx bx-cog mr-2 text-base'></i>
-                    <span class="text-sm">Pengaturan</span>
+                <a href="<?php echo base_url('admin/gallery'); ?>" 
+                   class="flex items-center px-3 py-2 <?php echo (strpos(uri_string(), 'gallery') !== false) ? 'bg-primary text-white rounded-lg mx-2 mb-1' : 'text-muted hover:bg-surface hover:text-text transition-colors duration-200 mx-2 mb-1'; ?>">
+                    <i class='bx bx-images mr-2 text-base'></i>
+                    <span class="text-sm <?php echo (strpos(uri_string(), 'gallery') !== false) ? 'font-medium' : ''; ?>">Galeri</span>
                 </a>
             </nav>
+
+            <!-- Settings Button -->
+            <div class="mt-auto p-3">
+                <a href="<?php echo base_url('admin/settings'); ?>" 
+                   class="flex items-center px-3 py-2 <?php echo (strpos(uri_string(), 'settings') !== false) ? 'bg-primary text-white rounded-lg mx-2 mb-1' : 'text-muted hover:bg-surface hover:text-text transition-colors duration-200 mx-2 mb-1'; ?>">
+                    <i class='bx bx-cog mr-2 text-base'></i>
+                    <span class="text-sm <?php echo (strpos(uri_string(), 'settings') !== false) ? 'font-medium' : ''; ?>">Pengaturan</span>
+                </a>
+            </div>
 
             <!-- Logout Button -->
             <div class="absolute bottom-0 w-full p-3 bg-surface border-t border-border">
