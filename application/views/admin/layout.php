@@ -95,16 +95,6 @@
                     <i class='bx bx-box mr-2 text-base'></i>
                     <span class="text-sm <?php echo (strpos(uri_string(), 'admin/products') !== false) ? 'font-medium' : ''; ?>">Produk</span>
                 </a>
-                <a href="<?php echo base_url('admin/orders'); ?>" 
-                   class="flex items-center px-3 py-2 <?php echo (strpos(uri_string(), 'orders') !== false) ? 'bg-primary text-white rounded-lg mx-2 mb-1' : 'text-muted hover:bg-surface hover:text-text transition-colors duration-200 mx-2 mb-1'; ?>">
-                    <i class='bx bx-cart-alt mr-2 text-base'></i>
-                    <span class="text-sm <?php echo (strpos(uri_string(), 'orders') !== false) ? 'font-medium' : ''; ?>">Pesanan</span>
-                </a>
-                <a href="<?php echo base_url('admin/customers'); ?>" 
-                   class="flex items-center px-3 py-2 <?php echo (strpos(uri_string(), 'customers') !== false) ? 'bg-primary text-white rounded-lg mx-2 mb-1' : 'text-muted hover:bg-surface hover:text-text transition-colors duration-200 mx-2 mb-1'; ?>">
-                    <i class='bx bx-group mr-2 text-base'></i>
-                    <span class="text-sm <?php echo (strpos(uri_string(), 'customers') !== false) ? 'font-medium' : ''; ?>">Pelanggan</span>
-                </a>
                 <a href="<?php echo base_url('admin/gallery'); ?>" 
                    class="flex items-center px-3 py-2 <?php echo (strpos(uri_string(), 'gallery') !== false) ? 'bg-primary text-white rounded-lg mx-2 mb-1' : 'text-muted hover:bg-surface hover:text-text transition-colors duration-200 mx-2 mb-1'; ?>">
                     <i class='bx bx-images mr-2 text-base'></i>
