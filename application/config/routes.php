@@ -76,9 +76,15 @@ $route['admin'] = 'admin';
 $route['admin/login'] = 'admin/login';
 $route['admin/authenticate'] = 'admin/authenticate';
 $route['admin/logout'] = 'admin/logout';
+
+// Direct login routes
+$route['login'] = 'admin/login';
+$route['authenticate'] = 'admin/authenticate';
+$route['logout'] = 'admin/logout';
 $route['admin/products'] = 'admin/products';
 $route['admin/products/add'] = 'admin/add_product';
 $route['admin/products/edit/(:num)'] = 'admin/edit_product/$1';
+$route['admin/products/delete/(:num)'] = 'admin/delete_product/$1';
 $route['admin/orders'] = 'orders';
 $route['admin/orders/add'] = 'orders/add';
 $route['admin/orders/edit/(:num)'] = 'orders/edit/$1';
@@ -92,3 +98,4 @@ $route['admin/settings'] = 'settings';
 $route['admin/settings/content'] = 'settings/content';
 $route['admin/settings/profile'] = 'settings/profile';
 $route['admin/settings/password'] = 'settings/password';
+$route['admin/test-upload'] = 'admin/test_upload';

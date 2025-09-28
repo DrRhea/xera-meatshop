@@ -8,7 +8,7 @@
         </div>
         
         <!-- Form Content -->
-        <form class="p-6 space-y-6">
+        <form action="<?php echo base_url('admin/products/edit/' . $product->id); ?>" method="POST" enctype="multipart/form-data" class="p-6 space-y-6">
             <!-- Basic Information -->
             <div class="grid grid-cols-1 lg:grid-cols-2 gap-6">
                 <!-- Product Name -->
@@ -18,8 +18,8 @@
                     </label>
                     <input type="text" 
                            id="product_name" 
-                           name="product_name" 
-                           value="Daging Sapi Premium"
+                           name="name" 
+                           value="<?php echo htmlspecialchars($product->name); ?>"
                            required
                            class="w-full px-3 py-2 border border-border rounded-lg text-text placeholder-muted focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
                            placeholder="Masukkan nama produk">
@@ -35,14 +35,14 @@
                             required
                             class="w-full px-3 py-2 border border-border rounded-lg text-text focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
                         <option value="">Pilih Kategori</option>
-                        <option value="daging" selected>DAGING</option>
-                        <option value="minuman">MINUMAN</option>
-                        <option value="seafood">SEAFOOD</option>
-                        <option value="bumbu">BUMBU</option>
-                        <option value="roti">ROTI</option>
-                        <option value="buah-sayur">BUAH & SAYUR</option>
-                        <option value="daging-olahan">DAGING & OLAHAN</option>
-                        <option value="susu-olahan">SUSU & OLAHAN</option>
+                        <option value="DAGING" <?php echo ($product->category == 'DAGING') ? 'selected' : ''; ?>>DAGING</option>
+                        <option value="MINUMAN" <?php echo ($product->category == 'MINUMAN') ? 'selected' : ''; ?>>MINUMAN</option>
+                        <option value="SEAFOOD" <?php echo ($product->category == 'SEAFOOD') ? 'selected' : ''; ?>>SEAFOOD</option>
+                        <option value="BUMBU" <?php echo ($product->category == 'BUMBU') ? 'selected' : ''; ?>>BUMBU</option>
+                        <option value="ROTI" <?php echo ($product->category == 'ROTI') ? 'selected' : ''; ?>>ROTI</option>
+                        <option value="BUAH & SAYUR" <?php echo ($product->category == 'BUAH & SAYUR') ? 'selected' : ''; ?>>BUAH & SAYUR</option>
+                        <option value="DAGING & OLAHAN" <?php echo ($product->category == 'DAGING & OLAHAN') ? 'selected' : ''; ?>>DAGING & OLAHAN</option>
+                        <option value="SUSU & OLAHAN" <?php echo ($product->category == 'SUSU & OLAHAN') ? 'selected' : ''; ?>>SUSU & OLAHAN</option>
                     </select>
                 </div>
                 
@@ -54,7 +54,7 @@
                     <input type="number" 
                            id="price" 
                            name="price" 
-                           value="85000"
+                           value="<?php echo $product->price; ?>"
                            required
                            min="0"
                            step="100"
@@ -70,7 +70,7 @@
                     <input type="number" 
                            id="stock" 
                            name="stock" 
-                           value="25"
+                           value="<?php echo $product->stock; ?>"
                            required
                            min="0"
                            class="w-full px-3 py-2 border border-border rounded-lg text-text placeholder-muted focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
@@ -85,11 +85,11 @@
                     <select id="unit" 
                             name="unit"
                             class="w-full px-3 py-2 border border-border rounded-lg text-text focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
-                        <option value="kg" selected>Kilogram (kg)</option>
-                        <option value="gram">Gram (g)</option>
-                        <option value="pcs">Pieces (pcs)</option>
-                        <option value="pack">Pack</option>
-                        <option value="liter">Liter (L)</option>
+                        <option value="kg" <?php echo ($product->unit == 'kg') ? 'selected' : ''; ?>>Kilogram (kg)</option>
+                        <option value="gram" <?php echo ($product->unit == 'gram') ? 'selected' : ''; ?>>Gram (g)</option>
+                        <option value="pcs" <?php echo ($product->unit == 'pcs') ? 'selected' : ''; ?>>Pieces (pcs)</option>
+                        <option value="pack" <?php echo ($product->unit == 'pack') ? 'selected' : ''; ?>>Pack</option>
+                        <option value="liter" <?php echo ($product->unit == 'liter') ? 'selected' : ''; ?>>Liter (L)</option>
                     </select>
                 </div>
             </div>
@@ -103,7 +103,7 @@
                           name="description" 
                           rows="4"
                           class="w-full px-3 py-2 border border-border rounded-lg text-text placeholder-muted focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
-                          placeholder="Deskripsikan produk secara detail...">Daging sapi segar berkualitas premium, dipotong dengan teknik yang tepat untuk mempertahankan kelezatan dan kelembutan. Cocok untuk berbagai olahan masakan.</textarea>
+                          placeholder="Deskripsikan produk secara detail..."><?php echo htmlspecialchars($product->description); ?></textarea>
             </div>
             
             <!-- Current Image -->
@@ -112,11 +112,17 @@
                     Gambar Produk Saat Ini
                 </label>
                 <div class="flex items-center space-x-4">
-                    <div class="w-20 h-20 bg-surface rounded-lg border border-border flex items-center justify-center">
-                        <i class='bx bx-image text-2xl text-muted'></i>
-                    </div>
+                    <?php if ($product->image): ?>
+                        <img src="<?php echo base_url($product->image); ?>" 
+                             alt="<?php echo htmlspecialchars($product->name); ?>" 
+                             class="w-20 h-20 object-cover rounded-lg border border-border">
+                    <?php else: ?>
+                        <div class="w-20 h-20 bg-surface rounded-lg border border-border flex items-center justify-center">
+                            <i class='bx bx-image text-2xl text-muted'></i>
+                        </div>
+                    <?php endif; ?>
                     <div>
-                        <p class="text-sm text-text">current-image.jpg</p>
+                        <p class="text-sm text-text"><?php echo $product->image ? basename($product->image) : 'Tidak ada gambar'; ?></p>
                         <p class="text-xs text-muted">Gambar saat ini</p>
                     </div>
                 </div>
@@ -155,7 +161,7 @@
                         <input type="radio" 
                                name="status" 
                                value="active" 
-                               checked
+                               <?php echo ($product->status == 'active') ? 'checked' : ''; ?>
                                class="w-4 h-4 text-primary bg-card border-border focus:ring-primary">
                         <span class="ml-2 text-sm text-text">Aktif</span>
                     </label>
@@ -163,6 +169,7 @@
                         <input type="radio" 
                                name="status" 
                                value="inactive"
+                               <?php echo ($product->status == 'inactive') ? 'checked' : ''; ?>
                                class="w-4 h-4 text-primary bg-card border-border focus:ring-primary">
                         <span class="ml-2 text-sm text-text">Tidak Aktif</span>
                     </label>

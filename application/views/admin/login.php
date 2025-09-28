@@ -57,11 +57,6 @@
             
                 <!-- Header -->
                 <div class="text-center mb-8">
-                    <!-- Logo -->
-                    <div class="mx-auto w-16 h-16 bg-primary rounded-full flex items-center justify-center mb-4">
-                        <i class='bx bx-shield-check text-white text-2xl'></i>
-                    </div>
-                    
                     <h1 class="text-3xl font-bold text-text mb-2">Admin Login</h1>
                     <p class="text-muted">Meat Shop & Grocery</p>
                 </div>
@@ -81,18 +76,45 @@
                     </div>
                 <?php endif; ?>
 
-                <!-- Direct Access Button -->
-                <div class="space-y-6">
-                    <div class="text-center">
-                        <p class="text-muted mb-4">Klik tombol di bawah untuk langsung masuk ke dashboard</p>
+                <!-- Login Form -->
+                <form action="<?php echo base_url('authenticate'); ?>" method="POST" class="space-y-6">
+                    <div>
+                        <label for="username" class="block text-sm font-medium text-text mb-2">
+                            Username
+                        </label>
+                        <input type="text" 
+                               id="username" 
+                               name="username" 
+                               required
+                               class="w-full px-3 py-2 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                               placeholder="Masukkan username">
                     </div>
                     
-                    <a href="<?php echo base_url('admin'); ?>" 
-                       class="w-full bg-primary text-white font-semibold py-3 px-4 rounded-lg hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-all duration-200 flex items-center justify-center">
+                    <div>
+                        <label for="password" class="block text-sm font-medium text-text mb-2">
+                            Password
+                        </label>
+                        <div class="relative">
+                            <input type="password" 
+                                   id="password" 
+                                   name="password" 
+                                   required
+                                   class="w-full px-3 py-2 pr-10 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
+                                   placeholder="Masukkan password">
+                            <button type="button" 
+                                    id="togglePassword"
+                                    class="absolute inset-y-0 right-0 pr-3 flex items-center text-muted hover:text-text transition-colors duration-200">
+                                <i class='bx bx-hide text-xl' id="passwordIcon"></i>
+                            </button>
+                        </div>
+                    </div>
+                    
+                    <button type="submit" 
+                            class="w-full bg-primary text-white font-semibold py-3 px-4 rounded-lg hover:bg-primary-700 focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 transition-all duration-200 flex items-center justify-center">
                         <i class='bx bx-log-in mr-2'></i>
                         Masuk ke Dashboard
-                    </a>
-                </div>
+                    </button>
+                </form>
 
                 <!-- Back to Website -->
                 <div class="mt-8 text-center">
@@ -110,10 +132,34 @@
             </div>
         </div>
 
-        <!-- Right Side - Plain Background -->
-        <div class="hidden lg:flex lg:flex-1 bg-primary">
+        <!-- Right Side - Banner Background -->
+        <div class="hidden lg:flex lg:flex-1 bg-cover bg-center bg-no-repeat" 
+             style="background-image: url('<?php echo base_url('gambar/banner.jpg'); ?>');">
+            <!-- Overlay untuk readability -->
+            <div class="w-full h-full bg-black bg-opacity-20">
+            </div>
         </div>
     </div>
+
+    <!-- JavaScript untuk toggle password -->
+    <script>
+        document.addEventListener('DOMContentLoaded', function() {
+            const togglePassword = document.getElementById('togglePassword');
+            const passwordInput = document.getElementById('password');
+            const passwordIcon = document.getElementById('passwordIcon');
+            
+            togglePassword.addEventListener('click', function() {
+                // Toggle password visibility
+                if (passwordInput.type === 'password') {
+                    passwordInput.type = 'text';
+                    passwordIcon.className = 'bx bx-show text-xl';
+                } else {
+                    passwordInput.type = 'password';
+                    passwordIcon.className = 'bx bx-hide text-xl';
+                }
+            });
+        });
+    </script>
 
 </body>
 </html>
