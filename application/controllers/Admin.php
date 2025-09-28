@@ -83,7 +83,7 @@ class Admin extends CI_Controller {
         // Pagination
         $this->load->library('pagination');
         $config['base_url'] = base_url('admin/products');
-        $config['total_rows'] = $this->Product_model->count_products($search, $category, $status);
+        $config['total_rows'] = $this->Product_model->get_total_products($search, $category);
         $config['per_page'] = 10;
         $config['uri_segment'] = 3;
         $config['num_links'] = 2;
@@ -91,7 +91,7 @@ class Admin extends CI_Controller {
         $this->pagination->initialize($config);
         
         $page = ($this->uri->segment(3)) ? $this->uri->segment(3) : 0;
-        $data['products'] = $this->Product_model->get_products($config['per_page'], $page, $search, $category, $status);
+        $data['products'] = $this->Product_model->get_products($config['per_page'], $page, $search, $category);
         $data['pagination'] = $this->pagination->create_links();
         
         $data['title'] = 'Kelola Produk - Admin Dashboard';
