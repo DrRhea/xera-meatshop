@@ -33,9 +33,16 @@
             </div>
         <?php else: ?>
             <!-- Gallery Grid -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8" x-data="{ openModal: false, selectedItem: null }">
                 <?php foreach ($gallery as $item): ?>
-                    <div class="bg-white rounded-2xl transition-all duration-300 group overflow-hidden hover:shadow-lg">
+                    <div class="bg-white rounded-2xl transition-all duration-300 group overflow-hidden hover:shadow-lg cursor-pointer"
+                         @click="openModal = true; selectedItem = {
+                             id: <?php echo $item->id; ?>,
+                             title: '<?php echo htmlspecialchars($item->title, ENT_QUOTES); ?>',
+                             description: '<?php echo htmlspecialchars($item->description, ENT_QUOTES); ?>',
+                             image: '<?php echo base_url($item->image); ?>',
+                             date: '<?php echo date('d M Y', strtotime($item->created_at)); ?>'
+                         }">
                         <!-- Image Container -->
                         <div class="relative h-64 bg-gradient-to-br from-primary/20 to-primary/10 flex items-center justify-center overflow-hidden">
                             <?php if ($item->image && file_exists(FCPATH . $item->image)): ?>
@@ -48,17 +55,15 @@
                                 </div>
                             <?php endif; ?>
                             
+                            <!-- Overlay -->
+                            <div class="absolute inset-0 bg-black bg-opacity-0 group-hover:bg-opacity-30 transition-all duration-300 flex items-center justify-center">
+                                <i class='bx bx-search text-white text-4xl opacity-0 group-hover:opacity-100 transition-opacity duration-300'></i>
+                            </div>
                         </div>
                         
                         <!-- Content -->
                         <div class="p-6">
                             <h3 class="text-xl font-bold text-gray-900 mb-3"><?php echo htmlspecialchars($item->title); ?></h3>
-                            
-                            <?php if (!empty($item->description)): ?>
-                                <p class="text-sm text-gray-600 mb-4 leading-relaxed">
-                                    <?php echo htmlspecialchars($item->description); ?>
-                                </p>
-                            <?php endif; ?>
                             
                             <!-- Meta Info -->
                             <div class="flex items-center justify-end text-xs text-gray-500">
@@ -97,3 +102,81 @@
         <?php endif; ?>
     </div>
 </section>
+
+<!-- Gallery Modal -->
+<div x-show="openModal" x-cloak
+     class="fixed inset-0 z-50 flex items-center justify-center bg-black bg-opacity-75 p-4"
+     x-transition:enter="transition ease-out duration-300"
+     x-transition:enter-start="opacity-0 scale-90"
+     x-transition:enter-end="opacity-100 scale-100"
+     x-transition:leave="transition ease-in duration-200"
+     x-transition:leave-start="opacity-100 scale-100"
+     x-transition:leave-end="opacity-0 scale-90"
+     @click.self="openModal = false">
+    
+    <div class="bg-white rounded-2xl max-w-4xl w-full max-h-[90vh] overflow-hidden"
+         x-transition:enter="transition ease-out duration-300"
+         x-transition:enter-start="opacity-0 scale-90"
+         x-transition:enter-end="opacity-100 scale-100"
+         x-transition:leave="transition ease-in duration-200"
+         x-transition:leave-start="opacity-100 scale-100"
+         x-transition:leave-end="opacity-0 scale-90">
+        
+        <!-- Modal Header -->
+        <div class="flex items-center justify-between p-6 border-b border-gray-200">
+            <h2 class="text-2xl font-bold text-gray-900" x-text="selectedItem?.title"></h2>
+            <button @click="openModal = false" 
+                    class="text-gray-400 hover:text-gray-600 transition-colors duration-200">
+                <i class='bx bx-x text-3xl'></i>
+            </button>
+        </div>
+        
+        <!-- Modal Content -->
+        <div class="p-6 max-h-[calc(90vh-120px)] overflow-y-auto">
+            <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+                <!-- Image -->
+                <div class="space-y-4">
+                    <div class="aspect-square bg-gray-100 rounded-xl overflow-hidden">
+                        <img x-bind:src="selectedItem?.image" 
+                             x-bind:alt="selectedItem?.title"
+                             class="w-full h-full object-cover">
+                    </div>
+                    
+                    <!-- Meta Info -->
+                    <div class="flex items-center justify-between text-sm text-gray-500">
+                        <span class="flex items-center">
+                            <i class='bx bx-calendar mr-2'></i>
+                            <span x-text="selectedItem?.date"></span>
+                        </span>
+                        <span class="flex items-center">
+                            <i class='bx bx-image mr-2'></i>
+                            Galeri
+                        </span>
+                    </div>
+                </div>
+                
+                <!-- Description -->
+                <div class="space-y-6">
+                    <div>
+                        <h3 class="text-lg font-semibold text-gray-900 mb-3">Deskripsi</h3>
+                        <p class="text-gray-600 leading-relaxed" x-text="selectedItem?.description || 'Tidak ada deskripsi tersedia.'"></p>
+                    </div>
+                    
+                    <!-- Action Buttons -->
+                    <div class="flex flex-col sm:flex-row gap-4">
+                        <a href="<?php echo base_url('produk'); ?>" 
+                           class="flex-1 bg-primary text-white px-6 py-3 rounded-lg hover:bg-primary-700 transition-colors duration-200 text-center">
+                            <i class='bx bx-box mr-2'></i>
+                            Lihat Produk Kami
+                        </a>
+                        <a href="<?php echo base_url('about'); ?>" 
+                           class="flex-1 bg-gray-100 text-gray-700 px-6 py-3 rounded-lg hover:bg-gray-200 transition-colors duration-200 text-center">
+                            <i class='bx bx-info-circle mr-2'></i>
+                            Tentang Kami
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
