@@ -964,3 +964,298 @@ DEBUG - 2025-09-28 20:54:03 --> Global POST, GET and COOKIE data sanitized
 DEBUG - 2025-09-28 20:54:03 --> Session class already loaded. Second attempt ignored.
 ERROR - 2025-09-28 20:54:03 --> Severity: Warning --> Undefined variable $categories /Users/rhea/Downloads/Meatshop&Grocery/application/controllers/Gallery.php 126
 DEBUG - 2025-09-28 20:54:03 --> Total execution time: 0.0148
+DEBUG - 2025-09-28 20:55:29 --> UTF-8 Support Enabled
+DEBUG - 2025-09-28 20:55:29 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2025-09-28 20:55:29 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2025-09-28 20:55:29 --> Total execution time: 0.0102
+DEBUG - 2025-09-28 20:58:22 --> UTF-8 Support Enabled
+DEBUG - 2025-09-28 20:58:22 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2025-09-28 20:58:22 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2025-09-28 20:58:22 --> Gallery upload successful: 68d9a16edfe85_1759093102.png
+DEBUG - 2025-09-28 20:58:22 --> UTF-8 Support Enabled
+DEBUG - 2025-09-28 20:58:22 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2025-09-28 20:58:22 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2025-09-28 20:58:22 --> Total execution time: 0.0051
+DEBUG - 2025-09-28 20:58:25 --> UTF-8 Support Enabled
+DEBUG - 2025-09-28 20:58:25 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2025-09-28 20:58:25 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2025-09-28 20:58:25 --> Total execution time: 0.0028
+DEBUG - 2025-09-28 20:58:37 --> UTF-8 Support Enabled
+DEBUG - 2025-09-28 20:58:37 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2025-09-28 20:58:37 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2025-09-28 20:58:37 --> UTF-8 Support Enabled
+DEBUG - 2025-09-28 20:58:37 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2025-09-28 20:58:37 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2025-09-28 20:58:37 --> Total execution time: 0.0030
+DEBUG - 2025-09-28 20:58:38 --> UTF-8 Support Enabled
+DEBUG - 2025-09-28 20:58:38 --> No URI present. Default controller set.
+DEBUG - 2025-09-28 20:58:38 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2025-09-28 20:58:38 --> Total execution time: 0.0012
+DEBUG - 2025-09-28 20:58:40 --> UTF-8 Support Enabled
+DEBUG - 2025-09-28 20:58:40 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2025-09-28 20:58:40 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2025-09-28 20:58:40 --> Total execution time: 0.0052
+DEBUG - 2025-09-28 21:00:19 --> UTF-8 Support Enabled
+DEBUG - 2025-09-28 21:00:19 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2025-09-28 21:00:19 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2025-09-28 21:00:19 --> Total execution time: 0.0166
+DEBUG - 2025-09-28 21:00:23 --> UTF-8 Support Enabled
+DEBUG - 2025-09-28 21:00:23 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2025-09-28 21:00:23 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2025-09-28 21:00:23 --> Total execution time: 0.0076
+DEBUG - 2025-09-28 21:00:52 --> UTF-8 Support Enabled
+DEBUG - 2025-09-28 21:00:52 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2025-09-28 21:00:52 --> Total execution time: 0.0052
+DEBUG - 2025-09-28 21:00:53 --> UTF-8 Support Enabled
+DEBUG - 2025-09-28 21:00:53 --> No URI present. Default controller set.
+DEBUG - 2025-09-28 21:00:53 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2025-09-28 21:00:53 --> Total execution time: 0.1619
+DEBUG - 2025-09-28 21:00:55 --> UTF-8 Support Enabled
+DEBUG - 2025-09-28 21:00:55 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2025-09-28 21:00:55 --> Total execution time: 0.0095
+DEBUG - 2025-09-28 21:02:48 --> UTF-8 Support Enabled
+DEBUG - 2025-09-28 21:02:48 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2025-09-28 21:02:48 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2025-09-28 21:02:48 --> Total execution time: 0.0072
+DEBUG - 2025-09-28 21:02:53 --> UTF-8 Support Enabled
+DEBUG - 2025-09-28 21:02:53 --> Global POST, GET and COOKIE data sanitized
+ERROR - 2025-09-28 21:02:53 --> 404 Page Not Found: /Well-known/appspecific
+DEBUG - 2025-09-28 21:04:54 --> UTF-8 Support Enabled
+DEBUG - 2025-09-28 21:04:54 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2025-09-28 21:04:54 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2025-09-28 21:04:54 --> Total execution time: 0.0110
+DEBUG - 2025-09-28 21:04:54 --> UTF-8 Support Enabled
+DEBUG - 2025-09-28 21:04:54 --> Global POST, GET and COOKIE data sanitized
+ERROR - 2025-09-28 21:04:54 --> 404 Page Not Found: /Well-known/appspecific
+DEBUG - 2025-09-28 21:05:01 --> UTF-8 Support Enabled
+DEBUG - 2025-09-28 21:05:01 --> Global POST, GET and COOKIE data sanitized
+ERROR - 2025-09-28 21:05:01 --> 404 Page Not Found: /Produk/index
+DEBUG - 2025-09-28 21:05:02 --> UTF-8 Support Enabled
+DEBUG - 2025-09-28 21:05:02 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2025-09-28 21:05:02 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2025-09-28 21:05:02 --> Total execution time: 0.0040
+DEBUG - 2025-09-28 21:05:42 --> UTF-8 Support Enabled
+DEBUG - 2025-09-28 21:05:42 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2025-09-28 21:05:42 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2025-09-28 21:05:42 --> Total execution time: 0.0048
+DEBUG - 2025-09-28 21:06:24 --> UTF-8 Support Enabled
+DEBUG - 2025-09-28 21:06:24 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2025-09-28 21:06:24 --> Total execution time: 0.0027
+DEBUG - 2025-09-28 21:06:55 --> UTF-8 Support Enabled
+DEBUG - 2025-09-28 21:06:55 --> No URI present. Default controller set.
+DEBUG - 2025-09-28 21:06:55 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2025-09-28 21:06:55 --> Total execution time: 0.0035
+DEBUG - 2025-09-28 21:08:19 --> UTF-8 Support Enabled
+DEBUG - 2025-09-28 21:08:19 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2025-09-28 21:08:19 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2025-09-28 21:08:19 --> Total execution time: 0.0096
+DEBUG - 2025-09-28 21:11:01 --> UTF-8 Support Enabled
+DEBUG - 2025-09-28 21:11:01 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2025-09-28 21:11:01 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2025-09-28 21:11:01 --> UTF-8 Support Enabled
+DEBUG - 2025-09-28 21:11:01 --> No URI present. Default controller set.
+DEBUG - 2025-09-28 21:11:01 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2025-09-28 21:11:01 --> Total execution time: 0.0021
+DEBUG - 2025-09-28 21:11:05 --> UTF-8 Support Enabled
+DEBUG - 2025-09-28 21:11:05 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2025-09-28 21:11:05 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2025-09-28 21:11:05 --> Total execution time: 0.0050
+DEBUG - 2025-09-28 21:11:08 --> UTF-8 Support Enabled
+DEBUG - 2025-09-28 21:11:08 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2025-09-28 21:11:08 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2025-09-28 21:11:08 --> Login attempt - Username: admin
+DEBUG - 2025-09-28 21:11:09 --> Login successful for user: admin
+DEBUG - 2025-09-28 21:11:09 --> UTF-8 Support Enabled
+DEBUG - 2025-09-28 21:11:09 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2025-09-28 21:11:09 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2025-09-28 21:11:09 --> Total execution time: 0.0033
+DEBUG - 2025-09-28 21:11:10 --> UTF-8 Support Enabled
+DEBUG - 2025-09-28 21:11:10 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2025-09-28 21:11:10 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2025-09-28 21:11:10 --> Total execution time: 0.0052
+DEBUG - 2025-09-28 21:13:15 --> UTF-8 Support Enabled
+DEBUG - 2025-09-28 21:13:15 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2025-09-28 21:13:15 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2025-09-28 21:13:15 --> Total execution time: 0.0207
+DEBUG - 2025-09-28 21:13:16 --> UTF-8 Support Enabled
+DEBUG - 2025-09-28 21:13:16 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2025-09-28 21:13:16 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2025-09-28 21:13:16 --> Total execution time: 0.0050
+DEBUG - 2025-09-28 21:13:18 --> UTF-8 Support Enabled
+DEBUG - 2025-09-28 21:13:18 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2025-09-28 21:13:18 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2025-09-28 21:13:18 --> Total execution time: 0.0077
+DEBUG - 2025-09-28 21:13:18 --> UTF-8 Support Enabled
+DEBUG - 2025-09-28 21:13:18 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2025-09-28 21:13:18 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2025-09-28 21:13:18 --> Total execution time: 0.0074
+DEBUG - 2025-09-28 21:13:19 --> UTF-8 Support Enabled
+DEBUG - 2025-09-28 21:13:19 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2025-09-28 21:13:19 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2025-09-28 21:13:19 --> Total execution time: 0.0042
+DEBUG - 2025-09-28 21:13:21 --> UTF-8 Support Enabled
+DEBUG - 2025-09-28 21:13:21 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2025-09-28 21:13:21 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2025-09-28 21:13:21 --> Total execution time: 0.0043
+DEBUG - 2025-09-28 21:13:22 --> UTF-8 Support Enabled
+DEBUG - 2025-09-28 21:13:22 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2025-09-28 21:13:22 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2025-09-28 21:13:22 --> Total execution time: 0.0045
+DEBUG - 2025-09-28 21:13:22 --> UTF-8 Support Enabled
+DEBUG - 2025-09-28 21:13:22 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2025-09-28 21:13:22 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2025-09-28 21:13:22 --> Total execution time: 0.0047
+DEBUG - 2025-09-28 21:13:24 --> UTF-8 Support Enabled
+DEBUG - 2025-09-28 21:13:24 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2025-09-28 21:13:24 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2025-09-28 21:13:24 --> Total execution time: 0.0055
+DEBUG - 2025-09-28 21:13:25 --> UTF-8 Support Enabled
+DEBUG - 2025-09-28 21:13:25 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2025-09-28 21:13:25 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2025-09-28 21:13:25 --> Total execution time: 0.0053
+DEBUG - 2025-09-28 21:13:32 --> UTF-8 Support Enabled
+DEBUG - 2025-09-28 21:13:32 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2025-09-28 21:13:32 --> Total execution time: 0.0045
+DEBUG - 2025-09-28 21:13:35 --> UTF-8 Support Enabled
+DEBUG - 2025-09-28 21:13:35 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2025-09-28 21:13:35 --> Total execution time: 0.0020
+DEBUG - 2025-09-28 21:13:36 --> UTF-8 Support Enabled
+DEBUG - 2025-09-28 21:13:36 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2025-09-28 21:13:36 --> Total execution time: 0.0027
+DEBUG - 2025-09-28 21:13:37 --> UTF-8 Support Enabled
+DEBUG - 2025-09-28 21:13:37 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2025-09-28 21:13:37 --> Total execution time: 0.0023
+DEBUG - 2025-09-28 21:13:51 --> UTF-8 Support Enabled
+DEBUG - 2025-09-28 21:13:51 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2025-09-28 21:13:51 --> Total execution time: 0.0021
+DEBUG - 2025-09-28 21:13:52 --> UTF-8 Support Enabled
+DEBUG - 2025-09-28 21:13:52 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2025-09-28 21:13:52 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2025-09-28 21:13:52 --> Total execution time: 0.0116
+DEBUG - 2025-09-28 21:14:22 --> UTF-8 Support Enabled
+DEBUG - 2025-09-28 21:14:22 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2025-09-28 21:14:22 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2025-09-28 21:14:22 --> Total execution time: 0.0090
+DEBUG - 2025-09-28 21:15:10 --> UTF-8 Support Enabled
+DEBUG - 2025-09-28 21:15:10 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2025-09-28 21:15:10 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2025-09-28 21:15:10 --> Total execution time: 0.0091
+DEBUG - 2025-09-28 21:15:12 --> UTF-8 Support Enabled
+DEBUG - 2025-09-28 21:15:12 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2025-09-28 21:15:12 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2025-09-28 21:15:12 --> Total execution time: 0.0046
+DEBUG - 2025-09-28 21:15:13 --> UTF-8 Support Enabled
+DEBUG - 2025-09-28 21:15:13 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2025-09-28 21:15:13 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2025-09-28 21:15:13 --> Total execution time: 0.0046
+DEBUG - 2025-09-28 21:15:14 --> UTF-8 Support Enabled
+DEBUG - 2025-09-28 21:15:14 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2025-09-28 21:15:14 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2025-09-28 21:15:14 --> Total execution time: 0.0040
+DEBUG - 2025-09-28 21:15:16 --> UTF-8 Support Enabled
+DEBUG - 2025-09-28 21:15:16 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2025-09-28 21:15:16 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2025-09-28 21:15:16 --> Total execution time: 0.0043
+DEBUG - 2025-09-28 21:15:16 --> UTF-8 Support Enabled
+DEBUG - 2025-09-28 21:15:16 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2025-09-28 21:15:16 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2025-09-28 21:15:16 --> Total execution time: 0.0051
+DEBUG - 2025-09-28 21:15:17 --> UTF-8 Support Enabled
+DEBUG - 2025-09-28 21:15:17 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2025-09-28 21:15:17 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2025-09-28 21:15:17 --> Total execution time: 0.0060
+DEBUG - 2025-09-28 21:15:17 --> UTF-8 Support Enabled
+DEBUG - 2025-09-28 21:15:17 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2025-09-28 21:15:17 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2025-09-28 21:15:17 --> Total execution time: 0.0039
+DEBUG - 2025-09-28 21:15:18 --> UTF-8 Support Enabled
+DEBUG - 2025-09-28 21:15:18 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2025-09-28 21:15:18 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2025-09-28 21:15:18 --> Total execution time: 0.0042
+DEBUG - 2025-09-28 21:15:43 --> UTF-8 Support Enabled
+DEBUG - 2025-09-28 21:15:43 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2025-09-28 21:15:43 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2025-09-28 21:15:43 --> Total execution time: 0.0665
+DEBUG - 2025-09-28 21:15:44 --> UTF-8 Support Enabled
+DEBUG - 2025-09-28 21:15:44 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2025-09-28 21:15:44 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2025-09-28 21:15:44 --> Total execution time: 0.0135
+DEBUG - 2025-09-28 21:15:44 --> UTF-8 Support Enabled
+DEBUG - 2025-09-28 21:15:44 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2025-09-28 21:15:44 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2025-09-28 21:15:44 --> Total execution time: 0.0097
+DEBUG - 2025-09-28 21:15:45 --> UTF-8 Support Enabled
+DEBUG - 2025-09-28 21:15:45 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2025-09-28 21:15:45 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2025-09-28 21:15:45 --> Total execution time: 0.0049
+DEBUG - 2025-09-28 21:15:46 --> UTF-8 Support Enabled
+DEBUG - 2025-09-28 21:15:46 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2025-09-28 21:15:46 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2025-09-28 21:15:46 --> Total execution time: 0.0079
+DEBUG - 2025-09-28 21:16:25 --> UTF-8 Support Enabled
+DEBUG - 2025-09-28 21:16:25 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2025-09-28 21:16:25 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2025-09-28 21:16:32 --> UTF-8 Support Enabled
+DEBUG - 2025-09-28 21:16:32 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2025-09-28 21:16:32 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2025-09-28 21:16:42 --> UTF-8 Support Enabled
+DEBUG - 2025-09-28 21:16:42 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2025-09-28 21:16:42 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2025-09-28 21:16:42 --> Total execution time: 0.0031
+DEBUG - 2025-09-28 21:16:44 --> UTF-8 Support Enabled
+DEBUG - 2025-09-28 21:16:44 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2025-09-28 21:16:44 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2025-09-28 21:16:44 --> Total execution time: 0.0071
+DEBUG - 2025-09-28 21:16:46 --> UTF-8 Support Enabled
+DEBUG - 2025-09-28 21:16:46 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2025-09-28 21:16:46 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2025-09-28 21:16:46 --> UTF-8 Support Enabled
+DEBUG - 2025-09-28 21:16:46 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2025-09-28 21:16:46 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2025-09-28 21:16:46 --> Total execution time: 0.0055
+DEBUG - 2025-09-28 21:16:47 --> UTF-8 Support Enabled
+DEBUG - 2025-09-28 21:16:47 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2025-09-28 21:16:47 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2025-09-28 21:16:47 --> UTF-8 Support Enabled
+DEBUG - 2025-09-28 21:16:47 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2025-09-28 21:16:47 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2025-09-28 21:16:47 --> Total execution time: 0.0063
+DEBUG - 2025-09-28 21:16:48 --> UTF-8 Support Enabled
+DEBUG - 2025-09-28 21:16:48 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2025-09-28 21:16:48 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2025-09-28 21:16:48 --> UTF-8 Support Enabled
+DEBUG - 2025-09-28 21:16:48 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2025-09-28 21:16:48 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2025-09-28 21:16:48 --> Total execution time: 0.0056
+DEBUG - 2025-09-28 21:16:49 --> UTF-8 Support Enabled
+DEBUG - 2025-09-28 21:16:49 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2025-09-28 21:16:49 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2025-09-28 21:16:49 --> UTF-8 Support Enabled
+DEBUG - 2025-09-28 21:16:49 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2025-09-28 21:16:49 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2025-09-28 21:16:49 --> Total execution time: 0.0074
+DEBUG - 2025-09-28 21:16:50 --> UTF-8 Support Enabled
+DEBUG - 2025-09-28 21:16:50 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2025-09-28 21:16:50 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2025-09-28 21:16:50 --> Total execution time: 0.0106
+DEBUG - 2025-09-28 21:16:54 --> UTF-8 Support Enabled
+DEBUG - 2025-09-28 21:16:54 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2025-09-28 21:16:54 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2025-09-28 21:16:54 --> UTF-8 Support Enabled
+DEBUG - 2025-09-28 21:16:54 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2025-09-28 21:16:54 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2025-09-28 21:16:54 --> UTF-8 Support Enabled
+DEBUG - 2025-09-28 21:16:54 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2025-09-28 21:16:54 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2025-09-28 21:16:54 --> Total execution time: 0.0060
+DEBUG - 2025-09-28 21:16:55 --> UTF-8 Support Enabled
+DEBUG - 2025-09-28 21:16:55 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2025-09-28 21:16:55 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2025-09-28 21:16:55 --> UTF-8 Support Enabled
+DEBUG - 2025-09-28 21:16:55 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2025-09-28 21:16:55 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2025-09-28 21:16:55 --> Total execution time: 0.0073
+DEBUG - 2025-09-28 21:17:30 --> UTF-8 Support Enabled
+DEBUG - 2025-09-28 21:17:30 --> Global POST, GET and COOKIE data sanitized
+DEBUG - 2025-09-28 21:17:30 --> Session class already loaded. Second attempt ignored.
+DEBUG - 2025-09-28 21:17:30 --> Total execution time: 0.0097
