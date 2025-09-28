@@ -58,7 +58,6 @@ $route['translate_uri_dashes'] = FALSE;
 $route['beranda'] = 'home';
 $route['tentang-kami'] = 'home/about';
 $route['kontak'] = 'home/contact';
-$route['gallery'] = 'home/gallery';
 $route['produk/daging'] = 'produk/daging';
 $route['produk/minuman'] = 'produk/minuman';
 $route['produk/seafood'] = 'produk/seafood';
@@ -104,10 +103,14 @@ $route['admin/promo/add'] = 'promo/add';
 $route['admin/promo/edit/(:num)'] = 'promo/edit/$1';
 $route['admin/promo/delete/(:num)'] = 'promo/delete/$1';
 $route['admin/promo/update_status/(:num)'] = 'promo/update_status/$1';
-$route['admin/settings'] = 'settings';
+$route['admin/settings'] = 'admin/settings';
+
 $route['admin/settings/content'] = 'settings/content';
-$route['admin/settings/profile'] = 'settings/profile';
-$route['admin/settings/password'] = 'settings/password';
+$route['admin/settings/profile'] = 'admin/edit_profile';
+$route['admin/settings/password'] = 'admin/change_password';
+$route['admin/change_password'] = 'admin/change_password';
+$route['admin/edit_profile'] = 'admin/edit_profile';
+$route['admin/update_profile'] = 'admin/update_profile';
 $route['admin/test-upload'] = 'admin/test_upload';
 
 // Gallery routes
