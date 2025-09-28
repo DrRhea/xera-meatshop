@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="id" x-data="{ sidebarOpen: false }">
+<html lang="id" x-data="{ sidebarOpen: false, showDeleteModal: false, deleteItem: null }">
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><?php echo isset($title) ? $title : 'Admin Dashboard - Meat Shop & Grocery'; ?></title>
+    <title>Kelola Produk - Admin Dashboard</title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -85,13 +85,13 @@
 
             <!-- Sidebar Navigation -->
             <nav class="mt-4">
-                <a href="<?php echo base_url('admin'); ?>" class="flex items-center px-3 py-2 bg-primary text-white rounded-lg mx-2 mb-1">
+                <a href="<?php echo base_url('admin'); ?>" class="flex items-center px-3 py-2 text-muted hover:bg-surface hover:text-text transition-colors duration-200 mx-2 mb-1">
                     <i class='bx bx-home-alt mr-2 text-base'></i>
-                    <span class="text-sm font-medium">Dashboard</span>
+                    <span class="text-sm">Dashboard</span>
                 </a>
-                <a href="<?php echo base_url('admin/products'); ?>" class="flex items-center px-3 py-2 text-muted hover:bg-surface hover:text-text transition-colors duration-200 mx-2 mb-1">
+                <a href="#" class="flex items-center px-3 py-2 bg-primary text-white rounded-lg mx-2 mb-1">
                     <i class='bx bx-box mr-2 text-base'></i>
-                    <span class="text-sm">Produk</span>
+                    <span class="text-sm font-medium">Produk</span>
                 </a>
                 <a href="#" class="flex items-center px-3 py-2 text-muted hover:bg-surface hover:text-text transition-colors duration-200 mx-2 mb-1">
                     <i class='bx bx-cart-alt mr-2 text-base'></i>
@@ -124,7 +124,7 @@
                         class="md:hidden text-muted hover:text-text focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50 rounded p-2">
                     <i class='bx bx-menu text-2xl'></i>
                 </button>
-                <h1 class="text-2xl font-semibold text-text">Dashboard</h1>
+                <h1 class="text-2xl font-semibold text-text">Kelola Produk</h1>
                 <div class="flex items-center space-x-4">
                 </div>
             </header>
@@ -132,61 +132,116 @@
             <!-- Page Content -->
             <main class="flex-1 overflow-x-hidden overflow-y-auto bg-surface p-4" 
                   @click="if (window.innerWidth < 768) sidebarOpen = false">
-                <!-- Welcome Section -->
-                <div class="mb-4">
-                    <h2 class="text-2xl font-bold text-text mb-1">Selamat Datang di Dashboard</h2>
-                    <p class="text-muted text-sm">Kelola bisnis Meat Shop & Grocery Anda dengan mudah</p>
+                
+                <!-- Action Bar -->
+                <div class="flex justify-between items-center mb-4">
+                    <div class="flex items-center space-x-4">
+                        <div class="relative">
+                            <input type="text" 
+                                   placeholder="Cari produk..." 
+                                   class="w-64 px-3 py-2 border border-border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+                            <i class='bx bx-search absolute right-3 top-2.5 text-muted'></i>
+                        </div>
+                        <select class="px-3 py-2 border border-border rounded-lg text-sm focus:outline-none focus:ring-2 focus:ring-primary">
+                            <option>Semua Kategori</option>
+                            <option>Daging Segar</option>
+                            <option>Daging Olahan</option>
+                            <option>Seafood</option>
+                        </select>
+                    </div>
+                    <a href="<?php echo base_url('admin/products/add'); ?>" class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary-700 transition-colors duration-200 flex items-center space-x-2">
+                        <i class='bx bx-plus text-sm'></i>
+                        <span class="text-sm">Tambah Produk</span>
+                    </a>
                 </div>
 
-                <!-- Stats Cards -->
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-                    <!-- Stat Card 1 -->
-                    <div class="bg-card rounded-lg border border-border p-4 flex items-center justify-between">
-                        <div>
-                            <p class="text-xs text-muted">Total Produk</p>
-                            <h2 class="text-2xl font-bold text-text">0</h2>
-                        </div>
-                        <i class='bx bx-box text-3xl text-primary'></i>
+                <!-- Products Table -->
+                <div class="bg-card rounded-lg border border-border">
+                    <div class="px-4 py-3 border-b border-border">
+                        <h3 class="text-lg font-semibold text-text">Daftar Produk</h3>
                     </div>
                     
-                    <!-- Stat Card 2 -->
-                    <div class="bg-card rounded-lg border border-border p-4 flex items-center justify-between">
-                        <div>
-                            <p class="text-xs text-muted">Total Pesanan</p>
-                            <h2 class="text-2xl font-bold text-text">0</h2>
-                        </div>
-                        <i class='bx bx-cart-alt text-3xl text-primary'></i>
-                    </div>
-                    
-                    <!-- Stat Card 3 -->
-                    <div class="bg-card rounded-lg border border-border p-4 flex items-center justify-between">
-                        <div>
-                            <p class="text-xs text-muted">Pelanggan Baru</p>
-                            <h2 class="text-2xl font-bold text-text">0</h2>
-                        </div>
-                        <i class='bx bx-group text-3xl text-primary'></i>
-                    </div>
-                    
-                    <!-- Stat Card 4 -->
-                    <div class="bg-card rounded-lg border border-border p-4 flex items-center justify-between">
-                        <div>
-                            <p class="text-xs text-muted">Pendapatan</p>
-                            <h2 class="text-2xl font-bold text-text">Rp 0</h2>
-                        </div>
-                        <i class='bx bx-dollar-circle text-3xl text-primary'></i>
-                    </div>
-                </div>
-
-                <!-- Main Content Area -->
-                <div class="bg-card rounded-lg border border-border p-4">
-                    <h3 class="text-lg font-semibold text-text mb-3">Konten Utama</h3>
-                    <div class="text-center py-8">
-                        <i class='bx bx-package text-4xl text-muted mb-3'></i>
-                        <h4 class="text-base font-medium text-text mb-2">Halaman Dashboard</h4>
-                        <p class="text-muted text-sm">Konten dashboard akan ditambahkan di sini</p>
+                    <!-- Table Header -->
+                    <div class="overflow-x-auto">
+                        <table class="w-full">
+                            <thead class="bg-surface">
+                                <tr>
+                                    <th class="px-4 py-3 text-left text-xs font-medium text-muted uppercase tracking-wider">Gambar</th>
+                                    <th class="px-4 py-3 text-left text-xs font-medium text-muted uppercase tracking-wider">Nama Produk</th>
+                                    <th class="px-4 py-3 text-left text-xs font-medium text-muted uppercase tracking-wider">Kategori</th>
+                                    <th class="px-4 py-3 text-left text-xs font-medium text-muted uppercase tracking-wider">Harga</th>
+                                    <th class="px-4 py-3 text-left text-xs font-medium text-muted uppercase tracking-wider">Stok</th>
+                                    <th class="px-4 py-3 text-left text-xs font-medium text-muted uppercase tracking-wider">Status</th>
+                                    <th class="px-4 py-3 text-left text-xs font-medium text-muted uppercase tracking-wider">Aksi</th>
+                                </tr>
+                            </thead>
+                            <tbody class="divide-y divide-border">
+                                <!-- Empty State -->
+                                <tr>
+                                    <td colspan="7" class="px-4 py-12 text-center">
+                                        <i class='bx bx-package text-4xl text-muted mb-3'></i>
+                                        <h4 class="text-lg font-medium text-text mb-2">Belum Ada Produk</h4>
+                                        <p class="text-muted text-sm">Mulai dengan menambahkan produk pertama Anda</p>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
                     </div>
                 </div>
             </main>
+        </div>
+    </div>
+
+    <!-- Delete Confirmation Modal -->
+    <div x-show="showDeleteModal" 
+         x-transition:enter="transition-opacity ease-linear duration-300"
+         x-transition:enter-start="opacity-0"
+         x-transition:enter-end="opacity-100"
+         x-transition:leave="transition-opacity ease-linear duration-300"
+         x-transition:leave-start="opacity-100"
+         x-transition:leave-end="opacity-0"
+         class="fixed inset-0 z-50 overflow-y-auto"
+         x-cloak>
+        
+        <!-- Modal Backdrop -->
+        <div class="fixed inset-0 bg-black bg-opacity-50" @click="showDeleteModal = false"></div>
+        
+        <!-- Modal Content -->
+        <div class="flex min-h-full items-center justify-center p-4">
+            <div class="relative bg-card rounded-lg border border-border max-w-md w-full">
+                <!-- Modal Header -->
+                <div class="px-6 py-4 border-b border-border">
+                    <h3 class="text-lg font-semibold text-text">Konfirmasi Hapus</h3>
+                </div>
+                
+                <!-- Modal Body -->
+                <div class="px-6 py-4">
+                    <div class="flex items-center space-x-3 mb-4">
+                        <div class="w-10 h-10 bg-red-100 rounded-full flex items-center justify-center">
+                            <i class='bx bx-trash text-red-600 text-lg'></i>
+                        </div>
+                        <div>
+                            <p class="text-text font-medium">Hapus Produk</p>
+                            <p class="text-muted text-sm">Tindakan ini tidak dapat dibatalkan</p>
+                        </div>
+                    </div>
+                    <p class="text-muted text-sm">
+                        Apakah Anda yakin ingin menghapus produk ini? Semua data terkait akan dihapus secara permanen.
+                    </p>
+                </div>
+                
+                <!-- Modal Footer -->
+                <div class="px-6 py-4 bg-surface rounded-b-lg flex justify-end space-x-3">
+                    <button @click="showDeleteModal = false" 
+                            class="px-4 py-2 text-muted hover:text-text transition-colors duration-200">
+                        Batal
+                    </button>
+                    <button @click="showDeleteModal = false" 
+                            class="px-4 py-2 bg-red-600 text-white rounded-lg hover:bg-red-700 transition-colors duration-200">
+                        Hapus
+                    </button>
+                </div>
+            </div>
         </div>
     </div>
 

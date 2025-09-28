@@ -72,3 +72,6 @@ $route['admin'] = 'admin';
 $route['admin/login'] = 'admin/login';
 $route['admin/authenticate'] = 'admin/authenticate';
 $route['admin/logout'] = 'admin/logout';
+$route['admin/products'] = 'admin/products';
+$route['admin/products/add'] = 'admin/add_product';
+$route['admin/products/edit/(:num)'] = 'admin/edit_product/$1';
