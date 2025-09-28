@@ -39,7 +39,7 @@
         }
     </script>
     
-    <link rel="icon" href="<?php echo base_url('gambar/logo_new.jpg'); ?>" />
+    <link rel="icon" href="/gambar/logo_new.jpg" />
 </head>
 <body class="font-inter bg-surface min-h-screen">
     <div class="min-h-screen flex items-center justify-center px-4">
@@ -61,7 +61,7 @@
             
             <!-- Action Buttons -->
             <div class="space-y-4">
-                <a href="<?php echo base_url(); ?>" 
+                <a href="/" 
                    class="inline-flex items-center justify-center w-full bg-primary text-white py-3 px-6 rounded-lg hover:bg-primary-700 transition-colors duration-200">
                     <i class='bx bx-home mr-2'></i>
                     Kembali ke Beranda
@@ -78,17 +78,17 @@
             <div class="mt-12 pt-8 border-t border-border">
                 <h3 class="text-lg font-medium text-text mb-4">Butuh Bantuan?</h3>
                 <div class="space-y-3">
-                    <a href="<?php echo base_url('produk'); ?>" 
+                    <a href="/produk" 
                        class="block text-muted hover:text-primary transition-colors duration-200">
                         <i class='bx bx-box mr-2'></i>
                         Lihat Produk Kami
                     </a>
-                    <a href="<?php echo base_url('tentang-kami'); ?>" 
+                    <a href="/tentang-kami" 
                        class="block text-muted hover:text-primary transition-colors duration-200">
                         <i class='bx bx-info-circle mr-2'></i>
                         Tentang Kami
                     </a>
-                    <a href="<?php echo base_url('kontak'); ?>" 
+                    <a href="/kontak" 
                        class="block text-muted hover:text-primary transition-colors duration-200">
                         <i class='bx bx-phone mr-2'></i>
                         Hubungi Kami
