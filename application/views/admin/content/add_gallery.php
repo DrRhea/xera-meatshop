@@ -13,7 +13,7 @@
     </div>
 
     <!-- Form -->
-    <form class="space-y-6">
+    <form action="<?php echo base_url('admin/gallery/add'); ?>" method="POST" enctype="multipart/form-data" class="space-y-6">
         <div class="bg-card border border-border rounded-lg p-6">
             <!-- Image Upload -->
             <div class="mb-8">
@@ -53,6 +53,8 @@
                             Judul <span class="text-red-500">*</span>
                         </label>
                         <input type="text" 
+                               name="title"
+                               required
                                class="w-full px-3 py-2 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent"
                                placeholder="Masukkan judul galeri">
                     </div>
@@ -61,7 +63,7 @@
                         <label class="block text-sm font-medium text-text mb-2">
                             Kategori
                         </label>
-                        <select class="w-full px-3 py-2 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+                        <select name="category" required class="w-full px-3 py-2 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
                             <option value="">Pilih Kategori</option>
                             <option value="products">Produk</option>
                             <option value="store">Toko</option>
@@ -74,7 +76,7 @@
                         <label class="block text-sm font-medium text-text mb-2">
                             Status
                         </label>
-                        <select class="w-full px-3 py-2 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+                        <select name="status" class="w-full px-3 py-2 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
                             <option value="active">Aktif</option>
                             <option value="inactive">Tidak Aktif</option>
                         </select>
@@ -94,7 +96,8 @@
                         <label class="block text-sm font-medium text-text mb-2">
                             Deskripsi
                         </label>
-                        <textarea rows="4" 
+                        <textarea name="description" 
+                                  rows="4" 
                                   class="w-full px-3 py-2 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent resize-none"
                                   placeholder="Masukkan deskripsi galeri"></textarea>
                     </div>
