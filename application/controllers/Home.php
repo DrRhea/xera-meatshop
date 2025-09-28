@@ -8,6 +8,7 @@ class Home extends CI_Controller {
         parent::__construct();
         $this->load->helper('url');
         $this->load->model('Product_model');
+        $this->load->model('Promo_model');
     }
 
     public function index()
@@ -17,6 +18,9 @@ class Home extends CI_Controller {
         
         // Get latest products from database
         $data['latest_products'] = $this->Product_model->get_products(4, 0, null, null, 'active');
+        
+        // Get active daily promos from database
+        $data['daily_promos'] = $this->Promo_model->get_active_promos(4);
         
         $this->load->view('templates/header', $data);
         $this->load->view('home/index', $data);
