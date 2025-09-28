@@ -33,7 +33,6 @@
                                  alt="Tentang Kami" 
                                  class="w-full h-96 object-cover rounded-lg shadow-xl">
                             <div class="absolute inset-0 bg-primary bg-opacity-20 rounded-lg"></div>
-                        </div>
                     </div>
                     <!-- Content -->
                     <div class="order-1 lg:order-2">
@@ -101,7 +100,7 @@
                             <span class="absolute top-3 left-3 bg-accent text-white px-2 py-1 text-xs font-semibold rounded-full">
                                 BARU
                             </span>
-                        </div>
+                          </div>
                         <div class="p-6">
                             <p class="text-sm text-primary font-semibold mb-2">Meat</p>
                             <h4 class="text-lg font-bold text-gray-900 mb-4">De Cecco Spaghetti 500gr</h4>
@@ -113,9 +112,9 @@
                                     </button>
                                     <button class="bg-gray-100 text-gray-700 p-2 rounded-lg hover:bg-gray-200 transition-colors">
                                         <i class='bx bx-cart-add text-xl'></i>
-                                    </button>
+                            </button>
                                 </div>
-                            </div>
+                          </div>
                         </div>
                     </div>
                     <!-- Card Produk 2 -->
@@ -127,7 +126,7 @@
                             <span class="absolute top-3 left-3 bg-accent text-white px-2 py-1 text-xs font-semibold rounded-full">
                                 BARU
                             </span>
-                        </div>
+                          </div>
                         <div class="p-6">
                             <p class="text-sm text-primary font-semibold mb-2">Meat</p>
                             <h4 class="text-lg font-bold text-gray-900 mb-4">De Cecco Spaghetti 500gr</h4>
@@ -139,9 +138,9 @@
                                     </button>
                                     <button class="bg-gray-100 text-gray-700 p-2 rounded-lg hover:bg-gray-200 transition-colors">
                                         <i class='bx bx-cart-add text-xl'></i>
-                                    </button>
+                            </button>
                                 </div>
-                            </div>
+                          </div>
                         </div>
                     </div>
                     <!-- Card Produk 3 -->
@@ -153,7 +152,7 @@
                             <span class="absolute top-3 left-3 bg-accent text-white px-2 py-1 text-xs font-semibold rounded-full">
                                 BARU
                             </span>
-                        </div>
+                          </div>
                         <div class="p-6">
                             <p class="text-sm text-primary font-semibold mb-2">Meat</p>
                             <h4 class="text-lg font-bold text-gray-900 mb-4">De Cecco Spaghetti 500gr</h4>
@@ -165,9 +164,9 @@
                                     </button>
                                     <button class="bg-gray-100 text-gray-700 p-2 rounded-lg hover:bg-gray-200 transition-colors">
                                         <i class='bx bx-cart-add text-xl'></i>
-                                    </button>
+                            </button>
                                 </div>
-                            </div>
+                          </div>
                         </div>
                     </div>
                     <!-- Card Produk 4 -->
@@ -179,7 +178,7 @@
                             <span class="absolute top-3 left-3 bg-accent text-white px-2 py-1 text-xs font-semibold rounded-full">
                                 BARU
                             </span>
-                        </div>
+                          </div>
                         <div class="p-6">
                             <p class="text-sm text-primary font-semibold mb-2">Meat</p>
                             <h4 class="text-lg font-bold text-gray-900 mb-4">De Cecco Spaghetti 500gr</h4>
@@ -191,9 +190,9 @@
                                     </button>
                                     <button class="bg-gray-100 text-gray-700 p-2 rounded-lg hover:bg-gray-200 transition-colors">
                                         <i class='bx bx-cart-add text-xl'></i>
-                                    </button>
+                            </button>
                                 </div>
-                            </div>
+                          </div>
                         </div>
                     </div>
                     <!-- Card Produk 5 -->
@@ -205,7 +204,7 @@
                             <span class="absolute top-3 left-3 bg-accent text-white px-2 py-1 text-xs font-semibold rounded-full">
                                 BARU
                             </span>
-                        </div>
+                          </div>
                         <div class="p-6">
                             <p class="text-sm text-primary font-semibold mb-2">Meat</p>
                             <h4 class="text-lg font-bold text-gray-900 mb-4">De Cecco Spaghetti 500gr</h4>
@@ -217,9 +216,9 @@
                                     </button>
                                     <button class="bg-gray-100 text-gray-700 p-2 rounded-lg hover:bg-gray-200 transition-colors">
                                         <i class='bx bx-cart-add text-xl'></i>
-                                    </button>
+                            </button>
                                 </div>
-                            </div>
+                          </div>
                         </div>
                     </div>
                     <!-- Card Produk 6 -->
@@ -231,7 +230,7 @@
                             <span class="absolute top-3 left-3 bg-accent text-white px-2 py-1 text-xs font-semibold rounded-full">
                                 BARU
                             </span>
-                        </div>
+                          </div>
                         <div class="p-6">
                             <p class="text-sm text-primary font-semibold mb-2">Meat</p>
                             <h4 class="text-lg font-bold text-gray-900 mb-4">De Cecco Spaghetti 500gr</h4>
@@ -243,9 +242,9 @@
                                     </button>
                                     <button class="bg-gray-100 text-gray-700 p-2 rounded-lg hover:bg-gray-200 transition-colors">
                                         <i class='bx bx-cart-add text-xl'></i>
-                                    </button>
+                            </button>
                                 </div>
-                            </div>
+                          </div>
                         </div>
                     </div>
                 </div>
@@ -284,8 +283,7 @@
                                         <button class="bg-white bg-opacity-20 text-white p-2 rounded-lg hover:bg-opacity-30 transition-colors">
                                             <i class='bx bx-cart-add text-xl'></i>
                                         </button>
-                                    </div>
-                                </div>
+                        </div>
                             </div>
                         </article>
                         <!-- Card Promo 2 -->
@@ -297,7 +295,7 @@
                                 <span class="absolute top-3 left-3 bg-white text-accent px-3 py-1 text-sm font-bold rounded-full">
                                     PROMO
                                 </span>
-                            </div>
+                        </div>
                             <div class="p-6">
                                 <h5 class="text-sm text-white font-semibold mb-2">Minuman</h5>
                                 <h4 class="text-lg font-bold text-white mb-4">Bull-Dog Vegetable & fruit sauce 1 botol / 300 ml</h4>
@@ -306,7 +304,6 @@
                                     <button class="bg-white text-accent px-4 py-2 rounded-lg hover:bg-gray-100 transition-colors text-sm font-semibold">
                                         Pesan
                                     </button>
-                                </div>
                             </div>
                         </article>
                         <!-- Card Promo 3 -->
@@ -318,7 +315,7 @@
                                 <span class="absolute top-3 left-3 bg-white text-secondary px-3 py-1 text-sm font-bold rounded-full">
                                     PROMO
                                 </span>
-                            </div>
+                        </div>
                             <div class="p-6">
                                 <h5 class="text-sm text-white font-semibold mb-2">Minuman</h5>
                                 <h4 class="text-lg font-bold text-white mb-4">Bull-Dog Vegetable & fruit sauce 1 botol / 300 ml</h4>
@@ -327,7 +324,6 @@
                                     <button class="bg-white text-secondary px-4 py-2 rounded-lg hover:bg-gray-100 transition-colors text-sm font-semibold">
                                         Pesan
                                     </button>
-                                </div>
                             </div>
                         </article>
                         <!-- Card Promo 4 -->
@@ -355,4 +351,3 @@
                 </div>
             </div>
         </section>
-       

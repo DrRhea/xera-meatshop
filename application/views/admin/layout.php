@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title><?php echo isset($title) ? $title : 'Admin Dashboard - Meat Shop & Grocery'; ?></title>
+    <title><?php echo isset($title) ? $title : 'Admin Dashboard'; ?></title>
 
     <!-- Fonts -->
     <link rel="preconnect" href="https://fonts.googleapis.com">
@@ -85,13 +85,15 @@
 
             <!-- Sidebar Navigation -->
             <nav class="mt-4">
-                <a href="<?php echo base_url('admin'); ?>" class="flex items-center px-3 py-2 bg-primary text-white rounded-lg mx-2 mb-1">
+                <a href="<?php echo base_url('admin'); ?>" 
+                   class="flex items-center px-3 py-2 <?php echo (uri_string() == 'admin' || uri_string() == '') ? 'bg-primary text-white rounded-lg mx-2 mb-1' : 'text-muted hover:bg-surface hover:text-text transition-colors duration-200 mx-2 mb-1'; ?>">
                     <i class='bx bx-home-alt mr-2 text-base'></i>
-                    <span class="text-sm font-medium">Dashboard</span>
+                    <span class="text-sm <?php echo (uri_string() == 'admin' || uri_string() == '') ? 'font-medium' : ''; ?>">Dashboard</span>
                 </a>
-                <a href="<?php echo base_url('admin/products'); ?>" class="flex items-center px-3 py-2 text-muted hover:bg-surface hover:text-text transition-colors duration-200 mx-2 mb-1">
+                <a href="<?php echo base_url('admin/products'); ?>" 
+                   class="flex items-center px-3 py-2 <?php echo (strpos(uri_string(), 'admin/products') !== false) ? 'bg-primary text-white rounded-lg mx-2 mb-1' : 'text-muted hover:bg-surface hover:text-text transition-colors duration-200 mx-2 mb-1'; ?>">
                     <i class='bx bx-box mr-2 text-base'></i>
-                    <span class="text-sm">Produk</span>
+                    <span class="text-sm <?php echo (strpos(uri_string(), 'admin/products') !== false) ? 'font-medium' : ''; ?>">Produk</span>
                 </a>
                 <a href="#" class="flex items-center px-3 py-2 text-muted hover:bg-surface hover:text-text transition-colors duration-200 mx-2 mb-1">
                     <i class='bx bx-cart-alt mr-2 text-base'></i>
@@ -120,11 +122,13 @@
         <div class="flex-1 flex flex-col overflow-hidden">
             <!-- Top Navbar -->
             <header class="flex justify-between items-center px-4 py-2 bg-card border-b border-border">
-                <button @click="sidebarOpen = true" 
-                        class="md:hidden text-muted hover:text-text focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50 rounded p-2">
-                    <i class='bx bx-menu text-2xl'></i>
-                </button>
-                <h1 class="text-2xl font-semibold text-text">Dashboard</h1>
+                <div class="flex items-center space-x-4">
+                    <button @click="sidebarOpen = true" 
+                            class="md:hidden text-muted hover:text-text focus:outline-none focus:ring-2 focus:ring-primary focus:ring-opacity-50 rounded p-2">
+                        <i class='bx bx-menu text-2xl'></i>
+                    </button>
+                    <h1 class="text-2xl font-semibold text-text"><?php echo isset($page_title) ? $page_title : 'Dashboard'; ?></h1>
+                </div>
                 <div class="flex items-center space-x-4">
                 </div>
             </header>
@@ -132,60 +136,7 @@
             <!-- Page Content -->
             <main class="flex-1 overflow-x-hidden overflow-y-auto bg-surface p-4" 
                   @click="if (window.innerWidth < 768) sidebarOpen = false">
-                <!-- Welcome Section -->
-                <div class="mb-4">
-                    <h2 class="text-2xl font-bold text-text mb-1">Selamat Datang di Dashboard</h2>
-                    <p class="text-muted text-sm">Kelola bisnis Meat Shop & Grocery Anda dengan mudah</p>
-                </div>
-
-                <!-- Stats Cards -->
-                <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 mb-6">
-                    <!-- Stat Card 1 -->
-                    <div class="bg-card rounded-lg border border-border p-4 flex items-center justify-between">
-                        <div>
-                            <p class="text-xs text-muted">Total Produk</p>
-                            <h2 class="text-2xl font-bold text-text">0</h2>
-                        </div>
-                        <i class='bx bx-box text-3xl text-primary'></i>
-                    </div>
-                    
-                    <!-- Stat Card 2 -->
-                    <div class="bg-card rounded-lg border border-border p-4 flex items-center justify-between">
-                        <div>
-                            <p class="text-xs text-muted">Total Pesanan</p>
-                            <h2 class="text-2xl font-bold text-text">0</h2>
-                        </div>
-                        <i class='bx bx-cart-alt text-3xl text-primary'></i>
-                    </div>
-                    
-                    <!-- Stat Card 3 -->
-                    <div class="bg-card rounded-lg border border-border p-4 flex items-center justify-between">
-                        <div>
-                            <p class="text-xs text-muted">Pelanggan Baru</p>
-                            <h2 class="text-2xl font-bold text-text">0</h2>
-                        </div>
-                        <i class='bx bx-group text-3xl text-primary'></i>
-                    </div>
-                    
-                    <!-- Stat Card 4 -->
-                    <div class="bg-card rounded-lg border border-border p-4 flex items-center justify-between">
-                        <div>
-                            <p class="text-xs text-muted">Pendapatan</p>
-                            <h2 class="text-2xl font-bold text-text">Rp 0</h2>
-                        </div>
-                        <i class='bx bx-dollar-circle text-3xl text-primary'></i>
-                    </div>
-                </div>
-
-                <!-- Main Content Area -->
-                <div class="bg-card rounded-lg border border-border p-4">
-                    <h3 class="text-lg font-semibold text-text mb-3">Konten Utama</h3>
-                    <div class="text-center py-8">
-                        <i class='bx bx-package text-4xl text-muted mb-3'></i>
-                        <h4 class="text-base font-medium text-text mb-2">Halaman Dashboard</h4>
-                        <p class="text-muted text-sm">Konten dashboard akan ditambahkan di sini</p>
-                    </div>
-                </div>
+                <?php echo $content; ?>
             </main>
         </div>
     </div>
@@ -234,6 +185,95 @@
                     }
                 }
             });
+        });
+
+        // Image Preview Function
+        function previewImage(input) {
+            if (input.files && input.files[0]) {
+                const reader = new FileReader();
+                
+                reader.onload = function(e) {
+                    const preview = document.getElementById('image_preview');
+                    const previewImg = document.getElementById('preview_img');
+                    
+                    if (preview && previewImg) {
+                        previewImg.src = e.target.result;
+                        preview.classList.remove('hidden');
+                    }
+                };
+                
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        // Image Preview Function for Edit
+        function previewImageEdit(input) {
+            if (input.files && input.files[0]) {
+                const reader = new FileReader();
+                
+                reader.onload = function(e) {
+                    const preview = document.getElementById('image_preview_edit');
+                    const previewImg = document.getElementById('preview_img_edit');
+                    
+                    if (preview && previewImg) {
+                        previewImg.src = e.target.result;
+                        preview.classList.remove('hidden');
+                    }
+                };
+                
+                reader.readAsDataURL(input.files[0]);
+            }
+        }
+
+        // Drag and Drop functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const uploadAreas = document.querySelectorAll('[onclick*="product_image"]');
+            
+            uploadAreas.forEach(area => {
+                // Prevent default drag behaviors
+                ['dragenter', 'dragover', 'dragleave', 'drop'].forEach(eventName => {
+                    area.addEventListener(eventName, preventDefaults, false);
+                    document.body.addEventListener(eventName, preventDefaults, false);
+                });
+
+                // Highlight drop area when item is dragged over it
+                ['dragenter', 'dragover'].forEach(eventName => {
+                    area.addEventListener(eventName, highlight, false);
+                });
+
+                ['dragleave', 'drop'].forEach(eventName => {
+                    area.addEventListener(eventName, unhighlight, false);
+                });
+
+                // Handle dropped files
+                area.addEventListener('drop', handleDrop, false);
+            });
+
+            function preventDefaults(e) {
+                e.preventDefault();
+                e.stopPropagation();
+            }
+
+            function highlight(e) {
+                e.currentTarget.classList.add('border-primary', 'bg-primary', 'bg-opacity-10');
+            }
+
+            function unhighlight(e) {
+                e.currentTarget.classList.remove('border-primary', 'bg-primary', 'bg-opacity-10');
+            }
+
+            function handleDrop(e) {
+                const dt = e.dataTransfer;
+                const files = dt.files;
+                
+                if (files.length > 0) {
+                    const fileInput = document.getElementById('product_image');
+                    if (fileInput) {
+                        fileInput.files = files;
+                        previewImage(fileInput);
+                    }
+                }
+            }
         });
     </script>
 </body>
