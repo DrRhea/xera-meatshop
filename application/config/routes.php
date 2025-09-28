@@ -103,3 +103,10 @@ $route['admin/test-upload'] = 'admin/test_upload';
 
 // Gallery routes
 $route['gallery'] = 'gallery/public_gallery';
+
+// Contact routes
+$route['contact/submit'] = 'contact/submit';
+$route['admin/contact'] = 'admin/contact';
+$route['admin/contact/view/(:num)'] = 'admin/view/$1';
+$route['admin/contact/update_status/(:num)'] = 'admin/update_status/$1';
+$route['admin/contact/delete/(:num)'] = 'admin/delete_message/$1';

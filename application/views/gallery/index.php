@@ -3,6 +3,8 @@
     [x-cloak] { display: none !important; }
 </style>
 
+<!-- Main Container with Alpine.js -->
+<div x-data="{ openModal: false, selectedItem: null }">
 <!-- Hero Section -->
 <section class="bg-gradient-to-br from-primary/10 to-primary/5 py-16">
     <div class="w-full px-4 sm:px-6 lg:px-8">
@@ -38,7 +40,7 @@
             </div>
         <?php else: ?>
             <!-- Gallery Grid -->
-            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8" x-data="{ openModal: false, selectedItem: null }">
+            <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
                 <?php foreach ($gallery as $item): ?>
                     <div class="bg-white rounded-2xl transition-all duration-300 group overflow-hidden hover:shadow-lg cursor-pointer"
                          @click="
@@ -174,21 +176,11 @@
                         <p class="text-gray-600 leading-relaxed" x-text="selectedItem?.description || 'Tidak ada deskripsi tersedia.'"></p>
                     </div>
                     
-                    <!-- Action Buttons -->
-                    <div class="flex flex-col sm:flex-row gap-4">
-                        <a href="<?php echo base_url('produk'); ?>" 
-                           class="flex-1 bg-primary text-white px-6 py-3 rounded-lg hover:bg-primary-700 transition-colors duration-200 text-center">
-                            <i class='bx bx-box mr-2'></i>
-                            Lihat Produk Kami
-                        </a>
-                        <a href="<?php echo base_url('about'); ?>" 
-                           class="flex-1 bg-gray-100 text-gray-700 px-6 py-3 rounded-lg hover:bg-gray-200 transition-colors duration-200 text-center">
-                            <i class='bx bx-info-circle mr-2'></i>
-                            Tentang Kami
-                        </a>
-                    </div>
                 </div>
             </div>
         </div>
     </div>
+</div>
+
+<!-- Close Alpine.js container -->
 </div>

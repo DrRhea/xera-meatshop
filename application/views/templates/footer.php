@@ -106,12 +106,28 @@
                     <div class="space-y-8">
                         <div>
                             <h4 class="text-lg font-semibold text-gray-900 mb-8">Hubungi Kami</h4>
-                            <form class="space-y-5">
-                                <input type="text" placeholder="Nama Lengkap" class="w-full px-5 py-4 bg-gray-50 border border-gray-200 rounded-xl text-gray-900 placeholder-gray-500 focus:outline-none focus:border-primary focus:bg-white transition-all duration-300 text-base">
-                                <input type="tel" placeholder="No. WhatsApp" class="w-full px-5 py-4 bg-gray-50 border border-gray-200 rounded-xl text-gray-900 placeholder-gray-500 focus:outline-none focus:border-primary focus:bg-white transition-all duration-300 text-base">
-                                <input type="email" placeholder="Email" class="w-full px-5 py-4 bg-gray-50 border border-gray-200 rounded-xl text-gray-900 placeholder-gray-500 focus:outline-none focus:border-primary focus:bg-white transition-all duration-300 text-base">
-                                <textarea placeholder="Pesan Anda" rows="4" class="w-full px-5 py-4 bg-gray-50 border border-gray-200 rounded-xl text-gray-900 placeholder-gray-500 focus:outline-none focus:border-primary focus:bg-white transition-all duration-300 resize-none text-base"></textarea>
+                            
+                            <!-- Flash Messages -->
+                            <?php if($this->session->flashdata('success')): ?>
+                                <div class="mb-4 p-4 bg-green-50 border border-green-200 rounded-xl">
+                                    <p class="text-green-700 text-sm"><?php echo $this->session->flashdata('success'); ?></p>
+                                </div>
+                            <?php endif; ?>
+                            
+                            <?php if($this->session->flashdata('error')): ?>
+                                <div class="mb-4 p-4 bg-red-50 border border-red-200 rounded-xl">
+                                    <p class="text-red-700 text-sm"><?php echo $this->session->flashdata('error'); ?></p>
+                                </div>
+                            <?php endif; ?>
+                            
+                            <form action="<?php echo base_url('contact/submit'); ?>" method="POST" class="space-y-5">
+                                <input type="text" name="name" placeholder="Nama Lengkap" required class="w-full px-5 py-4 bg-gray-50 border border-gray-200 rounded-xl text-gray-900 placeholder-gray-500 focus:outline-none focus:border-primary focus:bg-white transition-all duration-300 text-base">
+                                <input type="tel" name="phone" placeholder="No. WhatsApp" class="w-full px-5 py-4 bg-gray-50 border border-gray-200 rounded-xl text-gray-900 placeholder-gray-500 focus:outline-none focus:border-primary focus:bg-white transition-all duration-300 text-base">
+                                <input type="email" name="email" placeholder="Email" required class="w-full px-5 py-4 bg-gray-50 border border-gray-200 rounded-xl text-gray-900 placeholder-gray-500 focus:outline-none focus:border-primary focus:bg-white transition-all duration-300 text-base">
+                                <input type="text" name="subject" placeholder="Subjek" required class="w-full px-5 py-4 bg-gray-50 border border-gray-200 rounded-xl text-gray-900 placeholder-gray-500 focus:outline-none focus:border-primary focus:bg-white transition-all duration-300 text-base">
+                                <textarea name="message" placeholder="Pesan Anda" rows="4" required class="w-full px-5 py-4 bg-gray-50 border border-gray-200 rounded-xl text-gray-900 placeholder-gray-500 focus:outline-none focus:border-primary focus:bg-white transition-all duration-300 resize-none text-base"></textarea>
                                 <button type="submit" class="w-full bg-primary text-white px-6 py-4 rounded-xl hover:bg-primary-700 transition-all duration-300 font-semibold text-base">
+                                    <i class='bx bx-send mr-2'></i>
                                     Kirim Pesan
                                 </button>
                 </form>
