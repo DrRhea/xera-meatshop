@@ -93,7 +93,7 @@
                 <!-- Grid produk Unggulan index -->
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
                     <!-- Card Produk 1 -->
-                    <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 group">
+                    <div class="bg-card border border-border overflow-hidden hover:border-primary transition-colors duration-300 group">
                         <div class="relative">
                             <img src="<?php echo base_url('assets/img/gal-1.jpg'); ?>" 
                                  alt="Produk 1" 
@@ -108,10 +108,10 @@
                             <div class="flex items-center justify-between">
                                 <span class="text-2xl font-bold text-primary">Rp 44.000</span>
                                 <div class="flex space-x-2">
-                                    <button class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-yellow-600 transition-colors text-sm font-semibold">
+                                    <button class="bg-primary text-white px-4 py-2 rounded hover:bg-primary-700 transition-colors text-sm font-semibold uppercase tracking-wide">
                                         Pesan
                                     </button>
-                                    <button class="bg-gray-100 text-gray-700 p-2 rounded-lg hover:bg-gray-200 transition-colors">
+                                    <button class="bg-surface text-muted p-2 rounded hover:bg-primary hover:text-white transition-colors">
                                         <i class='bx bx-cart-add text-xl'></i>
                                     </button>
                                 </div>
@@ -119,7 +119,7 @@
                         </div>
                     </div>
                     <!-- Card Produk 2 -->
-                    <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 group">
+                    <div class="bg-card border border-border overflow-hidden hover:border-primary transition-colors duration-300 group">
                         <div class="relative">
                             <img src="<?php echo base_url('assets/img/gal-1.jpg'); ?>" 
                                  alt="Produk 2" 
@@ -134,10 +134,10 @@
                             <div class="flex items-center justify-between">
                                 <span class="text-2xl font-bold text-primary">Rp 44.000</span>
                                 <div class="flex space-x-2">
-                                    <button class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-yellow-600 transition-colors text-sm font-semibold">
+                                    <button class="bg-primary text-white px-4 py-2 rounded hover:bg-primary-700 transition-colors text-sm font-semibold uppercase tracking-wide">
                                         Pesan
                                     </button>
-                                    <button class="bg-gray-100 text-gray-700 p-2 rounded-lg hover:bg-gray-200 transition-colors">
+                                    <button class="bg-surface text-muted p-2 rounded hover:bg-primary hover:text-white transition-colors">
                                         <i class='bx bx-cart-add text-xl'></i>
                                     </button>
                                 </div>
@@ -145,7 +145,7 @@
                         </div>
                     </div>
                     <!-- Card Produk 3 -->
-                    <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 group">
+                    <div class="bg-card border border-border overflow-hidden hover:border-primary transition-colors duration-300 group">
                         <div class="relative">
                             <img src="<?php echo base_url('assets/img/gal-1.jpg'); ?>" 
                                  alt="Produk 3" 
@@ -160,10 +160,10 @@
                             <div class="flex items-center justify-between">
                                 <span class="text-2xl font-bold text-primary">Rp 44.000</span>
                                 <div class="flex space-x-2">
-                                    <button class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-yellow-600 transition-colors text-sm font-semibold">
+                                    <button class="bg-primary text-white px-4 py-2 rounded hover:bg-primary-700 transition-colors text-sm font-semibold uppercase tracking-wide">
                                         Pesan
                                     </button>
-                                    <button class="bg-gray-100 text-gray-700 p-2 rounded-lg hover:bg-gray-200 transition-colors">
+                                    <button class="bg-surface text-muted p-2 rounded hover:bg-primary hover:text-white transition-colors">
                                         <i class='bx bx-cart-add text-xl'></i>
                                     </button>
                                 </div>
@@ -171,7 +171,7 @@
                         </div>
                     </div>
                     <!-- Card Produk 4 -->
-                    <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 group">
+                    <div class="bg-card border border-border overflow-hidden hover:border-primary transition-colors duration-300 group">
                         <div class="relative">
                             <img src="<?php echo base_url('assets/img/gal-1.jpg'); ?>" 
                                  alt="Produk 4" 
@@ -186,10 +186,10 @@
                             <div class="flex items-center justify-between">
                                 <span class="text-2xl font-bold text-primary">Rp 44.000</span>
                                 <div class="flex space-x-2">
-                                    <button class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-yellow-600 transition-colors text-sm font-semibold">
+                                    <button class="bg-primary text-white px-4 py-2 rounded hover:bg-primary-700 transition-colors text-sm font-semibold uppercase tracking-wide">
                                         Pesan
                                     </button>
-                                    <button class="bg-gray-100 text-gray-700 p-2 rounded-lg hover:bg-gray-200 transition-colors">
+                                    <button class="bg-surface text-muted p-2 rounded hover:bg-primary hover:text-white transition-colors">
                                         <i class='bx bx-cart-add text-xl'></i>
                                     </button>
                                 </div>
@@ -197,7 +197,7 @@
                         </div>
                     </div>
                     <!-- Card Produk 5 -->
-                    <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 group">
+                    <div class="bg-card border border-border overflow-hidden hover:border-primary transition-colors duration-300 group">
                         <div class="relative">
                             <img src="<?php echo base_url('assets/img/gal-1.jpg'); ?>" 
                                  alt="Produk 5" 
@@ -212,10 +212,10 @@
                             <div class="flex items-center justify-between">
                                 <span class="text-2xl font-bold text-primary">Rp 44.000</span>
                                 <div class="flex space-x-2">
-                                    <button class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-yellow-600 transition-colors text-sm font-semibold">
+                                    <button class="bg-primary text-white px-4 py-2 rounded hover:bg-primary-700 transition-colors text-sm font-semibold uppercase tracking-wide">
                                         Pesan
                                     </button>
-                                    <button class="bg-gray-100 text-gray-700 p-2 rounded-lg hover:bg-gray-200 transition-colors">
+                                    <button class="bg-surface text-muted p-2 rounded hover:bg-primary hover:text-white transition-colors">
                                         <i class='bx bx-cart-add text-xl'></i>
                                     </button>
                                 </div>
@@ -223,7 +223,7 @@
                         </div>
                     </div>
                     <!-- Card Produk 6 -->
-                    <div class="bg-white rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 group">
+                    <div class="bg-card border border-border overflow-hidden hover:border-primary transition-colors duration-300 group">
                         <div class="relative">
                             <img src="<?php echo base_url('assets/img/gal-1.jpg'); ?>" 
                                  alt="Produk 6" 
@@ -238,10 +238,10 @@
                             <div class="flex items-center justify-between">
                                 <span class="text-2xl font-bold text-primary">Rp 44.000</span>
                                 <div class="flex space-x-2">
-                                    <button class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-yellow-600 transition-colors text-sm font-semibold">
+                                    <button class="bg-primary text-white px-4 py-2 rounded hover:bg-primary-700 transition-colors text-sm font-semibold uppercase tracking-wide">
                                         Pesan
                                     </button>
-                                    <button class="bg-gray-100 text-gray-700 p-2 rounded-lg hover:bg-gray-200 transition-colors">
+                                    <button class="bg-surface text-muted p-2 rounded hover:bg-primary hover:text-white transition-colors">
                                         <i class='bx bx-cart-add text-xl'></i>
                                     </button>
                                 </div>
@@ -278,10 +278,10 @@
                                 <div class="flex items-center justify-between">
                                     <span class="text-2xl font-bold text-white">Rp 56.000</span>
                                     <div class="flex space-x-2">
-                                        <button class="bg-white text-primary px-4 py-2 rounded-lg hover:bg-gray-100 transition-colors text-sm font-semibold">
+                                        <button class="bg-white text-primary px-4 py-2 rounded hover:bg-primary hover:text-white transition-colors text-sm font-semibold uppercase tracking-wide">
                                             Pesan
                                         </button>
-                                        <button class="bg-white bg-opacity-20 text-white p-2 rounded-lg hover:bg-opacity-30 transition-colors">
+                                        <button class="bg-white bg-opacity-20 text-white p-2 rounded hover:bg-white hover:text-primary transition-colors">
                                             <i class='bx bx-cart-add text-xl'></i>
                                         </button>
                                     </div>
@@ -289,7 +289,7 @@
                             </div>
                         </article>
                         <!-- Card Promo 2 -->
-                        <article class="bg-accent rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 group">
+                        <article class="bg-accent border border-border overflow-hidden hover:border-primary transition-colors duration-300 group">
                             <div class="relative">
                                 <img src="<?php echo base_url('gambar_produk/Minuman/OKF FARMER ALOE POMEGRANATE 500ML Rp16.100.jpg'); ?>" 
                                      alt="minuman" 
@@ -303,14 +303,14 @@
                                 <h4 class="text-lg font-bold text-white mb-4">Bull-Dog Vegetable & fruit sauce 1 botol / 300 ml</h4>
                                 <div class="flex items-center justify-between">
                                     <span class="text-2xl font-bold text-white">Rp 56.000</span>
-                                    <button class="bg-white text-accent px-4 py-2 rounded-lg hover:bg-gray-100 transition-colors text-sm font-semibold">
+                                    <button class="bg-white text-accent px-4 py-2 rounded hover:bg-accent hover:text-white transition-colors text-sm font-semibold uppercase tracking-wide">
                                         Pesan
                                     </button>
                                 </div>
                             </div>
                         </article>
                         <!-- Card Promo 3 -->
-                        <article class="bg-secondary rounded-lg shadow-lg overflow-hidden hover:shadow-xl transition-shadow duration-300 group">
+                        <article class="bg-secondary border border-border overflow-hidden hover:border-primary transition-colors duration-300 group">
                             <div class="relative">
                                 <img src="<?php echo base_url('gambar_produk/Minuman/OKF FARMER ALOE POMEGRANATE 500ML Rp16.100.jpg'); ?>" 
                                      alt="minuman" 
