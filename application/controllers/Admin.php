@@ -76,9 +76,9 @@ class Admin extends CI_Controller {
         }
 
         // Get search and filter parameters
-        $search = $this->input->get('search');
-        $category = $this->input->get('category');
-        $status = $this->input->get('status');
+        $search = $this->input->get('search') ?: null;
+        $category = $this->input->get('category') ?: null;
+        $status = $this->input->get('status') ?: null;
         
         // Pagination
         $this->load->library('pagination');
@@ -96,6 +96,11 @@ class Admin extends CI_Controller {
         
         $data['title'] = 'Kelola Produk - Admin Dashboard';
         $data['page_title'] = 'Kelola Produk';
+        $data['search'] = $search;
+        $data['category'] = $category;
+        $data['status'] = $status;
+        $data['selected_category'] = $category;
+        $data['categories'] = $this->Product_model->get_categories();
         $data['content'] = $this->load->view('admin/content/products', $data, TRUE);
         $this->load->view('admin/layout', $data);
     }
