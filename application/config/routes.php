@@ -66,3 +66,9 @@ $route['produk/roti'] = 'produk/roti';
 $route['produk/sayur-buah'] = 'produk/sayur_buah';
 $route['produk/daging-olahan'] = 'produk/daging_olahan';
 $route['produk/susu-olahan'] = 'produk/susu_olahan';
+
+// Admin routes
+$route['admin'] = 'admin';
+$route['admin/login'] = 'admin/login';
+$route['admin/authenticate'] = 'admin/authenticate';
+$route['admin/logout'] = 'admin/logout';
