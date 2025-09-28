@@ -14,73 +14,132 @@
         </div>
     </div>
 
+    <!-- Flash Messages -->
+    <?php if ($this->session->flashdata('success')): ?>
+        <div class="mb-4 bg-green-50 border border-green-200 text-green-700 px-4 py-3 rounded-lg flex items-center space-x-2">
+            <i class='bx bx-check-circle text-xl'></i>
+            <span><?php echo $this->session->flashdata('success'); ?></span>
+        </div>
+    <?php endif; ?>
+
+    <?php if ($this->session->flashdata('error')): ?>
+        <div class="mb-4 bg-red-50 border border-red-200 text-red-700 px-4 py-3 rounded-lg flex items-center space-x-2">
+            <i class='bx bx-error-circle text-xl'></i>
+            <span><?php echo $this->session->flashdata('error'); ?></span>
+        </div>
+    <?php endif; ?>
+
     <!-- Search and Filter -->
     <div class="bg-card border border-border rounded-lg p-4">
-        <div class="grid grid-cols-1 md:grid-cols-4 gap-4">
+        <form method="GET" action="<?php echo base_url('admin/gallery'); ?>" class="grid grid-cols-1 md:grid-cols-3 gap-4">
             <!-- Search -->
             <div class="md:col-span-2">
                 <div class="relative">
                     <i class='bx bx-search absolute left-3 top-1/2 transform -translate-y-1/2 text-muted'></i>
                     <input type="text" 
+                           name="search"
+                           value="<?php echo htmlspecialchars($search); ?>"
                            placeholder="Cari galeri..." 
                            class="w-full pl-10 pr-4 py-2 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
                 </div>
             </div>
             
-            <!-- Category Filter -->
-            <div>
-                <select class="w-full px-3 py-2 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
-                    <option value="">Semua Kategori</option>
-                    <option value="products">Produk</option>
-                    <option value="store">Toko</option>
-                    <option value="team">Tim</option>
-                    <option value="events">Acara</option>
-                </select>
-            </div>
             
             <!-- Status Filter -->
             <div>
-                <select class="w-full px-3 py-2 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+                <select name="status" class="w-full px-3 py-2 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
                     <option value="">Semua Status</option>
-                    <option value="active">Aktif</option>
-                    <option value="inactive">Tidak Aktif</option>
+                    <option value="active" <?php echo ($status == 'active') ? 'selected' : ''; ?>>Aktif</option>
+                    <option value="inactive" <?php echo ($status == 'inactive') ? 'selected' : ''; ?>>Tidak Aktif</option>
                 </select>
             </div>
-        </div>
+            
+            <div class="md:col-span-3 flex justify-end">
+                <button type="submit" class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary-700 transition-colors duration-200">
+                    <i class='bx bx-search mr-1'></i>
+                    Filter
+                </button>
+            </div>
+        </form>
     </div>
 
     <!-- Gallery Grid -->
     <div class="bg-card border border-border rounded-lg p-6">
-        <!-- Empty State -->
-        <div class="text-center py-12">
-            <div class="flex flex-col items-center">
-                <i class='bx bx-images text-4xl text-muted mb-4'></i>
-                <h3 class="text-lg font-medium text-text mb-2">Belum Ada Galeri</h3>
-                <p class="text-muted mb-4">Belum ada foto atau gambar yang diunggah ke galeri</p>
-                <a href="<?php echo base_url('admin/gallery/add'); ?>" 
-                   class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary-700 transition-colors duration-200">
-                    <i class='bx bx-plus mr-2'></i>
-                    Tambah Galeri Pertama
-                </a>
+        <?php if (empty($gallery)): ?>
+            <!-- Empty State -->
+            <div class="text-center py-12">
+                <div class="flex flex-col items-center">
+                    <i class='bx bx-images text-4xl text-muted mb-4'></i>
+                    <h3 class="text-lg font-medium text-text mb-2">Belum Ada Galeri</h3>
+                    <p class="text-muted mb-4">Belum ada foto atau gambar yang diunggah ke galeri</p>
+                    <a href="<?php echo base_url('admin/gallery/add'); ?>" 
+                       class="bg-primary text-white px-4 py-2 rounded-lg hover:bg-primary-700 transition-colors duration-200">
+                        <i class='bx bx-plus mr-2'></i>
+                        Tambah Galeri Pertama
+                    </a>
+                </div>
             </div>
-        </div>
+        <?php else: ?>
+            <!-- Gallery Items -->
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-6">
+                <?php foreach ($gallery as $item): ?>
+                    <div class="bg-white rounded-lg border border-border overflow-hidden hover:shadow-lg transition-shadow duration-200">
+                        <!-- Image -->
+                        <div class="aspect-square bg-gray-100 overflow-hidden">
+                            <?php if ($item->image && file_exists(FCPATH . $item->image)): ?>
+                                <img src="<?php echo base_url($item->image); ?>" 
+                                     alt="<?php echo htmlspecialchars($item->title); ?>" 
+                                     class="w-full h-full object-cover">
+                            <?php else: ?>
+                                <div class="w-full h-full flex items-center justify-center bg-gray-100">
+                                    <i class='bx bx-image text-4xl text-gray-400'></i>
+                                </div>
+                            <?php endif; ?>
+                        </div>
+                        
+                        <!-- Content -->
+                        <div class="p-4">
+                            <h3 class="font-semibold text-text mb-2 line-clamp-2"><?php echo htmlspecialchars($item->title); ?></h3>
+                            <p class="text-sm text-muted mb-3 line-clamp-2"><?php echo htmlspecialchars($item->description); ?></p>
+                            
+                            <!-- Meta Info -->
+                            <div class="flex items-center justify-end text-xs text-muted mb-3">
+                                <span class="<?php echo $item->status == 'active' ? 'text-green-600' : 'text-red-600'; ?>">
+                                    <?php echo $item->status == 'active' ? 'Aktif' : 'Tidak Aktif'; ?>
+                                </span>
+                            </div>
+                            
+                            <!-- Actions -->
+                            <div class="flex items-center space-x-2">
+                                <a href="<?php echo base_url('admin/gallery/edit/' . $item->id); ?>" 
+                                   class="flex-1 bg-primary text-white text-center py-2 px-3 rounded-lg hover:bg-primary-700 transition-colors duration-200 text-sm">
+                                    <i class='bx bx-edit mr-1'></i>
+                                    Edit
+                                </a>
+                                <a href="<?php echo base_url('admin/gallery/delete/' . $item->id); ?>" 
+                                   onclick="return confirm('Apakah Anda yakin ingin menghapus galeri ini?')"
+                                   class="bg-red-600 text-white py-2 px-3 rounded-lg hover:bg-red-700 transition-colors duration-200 text-sm">
+                                    <i class='bx bx-trash'></i>
+                                </a>
+                            </div>
+                        </div>
+                    </div>
+                <?php endforeach; ?>
+            </div>
+        <?php endif; ?>
     </div>
 
     <!-- Pagination -->
-    <div class="flex items-center justify-between">
-        <div class="text-sm text-muted">
-            Menampilkan 0 dari 0 galeri
+    <?php if (!empty($pagination)): ?>
+        <div class="flex items-center justify-between">
+            <div class="text-sm text-muted">
+                Menampilkan <?php echo count($gallery); ?> dari <?php echo $this->pagination->total_rows; ?> galeri
+            </div>
+            <div class="flex items-center space-x-2">
+                <?php echo $pagination; ?>
+            </div>
         </div>
-        <div class="flex items-center space-x-2">
-            <button disabled class="px-3 py-2 text-muted border border-border rounded-lg cursor-not-allowed">
-                <i class='bx bx-chevron-left'></i>
-            </button>
-            <span class="px-3 py-2 bg-primary text-white rounded-lg">1</span>
-            <button disabled class="px-3 py-2 text-muted border border-border rounded-lg cursor-not-allowed">
-                <i class='bx bx-chevron-right'></i>
-            </button>
-        </div>
-    </div>
+    <?php endif; ?>
 </div>
 
 <!-- Delete Confirmation Modal -->

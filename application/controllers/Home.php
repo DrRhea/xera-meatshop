@@ -7,12 +7,16 @@ class Home extends CI_Controller {
     {
         parent::__construct();
         $this->load->helper('url');
+        $this->load->model('Product_model');
     }
 
     public function index()
     {
         $data['title'] = 'Meat Shop & Grocery';
         $data['page'] = 'home';
+        
+        // Get latest products from database
+        $data['latest_products'] = $this->Product_model->get_products(4, 0, null, null, 'active');
         
         $this->load->view('templates/header', $data);
         $this->load->view('home/index', $data);
