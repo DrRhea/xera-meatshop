@@ -61,22 +61,22 @@
                     
                     <div>
                         <label class="block text-sm font-medium text-text mb-2">
-                            Status
-                        </label>
-                        <select name="status" class="w-full px-3 py-2 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
-                            <option value="active">Aktif</option>
-                            <option value="inactive">Tidak Aktif</option>
-                        </select>
-                    </div>
-                    
-                    <div>
-                        <label class="block text-sm font-medium text-text mb-2">
                             Deskripsi
                         </label>
                         <textarea name="description" 
                                   rows="4" 
                                   class="w-full px-3 py-2 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent resize-none"
                                   placeholder="Masukkan deskripsi galeri"></textarea>
+                    </div>
+                    
+                    <div>
+                        <label class="block text-sm font-medium text-text mb-2">
+                            Status
+                        </label>
+                        <select name="status" class="w-full px-3 py-2 border border-border rounded-lg focus:outline-none focus:ring-2 focus:ring-primary focus:border-transparent">
+                            <option value="active">Aktif</option>
+                            <option value="inactive">Tidak Aktif</option>
+                        </select>
                     </div>
                 </div>
             </div>
