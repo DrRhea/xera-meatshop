@@ -100,3 +100,6 @@ $route['admin/settings/content'] = 'settings/content';
 $route['admin/settings/profile'] = 'settings/profile';
 $route['admin/settings/password'] = 'settings/password';
 $route['admin/test-upload'] = 'admin/test_upload';
+
+// Gallery routes
+$route['gallery'] = 'gallery/public_gallery';
