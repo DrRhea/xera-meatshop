@@ -61,8 +61,8 @@
                                     <i class='bx bxl-whatsapp text-gray-600 hover:text-white text-xl'></i>
                                 </a>
                             </div>
-                        </div>
-                    </div>
+                </div>
+            </div>
 
                     <!-- Product Links -->
                     <div class="space-y-8">
@@ -77,9 +77,9 @@
                                 <li><a href="<?php echo base_url('produk/sayur-buah'); ?>" class="text-gray-600 hover:text-primary transition-colors text-base">Sayur & Buah</a></li>
                                 <li><a href="<?php echo base_url('produk/daging-olahan'); ?>" class="text-gray-600 hover:text-primary transition-colors text-base">Daging Olahan</a></li>
                                 <li><a href="<?php echo base_url('produk/susu-olahan'); ?>" class="text-gray-600 hover:text-primary transition-colors text-base">Susu & Olahan</a></li>
-                            </ul>
+                </ul>
                         </div>
-                    </div>
+            </div>
 
                     <!-- Navigation Links -->
                     <div class="space-y-8">
@@ -90,8 +90,8 @@
                                 <li><a href="<?php echo base_url('gallery'); ?>" class="text-gray-600 hover:text-primary transition-colors text-base">Galeri</a></li>
                                 <li><a href="<?php echo base_url('tentang-kami'); ?>" class="text-gray-600 hover:text-primary transition-colors text-base">Tentang Kami</a></li>
                                 <li><a href="<?php echo base_url('kontak'); ?>" class="text-gray-600 hover:text-primary transition-colors text-base">Kontak</a></li>
-                            </ul>
-                        </div>
+                </ul>
+            </div>
 
                         <div>
                             <h4 class="text-lg font-semibold text-gray-900 mb-8">Jam Operasional</h4>
@@ -114,7 +114,7 @@
                                 <button type="submit" class="w-full bg-primary text-white px-6 py-4 rounded-xl hover:bg-primary-700 transition-all duration-300 font-semibold text-base">
                                     Kirim Pesan
                                 </button>
-                            </form>
+                </form>
                         </div>
                     </div>
                 </div>

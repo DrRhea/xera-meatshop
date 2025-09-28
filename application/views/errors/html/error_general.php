@@ -56,7 +56,7 @@
         <?php endif; ?>
 
         <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4 mb-12">
-            <a href="<?php echo base_url(); ?>" class="bg-primary text-white font-semibold py-3 px-6 rounded-lg hover:bg-primary-700 transition-colors duration-200 flex items-center justify-center space-x-2">
+            <a href="/" class="bg-primary text-white font-semibold py-3 px-6 rounded-lg hover:bg-primary-700 transition-colors duration-200 flex items-center justify-center space-x-2">
                 <i class='bx bx-home-alt text-xl'></i>
                 <span>Kembali ke Beranda</span>
             </a>
@@ -76,7 +76,7 @@
                     </a>
                 </li>
                 <li>
-                    <a href="<?php echo base_url('about'); ?>" class="flex items-center space-x-3 hover:text-primary transition-colors duration-200">
+                    <a href="/about" class="flex items-center space-x-3 hover:text-primary transition-colors duration-200">
                         <i class='bx bx-info-circle text-lg'></i>
                         <span>Tentang Kami</span>
                     </a>

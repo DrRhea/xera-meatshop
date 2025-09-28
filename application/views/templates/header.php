@@ -101,7 +101,7 @@
                     </a>
             </nav>
 
-                <!-- Shopping Cart Button -->
+            <!-- Shopping Cart Button -->
                 <div class="flex items-center space-x-4">
                     <a href="<?php echo base_url('keranjang'); ?>" 
                        class="relative p-2 text-gray-700 hover:text-primary transition-colors" 

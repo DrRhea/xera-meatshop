@@ -10,7 +10,7 @@ class Product_model extends CI_Model {
     }
 
     // Get all products with pagination
-    public function get_products($limit = null, $offset = null, $search = null, $category = null)
+    public function get_products($limit = null, $offset = null, $search = null, $category = null, $status = null)
     {
         $this->db->select('*');
         $this->db->from('products');
@@ -21,6 +21,10 @@ class Product_model extends CI_Model {
         
         if ($category && $category !== 'all') {
             $this->db->where('category', $category);
+        }
+        
+        if ($status && $status !== 'all') {
+            $this->db->where('status', $status);
         }
         
         $this->db->order_by('created_at', 'DESC');
@@ -69,6 +73,24 @@ class Product_model extends CI_Model {
         
         if ($category && $category !== 'all') {
             $this->db->where('category', $category);
+        }
+        
+        return $this->db->count_all_results('products');
+    }
+
+    // Count products with filters
+    public function count_products($search = null, $category = null, $status = null)
+    {
+        if ($search) {
+            $this->db->like('name', $search);
+        }
+        
+        if ($category && $category !== 'all') {
+            $this->db->where('category', $category);
+        }
+        
+        if ($status && $status !== 'all') {
+            $this->db->where('status', $status);
         }
         
         return $this->db->count_all_results('products');
