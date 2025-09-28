@@ -100,6 +100,11 @@
                     <i class='bx bx-images mr-2 text-base'></i>
                     <span class="text-sm <?php echo (strpos(uri_string(), 'gallery') !== false) ? 'font-medium' : ''; ?>">Galeri</span>
                 </a>
+                <a href="<?php echo base_url('admin/contact'); ?>" 
+                   class="flex items-center px-3 py-2 <?php echo (strpos(uri_string(), 'contact') !== false) ? 'bg-primary text-white rounded-lg mx-2 mb-1' : 'text-muted hover:bg-surface hover:text-text transition-colors duration-200 mx-2 mb-1'; ?>">
+                    <i class='bx bx-message-dots mr-2 text-base'></i>
+                    <span class="text-sm <?php echo (strpos(uri_string(), 'contact') !== false) ? 'font-medium' : ''; ?>">Pesan Kontak</span>
+                </a>
             </nav>
 
             <!-- Settings Button -->
