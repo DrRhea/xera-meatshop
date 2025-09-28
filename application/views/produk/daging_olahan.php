@@ -1,86 +1,154 @@
         <!-- ========== Heading Produk ========== -->
-        <section class="about-heading">
-            <h2>Produk Daging Olahan</h2>
-            <p>Daging Olahan Berkualitas <span>Meat Shop & Grocery</span></p>
+        <section class="py-16 bg-surface">
+            <div class="w-full px-4 sm:px-6 lg:px-8 text-center">
+                <h2 class="text-4xl font-bold text-gray-900 mb-4 uppercase tracking-wide">Produk Daging & Olahan</h2>
+                <p class="text-lg text-muted">Daging & Olahan Berkualitas <span class="text-primary font-semibold">Meat Shop & Grocery</span></p>
+            </div>
         </section>
 
         <!-- ========== Konten Produk ========== -->
-        <main class="about-container">
-            <div class="product-grid">
-                <!-- Card Produk Daging Olahan 1 -->
-                <div class="card">
-                    <div class="img-wrapper">
-                        <span class="badge-new">TERLARIS</span>
-                        <img src="<?php echo base_url('assets/img/prod-1.jpg'); ?>" alt="Sosis Premium">
-                    </div>
-                    <div class="card-body">
-                        <p class="category">Daging Olahan</p>
-                        <h4 class="product-name">Sosis Premium</h4>
-                        <div class="special-footer">
-                            <button class="btn-order">Pesan</button>
-                            <button class="btn-cart">
-                                <i class="fas fa-shopping-cart"></i>
-                            </button>
-                            <span class="price">Rp 45.000</span>
+        <main class="py-16 bg-white">
+            <div class="w-full px-4 sm:px-6 lg:px-8">
+                <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
+                    
+                    <!-- Card Produk Daging Olahan 1 -->
+                    <div class="bg-card border border-border overflow-hidden hover:border-primary transition-colors duration-300 group">
+                        <div class="relative">
+                            <span class="absolute top-3 left-3 bg-primary text-white px-2 py-1 text-xs font-semibold rounded uppercase tracking-wide">TERLARIS</span>
+                            <img src="<?php echo base_url('assets/img/prod-1.jpg'); ?>" alt="Sosis Premium" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+                        </div>
+                        <div class="p-6">
+                            <p class="text-sm text-primary font-semibold mb-2 uppercase tracking-wide">Olahan</p>
+                            <h4 class="text-lg font-bold text-gray-900 mb-4">Sosis Premium</h4>
+                            <div class="flex items-center justify-between">
+                                <span class="text-2xl font-bold text-primary">Rp 25.000</span>
+                                <div class="flex space-x-2">
+                                    <button class="bg-primary text-white px-4 py-2 rounded hover:bg-primary-700 transition-colors text-sm font-semibold uppercase tracking-wide">
+                                        Pesan
+                                    </button>
+                                    <button class="bg-surface text-muted p-2 rounded hover:bg-primary hover:text-white transition-colors">
+                                        <i class='bx bx-cart-add text-xl'></i>
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- Card Produk Daging Olahan 2 -->
-                <div class="card">
-                    <div class="img-wrapper">
-                        <span class="badge-new">PROMO</span>
-                        <img src="<?php echo base_url('assets/img/prod-2.jpg'); ?>" alt="Nugget Ayam">
-                    </div>
-                    <div class="card-body">
-                        <p class="category">Daging Olahan</p>
-                        <h4 class="product-name">Nugget Ayam Premium</h4>
-                        <div class="special-footer">
-                            <button class="btn-order">Pesan</button>
-                            <button class="btn-cart">
-                                <i class="fas fa-shopping-cart"></i>
-                            </button>
-                            <span class="price">Rp 35.000</span>
+                    <!-- Card Produk Daging Olahan 2 -->
+                    <div class="bg-card border border-border overflow-hidden hover:border-primary transition-colors duration-300 group">
+                        <div class="relative">
+                            <span class="absolute top-3 left-3 bg-accent text-white px-2 py-1 text-xs font-semibold rounded uppercase tracking-wide">PROMO</span>
+                            <img src="<?php echo base_url('assets/img/prod-1.jpg'); ?>" alt="Bacon Premium" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+                        </div>
+                        <div class="p-6">
+                            <p class="text-sm text-primary font-semibold mb-2 uppercase tracking-wide">Olahan</p>
+                            <h4 class="text-lg font-bold text-gray-900 mb-4">Bacon Premium</h4>
+                            <div class="flex items-center justify-between">
+                                <span class="text-2xl font-bold text-primary">Rp 35.000</span>
+                                <div class="flex space-x-2">
+                                    <button class="bg-primary text-white px-4 py-2 rounded hover:bg-primary-700 transition-colors text-sm font-semibold uppercase tracking-wide">
+                                        Pesan
+                                    </button>
+                                    <button class="bg-surface text-muted p-2 rounded hover:bg-primary hover:text-white transition-colors">
+                                        <i class='bx bx-cart-add text-xl'></i>
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- Card Produk Daging Olahan 3 -->
-                <div class="card">
-                    <div class="img-wrapper">
-                        <span class="badge-new">BARU</span>
-                        <img src="<?php echo base_url('assets/img/prod-3.jpg'); ?>" alt="Bacon Premium">
-                    </div>
-                    <div class="card-body">
-                        <p class="category">Daging Olahan</p>
-                        <h4 class="product-name">Bacon Premium</h4>
-                        <div class="special-footer">
-                            <button class="btn-order">Pesan</button>
-                            <button class="btn-cart">
-                                <i class="fas fa-shopping-cart"></i>
-                            </button>
-                            <span class="price">Rp 65.000</span>
+                    <!-- Card Produk Daging Olahan 3 -->
+                    <div class="bg-card border border-border overflow-hidden hover:border-primary transition-colors duration-300 group">
+                        <div class="relative">
+                            <span class="absolute top-3 left-3 bg-secondary text-white px-2 py-1 text-xs font-semibold rounded uppercase tracking-wide">BARU</span>
+                            <img src="<?php echo base_url('assets/img/prod-1.jpg'); ?>" alt="Ham Premium" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+                        </div>
+                        <div class="p-6">
+                            <p class="text-sm text-primary font-semibold mb-2 uppercase tracking-wide">Olahan</p>
+                            <h4 class="text-lg font-bold text-gray-900 mb-4">Ham Premium</h4>
+                            <div class="flex items-center justify-between">
+                                <span class="text-2xl font-bold text-primary">Rp 45.000</span>
+                                <div class="flex space-x-2">
+                                    <button class="bg-primary text-white px-4 py-2 rounded hover:bg-primary-700 transition-colors text-sm font-semibold uppercase tracking-wide">
+                                        Pesan
+                                    </button>
+                                    <button class="bg-surface text-muted p-2 rounded hover:bg-primary hover:text-white transition-colors">
+                                        <i class='bx bx-cart-add text-xl'></i>
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                     </div>
-                </div>
 
-                <!-- Card Produk Daging Olahan 4 -->
-                <div class="card">
-                    <div class="img-wrapper">
-                        <span class="badge-new">PREMIUM</span>
-                        <img src="<?php echo base_url('assets/img/prod-4.jpg'); ?>" alt="Ham Premium">
-                    </div>
-                    <div class="card-body">
-                        <p class="category">Daging Olahan</p>
-                        <h4 class="product-name">Ham Premium</h4>
-                        <div class="special-footer">
-                            <button class="btn-order">Pesan</button>
-                            <button class="btn-cart">
-                                <i class="fas fa-shopping-cart"></i>
-                            </button>
-                            <span class="price">Rp 55.000</span>
+                    <!-- Card Produk Daging Olahan 4 -->
+                    <div class="bg-card border border-border overflow-hidden hover:border-primary transition-colors duration-300 group">
+                        <div class="relative">
+                            <span class="absolute top-3 left-3 bg-primary text-white px-2 py-1 text-xs font-semibold rounded uppercase tracking-wide">HOT</span>
+                            <img src="<?php echo base_url('assets/img/prod-1.jpg'); ?>" alt="Nugget Premium" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+                        </div>
+                        <div class="p-6">
+                            <p class="text-sm text-primary font-semibold mb-2 uppercase tracking-wide">Olahan</p>
+                            <h4 class="text-lg font-bold text-gray-900 mb-4">Nugget Premium</h4>
+                            <div class="flex items-center justify-between">
+                                <span class="text-2xl font-bold text-primary">Rp 28.000</span>
+                                <div class="flex space-x-2">
+                                    <button class="bg-primary text-white px-4 py-2 rounded hover:bg-primary-700 transition-colors text-sm font-semibold uppercase tracking-wide">
+                                        Pesan
+                                    </button>
+                                    <button class="bg-surface text-muted p-2 rounded hover:bg-primary hover:text-white transition-colors">
+                                        <i class='bx bx-cart-add text-xl'></i>
+                                    </button>
+                                </div>
+                            </div>
                         </div>
                     </div>
+
+                    <!-- Card Produk Daging Olahan 5 -->
+                    <div class="bg-card border border-border overflow-hidden hover:border-primary transition-colors duration-300 group">
+                        <div class="relative">
+                            <span class="absolute top-3 left-3 bg-accent text-white px-2 py-1 text-xs font-semibold rounded uppercase tracking-wide">PROMO</span>
+                            <img src="<?php echo base_url('assets/img/prod-1.jpg'); ?>" alt="Kornet Premium" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+                        </div>
+                        <div class="p-6">
+                            <p class="text-sm text-primary font-semibold mb-2 uppercase tracking-wide">Olahan</p>
+                            <h4 class="text-lg font-bold text-gray-900 mb-4">Kornet Premium</h4>
+                            <div class="flex items-center justify-between">
+                                <span class="text-2xl font-bold text-primary">Rp 22.000</span>
+                                <div class="flex space-x-2">
+                                    <button class="bg-primary text-white px-4 py-2 rounded hover:bg-primary-700 transition-colors text-sm font-semibold uppercase tracking-wide">
+                                        Pesan
+                                    </button>
+                                    <button class="bg-surface text-muted p-2 rounded hover:bg-primary hover:text-white transition-colors">
+                                        <i class='bx bx-cart-add text-xl'></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    <!-- Card Produk Daging Olahan 6 -->
+                    <div class="bg-card border border-border overflow-hidden hover:border-primary transition-colors duration-300 group">
+                        <div class="relative">
+                            <span class="absolute top-3 left-3 bg-secondary text-white px-2 py-1 text-xs font-semibold rounded uppercase tracking-wide">BARU</span>
+                            <img src="<?php echo base_url('assets/img/prod-1.jpg'); ?>" alt="Bakso Premium" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
+                        </div>
+                        <div class="p-6">
+                            <p class="text-sm text-primary font-semibold mb-2 uppercase tracking-wide">Olahan</p>
+                            <h4 class="text-lg font-bold text-gray-900 mb-4">Bakso Premium</h4>
+                            <div class="flex items-center justify-between">
+                                <span class="text-2xl font-bold text-primary">Rp 32.000</span>
+                                <div class="flex space-x-2">
+                                    <button class="bg-primary text-white px-4 py-2 rounded hover:bg-primary-700 transition-colors text-sm font-semibold uppercase tracking-wide">
+                                        Pesan
+                                    </button>
+                                    <button class="bg-surface text-muted p-2 rounded hover:bg-primary hover:text-white transition-colors">
+                                        <i class='bx bx-cart-add text-xl'></i>
+                                    </button>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
                 </div>
             </div>
         </main>

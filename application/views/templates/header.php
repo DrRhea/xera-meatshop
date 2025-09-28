@@ -25,9 +25,14 @@
             theme: {
                 extend: {
                     colors: {
-                        primary: '#c53030',
+                        primary: '#e53e3e',
+                        'primary-700': '#c53030',
                         secondary: '#8b4513',
-                        accent: '#ff6b35'
+                        accent: '#ff6b35',
+                        surface: '#f9fafb',
+                        muted: '#555',
+                        card: '#ffffff',
+                        border: '#e2e8f0'
                     },
                     fontFamily: {
                         'inter': ['Inter', 'sans-serif']
