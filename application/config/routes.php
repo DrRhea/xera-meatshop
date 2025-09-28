@@ -67,6 +67,10 @@ $route['produk/sayur-buah'] = 'produk/sayur_buah';
 $route['produk/daging-olahan'] = 'produk/daging_olahan';
 $route['produk/susu-olahan'] = 'produk/susu_olahan';
 
+// Cart routes
+$route['cart'] = 'cart';
+$route['keranjang'] = 'cart';
+
 // Admin routes
 $route['admin'] = 'admin';
 $route['admin/login'] = 'admin/login';
