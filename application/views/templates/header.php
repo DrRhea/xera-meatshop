@@ -67,7 +67,7 @@
                         Tentang Kami
                     </a>
 
-                    <!-- Dropdown Menu -->
+                <!-- Dropdown Menu -->
                     <div class="relative" x-data="{ open: false }">
                         <button @click="open = !open" 
                                 class="flex items-center text-gray-700 hover:text-primary transition-colors uppercase tracking-wide">
@@ -91,15 +91,15 @@
                             <a href="<?php echo base_url('produk/sayur-buah'); ?>" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 uppercase tracking-wide">Buah & Sayur</a>
                             <a href="<?php echo base_url('produk/daging-olahan'); ?>" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 uppercase tracking-wide">Daging & Olahan</a>
                             <a href="<?php echo base_url('produk/susu-olahan'); ?>" class="block px-4 py-2 text-sm text-gray-700 hover:bg-gray-100 uppercase tracking-wide">Susu & Olahan</a>
-                        </div>
                     </div>
+                </div>
 
                     <a href="<?php echo base_url('gallery'); ?>" class="text-gray-700 hover:text-primary transition-colors uppercase tracking-wide">Galeri</a>
                     <a href="<?php echo base_url('kontak'); ?>" 
                        class="<?php echo (isset($page) && $page == 'contact') ? 'text-primary font-semibold uppercase tracking-wide' : 'text-gray-700 hover:text-primary transition-colors uppercase tracking-wide'; ?>">
                         Kontak
                     </a>
-                </nav>
+            </nav>
 
                 <!-- Shopping Cart Button -->
                 <div class="flex items-center space-x-4">

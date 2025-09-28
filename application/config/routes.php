@@ -58,6 +58,7 @@ $route['translate_uri_dashes'] = FALSE;
 $route['beranda'] = 'home';
 $route['tentang-kami'] = 'home/about';
 $route['kontak'] = 'home/contact';
+$route['gallery'] = 'home/gallery';
 $route['produk/daging'] = 'produk/daging';
 $route['produk/minuman'] = 'produk/minuman';
 $route['produk/seafood'] = 'produk/seafood';
