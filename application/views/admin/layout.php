@@ -110,11 +110,6 @@
                     <i class='bx bx-message-dots mr-2 text-base'></i>
                     <span class="text-sm <?php echo (strpos(uri_string(), 'contact') !== false) ? 'font-medium' : ''; ?>">Pesan Kontak</span>
                 </a>
-                <a href="<?php echo base_url('admin/content'); ?>" 
-                   class="flex items-center px-3 py-2 <?php echo (strpos(uri_string(), 'admin/content') !== false) ? 'bg-primary text-white rounded-lg mx-2 mb-1' : 'text-muted hover:bg-surface hover:text-text transition-colors duration-200 mx-2 mb-1'; ?>">
-                    <i class='bx bx-edit mr-2 text-base'></i>
-                    <span class="text-sm <?php echo (strpos(uri_string(), 'admin/content') !== false) ? 'font-medium' : ''; ?>">Kelola Konten</span>
-                </a>
             </nav>
 
             <!-- Settings Button -->

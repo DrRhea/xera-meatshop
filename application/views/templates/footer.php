@@ -195,28 +195,6 @@
         </template>
     </div>
 
-    <!-- Cart Badge -->
-    <div x-data="{ cartCount: 0 }" x-init="
-        updateCartCount();
-        setInterval(updateCartCount, 1000);
-        function updateCartCount() {
-            try {
-                const cart = JSON.parse(localStorage.getItem('meatshop_cart') || '[]');
-                cartCount = cart.length;
-            } catch (e) {
-                cartCount = 0;
-            }
-        }
-    " class="fixed bottom-4 right-4 z-40">
-        <a href="<?php echo base_url('keranjang'); ?>" 
-           class="relative bg-primary text-white p-4 rounded-full hover:bg-primary-700 transition-colors duration-200">
-            <i class='bx bx-shopping-bag text-2xl'></i>
-            <span x-show="cartCount > 0" 
-                  x-text="cartCount" 
-                  class="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold rounded-full h-6 w-6 flex items-center justify-center">
-            </span>
-        </a>
-    </div>
 
     <!-- Alpine.js -->
     <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
@@ -294,45 +272,25 @@
         };
     </script>
     
-    <!-- Debug Script -->
+    <!-- Cart System Script -->
     <script>
-        // Debug: Check if functions are available
         document.addEventListener('DOMContentLoaded', function() {
-            console.log('=== DEBUG: Checking function availability ===');
-            console.log('sendToWhatsApp available:', typeof window.sendToWhatsApp);
-            console.log('sendCartToWhatsApp available:', typeof window.sendCartToWhatsApp);
-            console.log('addToCart available:', typeof window.addToCart);
-            console.log('Cart buttons found:', document.querySelectorAll('.add-cart').length);
-            console.log('Pesan buttons found:', document.querySelectorAll('button[onclick*="sendToWhatsApp"]').length);
-            console.log('WhatsApp cart button found:', document.getElementById('whatsapp-order-btn'));
-            
-            // Test sendToWhatsApp function
-            if (typeof window.sendToWhatsApp === 'function') {
-                console.log('✅ sendToWhatsApp function is available');
-            } else {
-                console.error('❌ sendToWhatsApp function is NOT available');
-            }
-            
-            // Test sendCartToWhatsApp function
-            if (typeof window.sendCartToWhatsApp === 'function') {
-                console.log('✅ sendCartToWhatsApp function is available');
-            } else {
-                console.error('❌ sendCartToWhatsApp function is NOT available');
-            }
-            
-            // Test cart data
-            const cartData = localStorage.getItem('meatshop_cart');
-            console.log('Cart data from localStorage:', cartData);
-            if (cartData) {
-                try {
-                    const cart = JSON.parse(cartData);
-                    console.log('Parsed cart:', cart);
-                    console.log('Cart length:', cart.length);
-                } catch (e) {
-                    console.error('Error parsing cart data:', e);
-                }
-            }
+            console.log('Cart system initialized');
         });
     </script>
+
+    <!-- Floating WhatsApp Button -->
+    <div class="fixed bottom-6 right-6 z-50 group">
+        <a href="https://wa.me/6285724964731" 
+           target="_blank" 
+           class="flex items-center justify-center w-14 h-14 bg-green-500 hover:bg-green-600 text-white rounded-full shadow-lg hover:shadow-xl transition-all duration-300 transform hover:scale-110 animate-pulse">
+            <i class='bx bxl-whatsapp text-2xl'></i>
+        </a>
+        <!-- Tooltip -->
+        <div class="absolute bottom-full right-0 mb-2 px-3 py-2 bg-gray-800 text-white text-sm rounded-lg opacity-0 group-hover:opacity-100 transition-opacity duration-300 whitespace-nowrap pointer-events-none">
+            Chat dengan kami
+            <div class="absolute top-full right-4 w-0 h-0 border-l-4 border-r-4 border-t-4 border-transparent border-t-gray-800"></div>
+        </div>
+    </div>
 </body>
 </html>

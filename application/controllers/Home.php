@@ -14,6 +14,11 @@ class Home extends CI_Controller {
 
     public function index()
     {
+        // Prevent caching
+        header("Cache-Control: no-cache, no-store, must-revalidate");
+        header("Pragma: no-cache");
+        header("Expires: 0");
+        
         $data['title'] = 'Meat Shop & Grocery';
         $data['page'] = 'home';
         
@@ -25,6 +30,7 @@ class Home extends CI_Controller {
         
         // Get dynamic content
         $data['content'] = $this->Content_model->get_content('homepage');
+        
         
         $this->load->view('templates/header', $data);
         $this->load->view('home/index', $data);

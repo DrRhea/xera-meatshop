@@ -19,7 +19,78 @@
                     
                     <!-- Cart Items Display -->
                     <div id="cart-items" class="p-6">
-                        <!-- Cart items will be populated by JavaScript -->
+                        <?php 
+                        // Get cart data from controller (passed from controller)
+                        $cart = isset($cart) ? $cart : [];
+                        
+                        // Debug: Show cart data in HTML comment for debugging (uncomment for debugging)
+                        // echo "<!-- DEBUG: Cart data: " . print_r($cart, true) . " -->";
+                        // echo "<!-- DEBUG: Cart count: " . count($cart) . " -->";
+                        // echo "<!-- DEBUG: Cart type: " . gettype($cart) . " -->";
+                        // echo "<!-- DEBUG: Cart empty check: " . (empty($cart) ? 'true' : 'false') . " -->";
+                        
+                        if (!empty($cart) && is_array($cart) && count($cart) > 0): 
+                        ?>
+                            <?php foreach ($cart as $index => $item): ?>
+                            <div class="flex items-center space-x-4 py-4 border-b border-gray-200 last:border-b-0">
+                                <!-- Product Image -->
+                                <div class="w-16 h-16 bg-gray-100 rounded-lg flex items-center justify-center">
+                                    <i class='bx bx-package text-2xl text-gray-400'></i>
+                                </div>
+                                
+                                <!-- Product Info -->
+                                <div class="flex-1">
+                                    <h4 class="font-medium text-gray-800"><?php echo htmlspecialchars($item['name']); ?></h4>
+                                    <p class="text-sm text-gray-600"><?php echo htmlspecialchars($item['category']); ?></p>
+                                    <p class="text-sm text-gray-500">Stok: <?php echo htmlspecialchars($item['stock']); ?> <?php echo htmlspecialchars($item['unit']); ?></p>
+                                </div>
+                                
+                                <!-- Quantity -->
+                                <div class="flex items-center space-x-2">
+                                    <form method="post" action="<?php echo base_url('cart/update'); ?>" class="flex items-center space-x-2">
+                                        <input type="hidden" name="product_name" value="<?php echo htmlspecialchars($item['name']); ?>">
+                                        <button type="submit" name="quantity" value="<?php echo max(0, $item['quantity'] - 1); ?>" 
+                                                class="w-8 h-8 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center transition-colors">
+                                            <i class='bx bx-minus text-sm'></i>
+                                        </button>
+                                        <span class="w-8 text-center font-medium"><?php echo $item['quantity']; ?></span>
+                                        <button type="submit" name="quantity" value="<?php echo $item['quantity'] + 1; ?>" 
+                                                class="w-8 h-8 bg-gray-100 hover:bg-gray-200 rounded-full flex items-center justify-center transition-colors">
+                                            <i class='bx bx-plus text-sm'></i>
+                                        </button>
+                                    </form>
+                                </div>
+                                
+                                <!-- Price -->
+                                <div class="text-right">
+                                    <p class="font-semibold text-gray-800">Rp <?php echo number_format($item['price'], 0, ',', '.'); ?></p>
+                                    <p class="text-sm text-gray-600">x<?php echo $item['quantity']; ?></p>
+                                </div>
+                                
+                                <!-- Remove Button -->
+                                <form method="post" action="<?php echo base_url('cart/remove'); ?>" class="ml-4">
+                                    <input type="hidden" name="product_name" value="<?php echo htmlspecialchars($item['name']); ?>">
+                                    <button type="submit" class="w-8 h-8 bg-red-100 hover:bg-red-200 text-red-600 rounded-full flex items-center justify-center transition-colors">
+                                        <i class='bx bx-trash text-sm'></i>
+                                    </button>
+                                </form>
+                            </div>
+                            <?php endforeach; ?>
+                        <?php else: ?>
+                            <!-- Empty Cart State -->
+                            <div class="p-12 text-center">
+                                <div class="w-20 h-20 bg-gray-100 rounded-full flex items-center justify-center mx-auto mb-4">
+                                    <i class='bx bx-shopping-bag text-3xl text-gray-400'></i>
+                                </div>
+                                <h3 class="text-xl font-medium text-gray-800 mb-2">Keranjang Kosong</h3>
+                                <p class="text-gray-600 mb-6">Belum ada produk di keranjang Anda</p>
+                                <a href="<?php echo base_url('produk'); ?>" 
+                                   class="inline-flex items-center bg-primary text-white px-6 py-3 rounded-lg hover:bg-yellow-600 transition-colors duration-200">
+                                    <i class='bx bx-plus mr-2'></i>
+                                    Mulai Belanja
+                                </a>
+                            </div>
+                        <?php endif; ?>
                     </div>
                     
                     <!-- Empty Cart State (hidden by default) -->
@@ -45,9 +116,26 @@
                     
                     <!-- Summary Details -->
                     <div class="space-y-3 mb-6">
+                        <?php 
+                        // Get cart data for summary (use data from controller)
+                        $cart_summary = isset($cart) ? $cart : [];
+                        
+                        $subtotal = 0;
+                        $item_count = 0;
+                        
+                        // Debug summary calculation (uncomment for debugging)
+                        // echo "<!-- DEBUG Summary: Cart data: " . print_r($cart_summary, true) . " -->";
+                        
+                        if (!empty($cart_summary) && is_array($cart_summary)) {
+                            foreach ($cart_summary as $item) {
+                                $subtotal += $item['price'] * $item['quantity'];
+                                $item_count += $item['quantity'];
+                            }
+                        }
+                        ?>
                         <div class="flex justify-between text-gray-600">
-                            <span>Subtotal</span>
-                            <span id="cart-subtotal">Rp 0</span>
+                            <span>Subtotal (<?php echo $item_count; ?> item)</span>
+                            <span>Rp <?php echo number_format($subtotal, 0, ',', '.'); ?></span>
                         </div>
                         <div class="flex justify-between text-gray-600">
                             <span>Ongkos Kirim</span>
@@ -60,27 +148,66 @@
                         <div class="border-t border-gray-200 pt-3">
                             <div class="flex justify-between text-lg font-semibold text-gray-800">
                                 <span>Total</span>
-                                <span id="cart-total">Rp 0</span>
+                                <span>Rp <?php echo number_format($subtotal, 0, ',', '.'); ?></span>
                             </div>
                         </div>
                     </div>
                     
                     <!-- WhatsApp Order Button -->
-                    <button id="whatsapp-order-btn" 
-                            onclick="sendCartItemsToWhatsApp()"
-                            class="w-full bg-green-500 hover:bg-green-600 text-white py-3 px-4 rounded-lg transition-colors duration-200 mb-3"
-                            style="cursor: pointer;">
+                    <?php 
+                    // Use cart data from controller
+                    $cart_whatsapp = isset($cart) ? $cart : [];
+                    
+                    // Debug WhatsApp section (uncomment for debugging)
+                    // echo "<!-- DEBUG WhatsApp: Cart data: " . print_r($cart_whatsapp, true) . " -->";
+                    
+                    if (!empty($cart_whatsapp) && is_array($cart_whatsapp) && count($cart_whatsapp) > 0): 
+                        $phoneNumber = '6285724964731';
+                        $message = "Halo! Saya ingin memesan produk berikut:\n\n";
+                        
+                        $total = 0;
+                        foreach ($cart_whatsapp as $item) {
+                            $itemTotal = $item['price'] * $item['quantity'];
+                            $total += $itemTotal;
+                            $message .= "📦 *{$item['name']}*\n";
+                            $message .= "💰 Harga: Rp " . number_format($item['price'], 0, ',', '.') . "\n";
+                            $message .= "📊 Jumlah: {$item['quantity']} {$item['unit']}\n";
+                            $message .= "💵 Subtotal: Rp " . number_format($itemTotal, 0, ',', '.') . "\n\n";
+                        }
+                        
+                        $message .= "💰 *Total: Rp " . number_format($total, 0, ',', '.') . "*\n\n";
+                        $message .= "Mohon informasi lebih lanjut tentang cara pembayaran dan pengiriman.\n\n";
+                        $message .= "Terima kasih!";
+                        
+                        $encodedMessage = urlencode($message);
+                        $whatsappUrl = "https://wa.me/{$phoneNumber}?text={$encodedMessage}";
+                    ?>
+                    <a href="<?php echo $whatsappUrl; ?>" 
+                       target="_blank"
+                       class="w-full bg-green-500 hover:bg-green-600 text-white py-3 px-4 rounded-lg transition-colors duration-200 mb-3 inline-flex items-center justify-center">
                         <i class='bx bxl-whatsapp mr-2'></i>
                         Pesan Sekarang via WhatsApp
-                    </button>
+                    </a>
+                    <?php endif; ?>
                     
                     <!-- Clear Cart Button -->
-                    <button id="clear-cart-btn" 
-                            onclick="clearCartWithConfirm()"
-                            class="w-full bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded-lg transition-colors duration-200 mb-3">
-                        <i class='bx bx-trash mr-2'></i>
-                        Kosongkan Keranjang
-                    </button>
+                    <?php 
+                    // Use cart data from controller
+                    $cart_clear = isset($cart) ? $cart : [];
+                    
+                    // Debug clear button section (uncomment for debugging)
+                    // echo "<!-- DEBUG Clear: Cart data: " . print_r($cart_clear, true) . " -->";
+                    
+                    if (!empty($cart_clear) && is_array($cart_clear) && count($cart_clear) > 0): ?>
+                    <form method="post" action="<?php echo base_url('cart/clear'); ?>" class="mb-3">
+                        <button type="submit" 
+                                onclick="return confirm('Apakah Anda yakin ingin mengosongkan keranjang?')"
+                                class="w-full bg-red-500 hover:bg-red-600 text-white py-2 px-4 rounded-lg transition-colors duration-200">
+                            <i class='bx bx-trash mr-2'></i>
+                            Kosongkan Keranjang
+                        </button>
+                    </form>
+                    <?php endif; ?>
                     
                     <!-- Continue Shopping -->
                     <a href="<?php echo base_url('produk'); ?>" 
@@ -141,15 +268,17 @@
                                                 onclick="sendToWhatsApp('<?php echo htmlspecialchars($product->name, ENT_QUOTES); ?>', '<?php echo number_format($product->price, 0, ',', '.'); ?>', '<?php echo htmlspecialchars($product->category, ENT_QUOTES); ?>', '<?php echo $product->stock; ?>', '<?php echo $product->unit; ?>')">
                                             Pesan
                                         </button>
-                                        <button class="bg-gray-100 text-gray-700 p-3 rounded-xl hover:bg-primary hover:text-white transition-colors add-cart" 
-                                                onclick="addToCartDirect('<?php echo htmlspecialchars($product->name, ENT_QUOTES); ?>', '<?php echo number_format($product->price, 0, ',', '.'); ?>', '<?php echo htmlspecialchars($product->category, ENT_QUOTES); ?>', '<?php echo $product->stock; ?>', '<?php echo $product->unit; ?>')"
-                                                data-product-name="<?php echo htmlspecialchars($product->name, ENT_QUOTES); ?>" 
-                                                data-product-price="<?php echo number_format($product->price, 0, ',', '.'); ?>" 
-                                                data-product-category="<?php echo htmlspecialchars($product->category, ENT_QUOTES); ?>" 
-                                                data-product-stock="<?php echo $product->stock; ?>" 
-                                                data-product-unit="<?php echo $product->unit; ?>">
-                                            <i class='bx bx-cart-add text-xl'></i>
-                                        </button>
+                                        <form method="post" action="<?php echo base_url('cart/add'); ?>" class="inline">
+                                            <input type="hidden" name="product_name" value="<?php echo htmlspecialchars($product->name, ENT_QUOTES); ?>">
+                                            <input type="hidden" name="product_price" value="<?php echo $product->price; ?>">
+                                            <input type="hidden" name="product_category" value="<?php echo htmlspecialchars($product->category, ENT_QUOTES); ?>">
+                                            <input type="hidden" name="product_stock" value="<?php echo $product->stock; ?>">
+                                            <input type="hidden" name="product_unit" value="<?php echo $product->unit; ?>">
+                                            <input type="hidden" name="quantity" value="1">
+                                            <button type="submit" class="bg-gray-100 text-gray-700 p-3 rounded-xl hover:bg-primary hover:text-white transition-colors">
+                                                <i class='bx bx-cart-add text-xl'></i>
+                                            </button>
+                                        </form>
                                     </div>
                                 </div>
                             </div>
@@ -187,15 +316,17 @@
                                             onclick="sendToWhatsApp('De Cecco Spaghetti 500gr', '44.000', 'Meat', '50', 'pcs')">
                                         Pesan
                                     </button>
-                                    <button class="bg-gray-100 text-gray-700 p-3 rounded-xl hover:bg-primary hover:text-white transition-colors add-cart" 
-                                            onclick="addToCartDirect('De Cecco Spaghetti 500gr', '44.000', 'Meat', '50', 'pcs')"
-                                            data-product-name="De Cecco Spaghetti 500gr" 
-                                            data-product-price="44.000" 
-                                            data-product-category="Meat" 
-                                            data-product-stock="50" 
-                                            data-product-unit="pcs">
-                                        <i class='bx bx-cart-add text-xl'></i>
-                                    </button>
+                                    <form method="post" action="<?php echo base_url('cart/add'); ?>" class="inline">
+                                        <input type="hidden" name="product_name" value="De Cecco Spaghetti 500gr">
+                                        <input type="hidden" name="product_price" value="44000">
+                                        <input type="hidden" name="product_category" value="Meat">
+                                        <input type="hidden" name="product_stock" value="50">
+                                        <input type="hidden" name="product_unit" value="pcs">
+                                        <input type="hidden" name="quantity" value="1">
+                                        <button type="submit" class="bg-gray-100 text-gray-700 p-3 rounded-xl hover:bg-primary hover:text-white transition-colors">
+                                            <i class='bx bx-cart-add text-xl'></i>
+                                        </button>
+                                    </form>
                                 </div>
                             </div>
                         </div>
@@ -207,345 +338,11 @@
 
 
 <script>
-// Display cart items
-function displayCartItems() {
-    const cartItemsContainer = document.getElementById('cart-items');
-    const emptyCartContainer = document.getElementById('empty-cart');
-    const cartSubtotal = document.getElementById('cart-subtotal');
-    const cartTotal = document.getElementById('cart-total');
-    const whatsappBtn = document.getElementById('whatsapp-order-btn');
-    const clearBtn = document.getElementById('clear-cart-btn');
-    
-    // Load cart from localStorage
-    let cart = [];
-    try {
-        const savedCart = localStorage.getItem('meatshop_cart');
-        if (savedCart) {
-            cart = JSON.parse(savedCart);
-        }
-    } catch (e) {
-        console.error('Error loading cart:', e);
-        cart = [];
-    }
-    
-    if (cart.length === 0) {
-        cartItemsContainer.innerHTML = '';
-        emptyCartContainer.classList.remove('hidden');
-        cartSubtotal.textContent = 'Rp 0';
-        cartTotal.textContent = 'Rp 0';
-        whatsappBtn.disabled = true;
-        whatsappBtn.classList.add('opacity-50', 'cursor-not-allowed');
-        clearBtn.disabled = true;
-        clearBtn.classList.add('opacity-50', 'cursor-not-allowed');
-        return;
-    }
-    
-    emptyCartContainer.classList.add('hidden');
-    whatsappBtn.disabled = false;
-    whatsappBtn.classList.remove('opacity-50', 'cursor-not-allowed');
-    clearBtn.disabled = false;
-    clearBtn.classList.remove('opacity-50', 'cursor-not-allowed');
-    
-    let totalPrice = 0;
-    let cartHTML = '';
-    
-    cart.forEach((item, index) => {
-        const price = parseFloat(item.price.replace(/[^\d]/g, ''));
-        const itemTotal = price * item.quantity;
-        totalPrice += itemTotal;
-        
-        cartHTML += `
-            <div class="flex items-center space-x-4 p-4 border border-gray-200 rounded-lg mb-4">
-                <div class="flex-shrink-0">
-                    <div class="w-16 h-16 bg-gray-100 rounded-lg flex items-center justify-center">
-                        <i class='bx bx-package text-2xl text-gray-400'></i>
-                    </div>
-                </div>
-                <div class="flex-1 min-w-0">
-                    <h4 class="text-lg font-medium text-gray-900 truncate">${item.name}</h4>
-                    <p class="text-sm text-gray-500">${item.category}</p>
-                    <p class="text-sm text-gray-600">Rp ${price.toLocaleString('id-ID')} × ${item.quantity} ${item.unit}</p>
-                </div>
-                <div class="flex items-center space-x-2">
-                    <span class="text-lg font-semibold text-gray-900">Rp ${itemTotal.toLocaleString('id-ID')}</span>
-                    <button onclick="removeFromCart(${item.id}); displayCartItems();" 
-                            class="text-red-500 hover:text-red-700 p-1">
-                        <i class='bx bx-trash text-lg'></i>
-                    </button>
-                </div>
-            </div>
-        `;
-    });
-    
-    cartItemsContainer.innerHTML = cartHTML;
-    cartSubtotal.textContent = `Rp ${totalPrice.toLocaleString('id-ID')}`;
-    cartTotal.textContent = `Rp ${totalPrice.toLocaleString('id-ID')}`;
-}
-
-// Initialize cart display when page loads
+// Simple script for cart page - no localStorage conflicts
+// All cart operations are handled by PHP forms
 document.addEventListener('DOMContentLoaded', function() {
-    console.log('=== CART PAGE LOADED ===');
-    console.log('sendCartToWhatsApp available:', typeof window.sendCartToWhatsApp);
-    console.log('Cart contents from localStorage:', localStorage.getItem('meatshop_cart'));
-    
-    displayCartItems();
-    
-    // Also reinitialize cart buttons
-    if (typeof initializeCartButtons === 'function') {
-        initializeCartButtons();
-    }
-    
-    // Test WhatsApp button
-    const whatsappBtn = document.getElementById('whatsapp-order-btn');
-    if (whatsappBtn) {
-        console.log('WhatsApp button found:', whatsappBtn);
-        
-        // Remove existing event listeners to prevent duplicates
-        whatsappBtn.removeEventListener('click', handleWhatsAppClick);
-        whatsappBtn.addEventListener('click', handleWhatsAppClick);
-        
-        // Also add onclick as backup
-        whatsappBtn.setAttribute('onclick', 'sendCartItemsToWhatsApp()');
-        
-    } else {
-        console.error('WhatsApp button not found!');
-    }
-    
-    // Test Clear Cart button
-    const clearBtn = document.getElementById('clear-cart-btn');
-    if (clearBtn) {
-        console.log('Clear cart button found:', clearBtn);
-        console.log('clearCart function available:', typeof window.clearCart);
-        console.log('window.clearCart:', window.clearCart);
-        
-        // Force clearCart to be available
-        if (typeof window.clearCart !== 'function') {
-            console.log('Creating clearCart function...');
-            window.clearCart = function() {
-                console.log('=== CLEAR CART CALLED ===');
-                try {
-                    localStorage.removeItem('meatshop_cart');
-                    console.log('Cart cleared from localStorage');
-                    return true;
-                } catch (e) {
-                    console.error('Error clearing cart:', e);
-                    return false;
-                }
-            };
-        }
-        
-        // Remove existing event listeners to prevent duplicates
-        clearBtn.removeEventListener('click', handleClearCart);
-        clearBtn.addEventListener('click', handleClearCart);
-        
-        // Also add onclick as backup
-        clearBtn.setAttribute('onclick', 'clearCart(); displayCartItems();');
-        
-    } else {
-        console.error('Clear cart button not found!');
-    }
-    
-    // Handle WhatsApp button click
-    function handleWhatsAppClick(e) {
-        e.preventDefault();
-        e.stopPropagation();
-        
-        console.log('WhatsApp button clicked via event listener');
-        
-        // Call the new function
-        if (typeof window.sendCartItemsToWhatsApp === 'function') {
-            window.sendCartItemsToWhatsApp();
-        } else {
-            console.error('sendCartItemsToWhatsApp function not available!');
-            alert('Fungsi WhatsApp tidak tersedia. Silakan refresh halaman.');
-        }
-    }
-    
-    // Handle Clear Cart button click
-    function handleClearCart(e) {
-        e.preventDefault();
-        e.stopPropagation();
-        
-        console.log('Clear cart button clicked via event listener');
-        console.log('clearCart function available:', typeof window.clearCart);
-        console.log('displayCartItems function available:', typeof displayCartItems);
-        
-        // Confirm before clearing
-        if (confirm('Apakah Anda yakin ingin mengosongkan keranjang?')) {
-            console.log('User confirmed to clear cart');
-            
-            // Call clearCart function
-            if (typeof window.clearCart === 'function') {
-                window.clearCart();
-                console.log('Cart cleared successfully');
-                
-                // Update display
-                if (typeof displayCartItems === 'function') {
-                    displayCartItems();
-                    console.log('Display updated after clearing cart');
-                } else {
-                    console.error('displayCartItems function not available!');
-                }
-                
-        // Show success message
-        if (typeof window.customAlert !== 'undefined' && window.customAlert.success) {
-            window.customAlert.success('Keranjang berhasil dikosongkan!');
-        } else {
-            alert('Keranjang berhasil dikosongkan!');
-        }
-            } else {
-                console.error('clearCart function not available!');
-                if (typeof window.customAlert !== 'undefined' && window.customAlert.error) {
-                    window.customAlert.error('Fungsi kosongkan keranjang tidak tersedia. Silakan refresh halaman.');
-                } else {
-                    alert('Fungsi kosongkan keranjang tidak tersedia. Silakan refresh halaman.');
-                }
-            }
-        } else {
-            console.log('User cancelled clear cart');
-        }
-    }
+    console.log('Cart page loaded - PHP session based');
+    // No JavaScript cart manipulation needed
+    // All cart operations are handled by PHP forms
 });
-
-// Also initialize immediately if DOM is already loaded
-if (document.readyState === 'loading') {
-    document.addEventListener('DOMContentLoaded', function() {
-        displayCartItems();
-        if (typeof initializeCartButtons === 'function') {
-            initializeCartButtons();
-        }
-    });
-} else {
-    displayCartItems();
-    if (typeof initializeCartButtons === 'function') {
-        initializeCartButtons();
-    }
-}
-
-// Function to send cart items to WhatsApp using the same function as homepage/product pages
-function sendCartItemsToWhatsApp() {
-    console.log('=== SEND CART ITEMS TO WHATSAPP ===');
-    
-    // Load cart data
-    let cart = [];
-    try {
-        const savedCart = localStorage.getItem('meatshop_cart');
-        if (savedCart) {
-            cart = JSON.parse(savedCart);
-        }
-    } catch (e) {
-        console.error('Error loading cart:', e);
-    }
-    
-    console.log('Cart data:', cart);
-    
-    if (cart.length === 0) {
-        if (typeof window.customAlert !== 'undefined' && window.customAlert.warning) {
-            window.customAlert.warning('Keranjang kosong! Silakan tambahkan produk terlebih dahulu.');
-        } else {
-            alert('Keranjang kosong! Silakan tambahkan produk terlebih dahulu.');
-        }
-        return;
-    }
-    
-    // Create dynamic product name, price, category, stock, unit from cart
-    let productName = '';
-    let productPrice = '';
-    let productCategory = '';
-    let productStock = '';
-    let productUnit = '';
-    
-    if (cart.length === 1) {
-        // Single item - use the same format as homepage/product pages
-        const item = cart[0];
-        productName = item.name;
-        productPrice = item.price.replace(/[^\d]/g, '').replace(/\B(?=(\d{3})+(?!\d))/g, '.');
-        productCategory = item.category;
-        productStock = item.stock;
-        productUnit = item.unit;
-    } else {
-        // Multiple items - create summary with product list
-        const productList = cart.map((item, index) => {
-            const price = parseFloat(item.price.replace(/[^\d]/g, ''));
-            return `${index + 1}. ${item.name} (${item.quantity} ${item.unit}) - Rp ${price.toLocaleString('id-ID')}`;
-        }).join('\n');
-        
-        productName = `Pesanan ${cart.length} Produk:\n${productList}`;
-        productPrice = cart.reduce((total, item) => {
-            const price = parseFloat(item.price.replace(/[^\d]/g, ''));
-            return total + (price * item.quantity);
-        }, 0).toLocaleString('id-ID');
-        productCategory = 'Berbagai Kategori';
-        productStock = 'Tersedia';
-        productUnit = 'pcs';
-    }
-    
-    console.log('Dynamic product data:', {productName, productPrice, productCategory, productStock, productUnit});
-    
-    // Use the same sendToWhatsApp function as homepage/product pages
-    if (typeof window.sendToWhatsApp === 'function') {
-        window.sendToWhatsApp(productName, productPrice, productCategory, productStock, productUnit);
-    } else {
-        console.error('sendToWhatsApp function not available!');
-        if (typeof window.customAlert !== 'undefined' && window.customAlert.error) {
-            window.customAlert.error('Fungsi WhatsApp tidak tersedia. Silakan refresh halaman.');
-        } else {
-            alert('Fungsi WhatsApp tidak tersedia. Silakan refresh halaman.');
-        }
-    }
-}
-
-// Make function globally available
-window.sendCartItemsToWhatsApp = sendCartItemsToWhatsApp;
-
-// Clear cart with custom confirm dialog
-function clearCartWithConfirm() {
-    if (typeof window.customAlert !== 'undefined' && window.customAlert.confirm) {
-        window.customAlert.confirm(
-            'Apakah Anda yakin ingin mengosongkan keranjang?',
-            'Konfirmasi',
-            function() {
-                // User confirmed
-                localStorage.removeItem('meatshop_cart');
-                displayCartItems();
-                window.customAlert.success('Keranjang berhasil dikosongkan!');
-            },
-            function() {
-                // User cancelled
-                console.log('User cancelled clear cart');
-            }
-        );
-    } else {
-        // Fallback to browser confirm
-        if (confirm('Apakah Anda yakin ingin mengosongkan keranjang?')) {
-            localStorage.removeItem('meatshop_cart');
-            displayCartItems();
-            if (typeof window.customAlert !== 'undefined' && window.customAlert.success) {
-                window.customAlert.success('Keranjang berhasil dikosongkan!');
-            } else {
-                alert('Keranjang berhasil dikosongkan!');
-            }
-        }
-    }
-}
-
-// Make function globally available
-window.clearCartWithConfirm = clearCartWithConfirm;
-
-// Fallback clearCart function if not available from script.js
-if (typeof window.clearCart !== 'function') {
-    console.log('clearCart not available from script.js, creating fallback...');
-    window.clearCart = function() {
-        console.log('=== FALLBACK CLEAR CART ===');
-        try {
-            localStorage.removeItem('meatshop_cart');
-            console.log('Cart cleared from localStorage');
-            return true;
-        } catch (e) {
-            console.error('Error clearing cart:', e);
-            return false;
-        }
-    };
-    console.log('Fallback clearCart function created');
-}
 </script>

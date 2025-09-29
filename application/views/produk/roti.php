@@ -59,15 +59,17 @@
                                                     onclick="sendToWhatsApp('<?php echo htmlspecialchars($product->name, ENT_QUOTES); ?>', '<?php echo number_format($product->price, 0, ',', '.'); ?>', '<?php echo htmlspecialchars($product->category, ENT_QUOTES); ?>', '<?php echo $product->stock; ?>', '<?php echo $product->unit; ?>')">
                                                 Pesan
                                             </button>
-                                            <button class="bg-gray-100 text-gray-700 p-3 rounded-xl hover:bg-primary hover:text-white transition-colors add-cart" 
-                                                    onclick="addToCartDirect('<?php echo htmlspecialchars($product->name, ENT_QUOTES); ?>', '<?php echo number_format($product->price, 0, ',', '.'); ?>', '<?php echo htmlspecialchars($product->category, ENT_QUOTES); ?>', '<?php echo $product->stock; ?>', '<?php echo $product->unit; ?>')"
-                                                    data-product-name="<?php echo htmlspecialchars($product->name, ENT_QUOTES); ?>" 
-                                                    data-product-price="<?php echo number_format($product->price, 0, ',', '.'); ?>" 
-                                                    data-product-category="<?php echo htmlspecialchars($product->category, ENT_QUOTES); ?>" 
-                                                    data-product-stock="<?php echo $product->stock; ?>" 
-                                                    data-product-unit="<?php echo $product->unit; ?>">
-                                                <i class='bx bx-cart-add text-xl'></i>
-                                            </button>
+                                            <form method="post" action="<?php echo base_url('cart/add'); ?>" class="inline">
+                            <input type="hidden" name="product_name" value="<?php echo htmlspecialchars($product->name, ENT_QUOTES); ?>">
+                            <input type="hidden" name="product_price" value="<?php echo $product->price; ?>">
+                            <input type="hidden" name="product_category" value="<?php echo htmlspecialchars($product->category, ENT_QUOTES); ?>">
+                            <input type="hidden" name="product_stock" value="<?php echo $product->stock; ?>">
+                            <input type="hidden" name="product_unit" value="<?php echo $product->unit; ?>">
+                            <input type="hidden" name="quantity" value="1">
+                            <button type="submit" class="bg-gray-100 text-gray-700 p-3 rounded-xl hover:bg-primary hover:text-white transition-colors">
+                                <i class='bx bx-cart-add text-xl'></i>
+                            </button>
+                        </form>
                                         </div>
                                     </div>
                                 </div>
@@ -102,17 +104,20 @@
                                     </div>
                                     <div class="flex items-center space-x-2">
                                         <button class="bg-primary text-white px-6 py-3 rounded-xl hover:bg-primary-700 transition-colors font-semibold flex-1" 
-                                                onclick="sendToWhatsApp('Roti Premium', 'Tersedia', 'Roti', 'Tersedia', 'pcs')">
+                                                onclick="sendToWhatsApp('Roti Premium', '15.000', 'Roti', 'Tersedia', 'pcs')">
                                             Pesan
                                         </button>
-                                        <button class="bg-gray-100 text-gray-700 p-3 rounded-xl hover:bg-primary hover:text-white transition-colors add-cart" 
-                                                data-product-name="Roti Premium" 
-                                                data-product-price="Tersedia" 
-                                                data-product-category="Roti" 
-                                                data-product-stock="Tersedia" 
-                                                data-product-unit="pcs">
-                                            <i class='bx bx-cart-add text-xl'></i>
-                                        </button>
+                                        <form method="post" action="<?php echo base_url('cart/add'); ?>" class="inline">
+                            <input type="hidden" name="product_name" value="Roti Premium">
+                            <input type="hidden" name="product_price" value="15000">
+                            <input type="hidden" name="product_category" value="Roti">
+                            <input type="hidden" name="product_stock" value="Tersedia">
+                            <input type="hidden" name="product_unit" value="pcs">
+                            <input type="hidden" name="quantity" value="1">
+                            <button type="submit" class="bg-gray-100 text-gray-700 p-3 rounded-xl hover:bg-primary hover:text-white transition-colors">
+                                <i class='bx bx-cart-add text-xl'></i>
+                            </button>
+                        </form>
                                     </div>
                                 </div>
                             </div>

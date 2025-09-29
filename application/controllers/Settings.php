@@ -56,6 +56,7 @@ class Settings extends CI_Controller {
             log_message('debug', 'Update content - Page: ' . $page);
             log_message('debug', 'POST data: ' . print_r($_POST, true));
             
+            
             // Process form data
             foreach ($_POST as $key => $value) {
                 if (strpos($key, 'content[') === 0) {
