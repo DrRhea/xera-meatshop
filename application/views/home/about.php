@@ -2,10 +2,9 @@
 <section class="py-20 bg-gradient-to-br from-gray-50 to-gray-100">
     <div class="w-full px-4 sm:px-6 lg:px-8">
         <div class="text-center">
-            <h1 class="text-5xl font-bold text-gray-900 mb-6">Tentang Kami</h1>
+            <h1 class="text-5xl font-bold text-gray-900 mb-6"><?php echo isset($content['hero']['about_title']) ? $content['hero']['about_title'] : 'Tentang Kami'; ?></h1>
             <p class="text-xl text-gray-600">
-                CV. Semarang Boga Utama 
-                <span class="text-primary font-semibold">(Jawa Tengah, Indonesia)</span>
+                <?php echo isset($content['hero']['about_subtitle']) ? $content['hero']['about_subtitle'] : 'CV. Semarang Boga Utama (Jawa Tengah, Indonesia)'; ?>
             </p>
         </div>
     </div>
@@ -19,15 +18,13 @@
             <div class="space-y-8">
                 <div class="space-y-6">
                     <p class="text-lg text-gray-700 leading-relaxed">
-                        Meat Shop & Grocery Semarang adalah toko yang menyediakan berbagai kebutuhan dapur mulai dari daging segar berkualitas, bumbu pilihan, produk bakery, sayur, buah, hingga dairy. Kami hadir untuk memberikan pengalaman belanja yang mudah, praktis, dan terpercaya bagi masyarakat Semarang dan sekitarnya.
+                        <?php echo isset($content['content']['about_description1']) ? $content['content']['about_description1'] : 'Meat Shop & Grocery Semarang adalah toko yang menyediakan berbagai kebutuhan dapur mulai dari daging segar berkualitas, bumbu pilihan, produk bakery, sayur, buah, hingga dairy. Kami hadir untuk memberikan pengalaman belanja yang mudah, praktis, dan terpercaya bagi masyarakat Semarang dan sekitarnya.'; ?>
                     </p>
                     <p class="text-lg text-gray-700 leading-relaxed">
-                        Dengan komitmen kualitas terbaik, harga bersahabat, dan layanan yang ramah, kami ingin menjadi mitra setia keluarga dalam memenuhi kebutuhan masakan sehari-hari maupun acara spesial. Semua produk dipilih secara teliti agar selalu fresh, higienis, dan siap diolah menjadi hidangan terbaik untuk keluarga Anda.
+                        <?php echo isset($content['content']['about_description2']) ? $content['content']['about_description2'] : 'Dengan komitmen kualitas terbaik, harga bersahabat, dan layanan yang ramah, kami ingin menjadi mitra setia keluarga dalam memenuhi kebutuhan masakan sehari-hari maupun acara spesial. Semua produk dipilih secara teliti agar selalu fresh, higienis, dan siap diolah menjadi hidangan terbaik untuk keluarga Anda.'; ?>
                     </p>
                     <p class="text-lg text-gray-700 leading-relaxed">
-                        Seluruh produk daging sapi segar dan Dorper Lamb yang tersedia merupakan hasil 
-                        pemotongan ternak yang berasal dari peternakan kami sendiri. Kami telah menerapkan 
-                        konsep <em class="text-primary font-semibold">From Farm to Meat Shop</em> sejak tahun 2012.
+                        <?php echo isset($content['content']['about_description3']) ? $content['content']['about_description3'] : 'Seluruh produk daging sapi segar dan Dorper Lamb yang tersedia merupakan hasil pemotongan ternak yang berasal dari peternakan kami sendiri. Kami telah menerapkan konsep From Farm to Meat Shop sejak tahun 2012.'; ?>
                     </p>
                 </div>
             </div>

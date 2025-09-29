@@ -10,145 +10,114 @@
         <main class="py-16 bg-white">
             <div class="w-full px-4 sm:px-6 lg:px-8">
                 <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-8">
-                    
-                    <!-- Card Produk Seafood 1 -->
-                    <div class="bg-card border border-border overflow-hidden hover:border-primary transition-colors duration-300 group">
-                        <div class="relative">
-                            <span class="absolute top-3 left-3 bg-primary text-white px-2 py-1 text-xs font-semibold rounded uppercase tracking-wide">TERLARIS</span>
-                            <img src="<?php echo base_url('assets/img/prod-1.jpg'); ?>" alt="Ikan Segar" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
-                        </div>
-                        <div class="p-6">
-                            <p class="text-sm text-primary font-semibold mb-2 uppercase tracking-wide">Seafood</p>
-                            <h4 class="text-lg font-bold text-gray-900 mb-4">Ikan Segar Premium</h4>
-                            <div class="flex items-center justify-between">
-                                <span class="text-2xl font-bold text-primary">Rp 45.000/kg</span>
-                                <div class="flex space-x-2">
-                                    <button class="bg-primary text-white px-4 py-2 rounded hover:bg-primary-700 transition-colors text-sm font-semibold uppercase tracking-wide">
-                                        Pesan
-                                    </button>
-                                    <button class="bg-surface text-muted p-2 rounded hover:bg-primary hover:text-white transition-colors">
-                                        <i class='bx bx-cart-add text-xl'></i>
-                                    </button>
+                    <?php if (!empty($products)): ?>
+                        <?php foreach ($products as $product): ?>
+                            <div class="bg-white rounded-2xl transition-all duration-300 group overflow-hidden flex flex-col h-full">
+                                <div class="relative h-64 bg-gradient-to-br from-primary/20 to-primary/10 flex items-center justify-center">
+                                    <?php if (!empty($product->image)): ?>
+                                        <img src="<?php echo base_url($product->image); ?>" 
+                                             alt="<?php echo htmlspecialchars($product->name); ?>" 
+                                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                                    <?php else: ?>
+                                        <img src="<?php echo base_url('assets/img/prod-1.jpg'); ?>" 
+                                             alt="<?php echo htmlspecialchars($product->name); ?>" 
+                                             class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                                    <?php endif; ?>
+                                    <span class="absolute top-4 left-4 bg-primary text-white px-3 py-1 text-xs font-semibold rounded-full">
+                                        TERLARIS
+                                    </span>
+                                </div>
+                                <div class="p-6 flex flex-col h-full">
+                                    <div class="flex-1">
+                                        <h4 class="text-xl font-bold text-gray-900 mb-3"><?php echo htmlspecialchars($product->name); ?></h4>
+                                        <div class="flex flex-wrap gap-2 mb-4">
+                                            <span class="px-3 py-1 border border-gray-300 rounded-full text-xs font-medium text-gray-700">
+                                                <?php echo htmlspecialchars($product->category); ?>
+                                            </span>
+                                            <span class="px-3 py-1 border border-gray-300 rounded-full text-xs font-medium text-gray-700">
+                                                Stock: <?php echo $product->stock . ' ' . $product->unit; ?>
+                                            </span>
+                                        </div>
+                                        <?php if (!empty($product->description)): ?>
+                                            <p class="text-sm text-gray-600 mb-6 leading-relaxed">
+                                                <?php echo htmlspecialchars(substr($product->description, 0, 100)); ?>
+                                                <?php if (strlen($product->description) > 100): ?>...<?php endif; ?>
+                                            </p>
+                                        <?php else: ?>
+                                            <p class="text-sm text-gray-600 mb-6 leading-relaxed">
+                                                Seafood segar berkualitas premium, ditangkap dengan teknik terbaik untuk mempertahankan kesegaran dan kelezatan.
+                                            </p>
+                                        <?php endif; ?>
+                                    </div>
+                                    <div class="mt-auto">
+                                        <div class="mb-4">
+                                            <span class="text-xs text-gray-500 uppercase tracking-wide">Harga</span>
+                                            <div class="text-2xl font-bold text-primary">Rp <?php echo number_format($product->price, 0, ',', '.'); ?>/<?php echo $product->unit; ?></div>
+                                        </div>
+                                        <div class="flex items-center space-x-2">
+                                            <button class="bg-primary text-white px-6 py-3 rounded-xl hover:bg-primary-700 transition-colors font-semibold flex-1" 
+                                                    onclick="sendToWhatsApp('<?php echo htmlspecialchars($product->name, ENT_QUOTES); ?>', '<?php echo number_format($product->price, 0, ',', '.'); ?>', '<?php echo htmlspecialchars($product->category, ENT_QUOTES); ?>', '<?php echo $product->stock; ?>', '<?php echo $product->unit; ?>')">
+                                                Pesan
+                                            </button>
+                                            <button class="bg-gray-100 text-gray-700 p-3 rounded-xl hover:bg-primary hover:text-white transition-colors add-cart" 
+                                                    onclick="addToCartDirect('<?php echo htmlspecialchars($product->name, ENT_QUOTES); ?>', '<?php echo number_format($product->price, 0, ',', '.'); ?>', '<?php echo htmlspecialchars($product->category, ENT_QUOTES); ?>', '<?php echo $product->stock; ?>', '<?php echo $product->unit; ?>')"
+                                                    data-product-name="<?php echo htmlspecialchars($product->name, ENT_QUOTES); ?>" 
+                                                    data-product-price="<?php echo number_format($product->price, 0, ',', '.'); ?>" 
+                                                    data-product-category="<?php echo htmlspecialchars($product->category, ENT_QUOTES); ?>" 
+                                                    data-product-stock="<?php echo $product->stock; ?>" 
+                                                    data-product-unit="<?php echo $product->unit; ?>">
+                                                <i class='bx bx-cart-add text-xl'></i>
+                                            </button>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        <?php endforeach; ?>
+                    <?php else: ?>
+                        <!-- Fallback jika tidak ada produk -->
+                        <div class="bg-white rounded-2xl transition-all duration-300 group overflow-hidden flex flex-col h-full">
+                            <div class="relative h-64 bg-gradient-to-br from-primary/20 to-primary/10 flex items-center justify-center">
+                                <img src="<?php echo base_url('assets/img/prod-1.jpg'); ?>" 
+                                     alt="Ikan Segar" 
+                                     class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-300">
+                                <span class="absolute top-4 left-4 bg-primary text-white px-3 py-1 text-xs font-semibold rounded-full">
+                                    TERLARIS
+                                </span>
+                            </div>
+                            <div class="p-6 flex flex-col h-full">
+                                <div class="flex-1">
+                                    <h4 class="text-xl font-bold text-gray-900 mb-3">Ikan Segar Premium</h4>
+                                    <div class="flex flex-wrap gap-2 mb-4">
+                                        <span class="px-3 py-1 border border-gray-300 rounded-full text-xs font-medium text-gray-700">Seafood</span>
+                                        <span class="px-3 py-1 border border-gray-300 rounded-full text-xs font-medium text-gray-700">Premium</span>
+                                    </div>
+                                    <p class="text-sm text-gray-600 mb-6 leading-relaxed">
+                                        Seafood segar berkualitas premium, ditangkap dengan teknik terbaik untuk mempertahankan kesegaran dan kelezatan.
+                                    </p>
+                                </div>
+                                <div class="mt-auto">
+                                    <div class="mb-4">
+                                        <span class="text-xs text-gray-500 uppercase tracking-wide">Harga</span>
+                                        <div class="text-2xl font-bold text-primary">Rp 45.000/kg</div>
+                                    </div>
+                                    <div class="flex items-center space-x-2">
+                                        <button class="bg-primary text-white px-6 py-3 rounded-xl hover:bg-primary-700 transition-colors font-semibold flex-1" 
+                                                onclick="sendToWhatsApp('Ikan Segar Premium', 'Tersedia', 'Seafood', 'Tersedia', 'kg')">
+                                            Pesan
+                                        </button>
+                                        <button class="bg-gray-100 text-gray-700 p-3 rounded-xl hover:bg-primary hover:text-white transition-colors add-cart" 
+                                                data-product-name="Ikan Segar Premium" 
+                                                data-product-price="Tersedia" 
+                                                data-product-category="Seafood" 
+                                                data-product-stock="Tersedia" 
+                                                data-product-unit="kg">
+                                            <i class='bx bx-cart-add text-xl'></i>
+                                        </button>
+                                    </div>
                                 </div>
                             </div>
                         </div>
-                    </div>
-
-                    <!-- Card Produk Seafood 2 -->
-                    <div class="bg-card border border-border overflow-hidden hover:border-primary transition-colors duration-300 group">
-                        <div class="relative">
-                            <span class="absolute top-3 left-3 bg-accent text-white px-2 py-1 text-xs font-semibold rounded uppercase tracking-wide">PROMO</span>
-                            <img src="<?php echo base_url('assets/img/prod-1.jpg'); ?>" alt="Udang Segar" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
-                        </div>
-                        <div class="p-6">
-                            <p class="text-sm text-primary font-semibold mb-2 uppercase tracking-wide">Seafood</p>
-                            <h4 class="text-lg font-bold text-gray-900 mb-4">Udang Segar Premium</h4>
-                            <div class="flex items-center justify-between">
-                                <span class="text-2xl font-bold text-primary">Rp 75.000/kg</span>
-                                <div class="flex space-x-2">
-                                    <button class="bg-primary text-white px-4 py-2 rounded hover:bg-primary-700 transition-colors text-sm font-semibold uppercase tracking-wide">
-                                        Pesan
-                                    </button>
-                                    <button class="bg-surface text-muted p-2 rounded hover:bg-primary hover:text-white transition-colors">
-                                        <i class='bx bx-cart-add text-xl'></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Card Produk Seafood 3 -->
-                    <div class="bg-card border border-border overflow-hidden hover:border-primary transition-colors duration-300 group">
-                        <div class="relative">
-                            <span class="absolute top-3 left-3 bg-secondary text-white px-2 py-1 text-xs font-semibold rounded uppercase tracking-wide">BARU</span>
-                            <img src="<?php echo base_url('assets/img/prod-1.jpg'); ?>" alt="Kepiting Segar" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
-                        </div>
-                        <div class="p-6">
-                            <p class="text-sm text-primary font-semibold mb-2 uppercase tracking-wide">Seafood</p>
-                            <h4 class="text-lg font-bold text-gray-900 mb-4">Kepiting Segar Premium</h4>
-                            <div class="flex items-center justify-between">
-                                <span class="text-2xl font-bold text-primary">Rp 95.000/kg</span>
-                                <div class="flex space-x-2">
-                                    <button class="bg-primary text-white px-4 py-2 rounded hover:bg-primary-700 transition-colors text-sm font-semibold uppercase tracking-wide">
-                                        Pesan
-                                    </button>
-                                    <button class="bg-surface text-muted p-2 rounded hover:bg-primary hover:text-white transition-colors">
-                                        <i class='bx bx-cart-add text-xl'></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Card Produk Seafood 4 -->
-                    <div class="bg-card border border-border overflow-hidden hover:border-primary transition-colors duration-300 group">
-                        <div class="relative">
-                            <span class="absolute top-3 left-3 bg-primary text-white px-2 py-1 text-xs font-semibold rounded uppercase tracking-wide">HOT</span>
-                            <img src="<?php echo base_url('assets/img/prod-1.jpg'); ?>" alt="Cumi Segar" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
-                        </div>
-                        <div class="p-6">
-                            <p class="text-sm text-primary font-semibold mb-2 uppercase tracking-wide">Seafood</p>
-                            <h4 class="text-lg font-bold text-gray-900 mb-4">Cumi Segar Premium</h4>
-                            <div class="flex items-center justify-between">
-                                <span class="text-2xl font-bold text-primary">Rp 55.000/kg</span>
-                                <div class="flex space-x-2">
-                                    <button class="bg-primary text-white px-4 py-2 rounded hover:bg-primary-700 transition-colors text-sm font-semibold uppercase tracking-wide">
-                                        Pesan
-                                    </button>
-                                    <button class="bg-surface text-muted p-2 rounded hover:bg-primary hover:text-white transition-colors">
-                                        <i class='bx bx-cart-add text-xl'></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Card Produk Seafood 5 -->
-                    <div class="bg-card border border-border overflow-hidden hover:border-primary transition-colors duration-300 group">
-                        <div class="relative">
-                            <span class="absolute top-3 left-3 bg-accent text-white px-2 py-1 text-xs font-semibold rounded uppercase tracking-wide">PROMO</span>
-                            <img src="<?php echo base_url('assets/img/prod-1.jpg'); ?>" alt="Kerang Segar" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
-                        </div>
-                        <div class="p-6">
-                            <p class="text-sm text-primary font-semibold mb-2 uppercase tracking-wide">Seafood</p>
-                            <h4 class="text-lg font-bold text-gray-900 mb-4">Kerang Segar Premium</h4>
-                            <div class="flex items-center justify-between">
-                                <span class="text-2xl font-bold text-primary">Rp 35.000/kg</span>
-                                <div class="flex space-x-2">
-                                    <button class="bg-primary text-white px-4 py-2 rounded hover:bg-primary-700 transition-colors text-sm font-semibold uppercase tracking-wide">
-                                        Pesan
-                                    </button>
-                                    <button class="bg-surface text-muted p-2 rounded hover:bg-primary hover:text-white transition-colors">
-                                        <i class='bx bx-cart-add text-xl'></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
-                    <!-- Card Produk Seafood 6 -->
-                    <div class="bg-card border border-border overflow-hidden hover:border-primary transition-colors duration-300 group">
-                        <div class="relative">
-                            <span class="absolute top-3 left-3 bg-secondary text-white px-2 py-1 text-xs font-semibold rounded uppercase tracking-wide">BARU</span>
-                            <img src="<?php echo base_url('assets/img/prod-1.jpg'); ?>" alt="Lobster Segar" class="w-full h-48 object-cover group-hover:scale-105 transition-transform duration-300">
-                        </div>
-                        <div class="p-6">
-                            <p class="text-sm text-primary font-semibold mb-2 uppercase tracking-wide">Seafood</p>
-                            <h4 class="text-lg font-bold text-gray-900 mb-4">Lobster Segar Premium</h4>
-                            <div class="flex items-center justify-between">
-                                <span class="text-2xl font-bold text-primary">Rp 125.000/kg</span>
-                                <div class="flex space-x-2">
-                                    <button class="bg-primary text-white px-4 py-2 rounded hover:bg-primary-700 transition-colors text-sm font-semibold uppercase tracking-wide">
-                                        Pesan
-                                    </button>
-                                    <button class="bg-surface text-muted p-2 rounded hover:bg-primary hover:text-white transition-colors">
-                                        <i class='bx bx-cart-add text-xl'></i>
-                                    </button>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-
+                    <?php endif; ?>
                 </div>
             </div>
         </main>

@@ -9,6 +9,7 @@ class Home extends CI_Controller {
         $this->load->helper('url');
         $this->load->model('Product_model');
         $this->load->model('Promo_model');
+        $this->load->model('Content_model');
     }
 
     public function index()
@@ -22,6 +23,9 @@ class Home extends CI_Controller {
         // Get active daily promos from database
         $data['daily_promos'] = $this->Promo_model->get_active_promos(4);
         
+        // Get dynamic content
+        $data['content'] = $this->Content_model->get_content('homepage');
+        
         $this->load->view('templates/header', $data);
         $this->load->view('home/index', $data);
         $this->load->view('templates/footer', $data);
@@ -32,6 +36,9 @@ class Home extends CI_Controller {
         $data['title'] = 'Tentang Kami - Meat Shop & Grocery';
         $data['page'] = 'about';
         
+        // Get dynamic content
+        $data['content'] = $this->Content_model->get_content('about');
+        
         $this->load->view('templates/header', $data);
         $this->load->view('home/about', $data);
         $this->load->view('templates/footer', $data);
@@ -41,6 +48,9 @@ class Home extends CI_Controller {
     {
         $data['title'] = 'Kontak - Meat Shop & Grocery';
         $data['page'] = 'contact';
+        
+        // Get dynamic content
+        $data['content'] = $this->Content_model->get_content('contact');
         
         $this->load->view('templates/header', $data);
         $this->load->view('home/contact', $data);

@@ -3,10 +3,10 @@
     <div class="w-full px-4 sm:px-6 lg:px-8">
         <div class="max-w-4xl mx-auto text-center">
             <h1 class="text-4xl lg:text-6xl font-bold text-gray-900 mb-6">
-                Hubungi <span class="text-primary">Kami</span>
+                <?php echo isset($content['hero']['contact_title']) ? $content['hero']['contact_title'] : 'Hubungi'; ?> <span class="text-primary">Kami</span>
             </h1>
             <p class="text-lg text-gray-600 leading-relaxed">
-                Kami siap melayani kebutuhan belanja Anda. Jangan ragu untuk menghubungi kami
+                <?php echo isset($content['hero']['contact_subtitle']) ? $content['hero']['contact_subtitle'] : 'Kami siap melayani kebutuhan belanja Anda. Jangan ragu untuk menghubungi kami'; ?>
             </p>
         </div>
     </div>
@@ -33,8 +33,8 @@
                             </div>
                             <div>
                                 <h3 class="text-lg font-semibold text-gray-900 mb-2">Telepon</h3>
-                                <p class="text-gray-600">(+62) 811-2993-400</p>
-                                <p class="text-sm text-gray-500 mt-1">Senin - Minggu: 08:00 - 20:00 WIB</p>
+                                <p class="text-gray-600"><?php echo isset($content['info']['contact_phone']) ? $content['info']['contact_phone'] : '(+62) 811-2993-400'; ?></p>
+                                <p class="text-sm text-gray-500 mt-1"><?php echo isset($content['info']['contact_phone_hours']) ? $content['info']['contact_phone_hours'] : 'Senin - Minggu: 08:00 - 20:00 WIB'; ?></p>
                             </div>
                         </div>
 
@@ -45,8 +45,8 @@
                             </div>
                             <div>
                                 <h3 class="text-lg font-semibold text-gray-900 mb-2">Email</h3>
-                                <p class="text-gray-600">supplierdaging@mitraboga.com</p>
-                                <p class="text-sm text-gray-500 mt-1">Kami akan membalas dalam 24 jam</p>
+                                <p class="text-gray-600"><?php echo isset($content['info']['contact_email']) ? $content['info']['contact_email'] : 'supplierdaging@mitraboga.com'; ?></p>
+                                <p class="text-sm text-gray-500 mt-1"><?php echo isset($content['info']['contact_email_response']) ? $content['info']['contact_email_response'] : 'Kami akan membalas dalam 24 jam'; ?></p>
                             </div>
                         </div>
 
