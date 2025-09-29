@@ -7,6 +7,7 @@ class Produk extends CI_Controller {
     {
         parent::__construct();
         $this->load->helper('url');
+        $this->load->model('Product_model');
     }
 
     public function daging()
@@ -14,6 +15,9 @@ class Produk extends CI_Controller {
         $data['title'] = 'Produk Daging - Meat Shop & Grocery';
         $data['page'] = 'produk';
         $data['kategori'] = 'daging';
+        
+        // Get products by category 'DAGING' from database
+        $data['products'] = $this->Product_model->get_products(null, null, null, 'DAGING', 'active');
         
         $this->load->view('templates/header', $data);
         $this->load->view('produk/daging', $data);
@@ -26,6 +30,9 @@ class Produk extends CI_Controller {
         $data['page'] = 'produk';
         $data['kategori'] = 'minuman';
         
+        // Get products by category 'MINUMAN' from database
+        $data['products'] = $this->Product_model->get_products(null, null, null, 'MINUMAN', 'active');
+        
         $this->load->view('templates/header', $data);
         $this->load->view('produk/minuman', $data);
         $this->load->view('templates/footer', $data);
@@ -36,6 +43,9 @@ class Produk extends CI_Controller {
         $data['title'] = 'Produk Seafood - Meat Shop & Grocery';
         $data['page'] = 'produk';
         $data['kategori'] = 'seafood';
+        
+        // Get products by category 'SEAFOOD' from database
+        $data['products'] = $this->Product_model->get_products(null, null, null, 'SEAFOOD', 'active');
         
         $this->load->view('templates/header', $data);
         $this->load->view('produk/seafood', $data);
@@ -48,6 +58,9 @@ class Produk extends CI_Controller {
         $data['page'] = 'produk';
         $data['kategori'] = 'bumbu';
         
+        // Get products by category 'BUMBU' from database
+        $data['products'] = $this->Product_model->get_products(null, null, null, 'BUMBU', 'active');
+        
         $this->load->view('templates/header', $data);
         $this->load->view('produk/bumbu', $data);
         $this->load->view('templates/footer', $data);
@@ -58,6 +71,9 @@ class Produk extends CI_Controller {
         $data['title'] = 'Produk Roti - Meat Shop & Grocery';
         $data['page'] = 'produk';
         $data['kategori'] = 'roti';
+        
+        // Get products by category 'ROTI' from database
+        $data['products'] = $this->Product_model->get_products(null, null, null, 'ROTI', 'active');
         
         $this->load->view('templates/header', $data);
         $this->load->view('produk/roti', $data);
@@ -70,6 +86,9 @@ class Produk extends CI_Controller {
         $data['page'] = 'produk';
         $data['kategori'] = 'sayur_buah';
         
+        // Get products by category 'SAYUR_BUAH' from database
+        $data['products'] = $this->Product_model->get_products(null, null, null, 'SAYUR_BUAH', 'active');
+        
         $this->load->view('templates/header', $data);
         $this->load->view('produk/sayur_buah', $data);
         $this->load->view('templates/footer', $data);
@@ -81,6 +100,9 @@ class Produk extends CI_Controller {
         $data['page'] = 'produk';
         $data['kategori'] = 'daging_olahan';
         
+        // Get products by category 'DAGING_OLAHAN' from database
+        $data['products'] = $this->Product_model->get_products(null, null, null, 'DAGING_OLAHAN', 'active');
+        
         $this->load->view('templates/header', $data);
         $this->load->view('produk/daging_olahan', $data);
         $this->load->view('templates/footer', $data);
@@ -91,6 +113,9 @@ class Produk extends CI_Controller {
         $data['title'] = 'Produk Susu & Olahan - Meat Shop & Grocery';
         $data['page'] = 'produk';
         $data['kategori'] = 'susu_olahan';
+        
+        // Get products by category 'SUSU_OLAHAN' from database
+        $data['products'] = $this->Product_model->get_products(null, null, null, 'SUSU_OLAHAN', 'active');
         
         $this->load->view('templates/header', $data);
         $this->load->view('produk/susu_olahan', $data);

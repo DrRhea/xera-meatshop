@@ -89,28 +89,6 @@
                 <?php endforeach; ?>
             </div>
             
-            <!-- Call to Action -->
-            <div class="text-center mt-16">
-                <div class="bg-gradient-to-r from-primary/10 to-primary/5 rounded-2xl p-8">
-                    <h3 class="text-2xl font-bold text-text mb-4">Ingin Melihat Lebih Banyak?</h3>
-                    <p class="text-muted mb-6 max-w-2xl mx-auto">
-                        Jelajahi produk segar kami dan temukan berbagai pilihan daging berkualitas tinggi 
-                        yang siap memenuhi kebutuhan keluarga Anda.
-                    </p>
-                    <div class="flex flex-col sm:flex-row justify-center space-y-4 sm:space-y-0 sm:space-x-4">
-                        <a href="<?php echo base_url('produk'); ?>" 
-                           class="bg-primary text-white px-6 py-3 rounded-lg hover:bg-primary-700 transition-colors duration-200">
-                            <i class='bx bx-box mr-2'></i>
-                            Lihat Produk Kami
-                        </a>
-                        <a href="<?php echo base_url('about'); ?>" 
-                           class="bg-white text-primary border border-primary px-6 py-3 rounded-lg hover:bg-primary hover:text-white transition-colors duration-200">
-                            <i class='bx bx-info-circle mr-2'></i>
-                            Tentang Kami
-                        </a>
-                    </div>
-                </div>
-            </div>
         <?php endif; ?>
     </div>
 </section>

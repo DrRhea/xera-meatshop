@@ -151,5 +151,188 @@
         </div>
     </footer>
 
+    <!-- Toast Notifications -->
+    <div x-data="toastComponent()" class="fixed top-4 right-4 z-50 space-y-2">
+        <template x-for="toast in toasts" :key="toast.id">
+            <div x-show="toast.show" 
+                 x-transition:enter="transition ease-out duration-300" 
+                 x-transition:enter-start="opacity-0 transform translate-x-full" 
+                 x-transition:enter-end="opacity-100 transform translate-x-0" 
+                 x-transition:leave="transition ease-in duration-200" 
+                 x-transition:leave-start="opacity-100 transform translate-x-0" 
+                 x-transition:leave-end="opacity-0 transform translate-x-full"
+                 class="bg-white border border-gray-200 rounded-lg p-4 max-w-sm w-full"
+                 :class="{
+                     'border-green-400': toast.type === 'success',
+                     'border-red-400': toast.type === 'error',
+                     'border-yellow-400': toast.type === 'warning',
+                     'border-blue-400': toast.type === 'info'
+                 }">
+                <div class="flex items-start">
+                    <div class="flex-shrink-0">
+                        <div x-show="toast.type === 'success'" class="w-8 h-8 bg-green-100 rounded-full flex items-center justify-center">
+                            <i class='bx bx-check text-green-600 text-lg'></i>
+                        </div>
+                        <div x-show="toast.type === 'error'" class="w-8 h-8 bg-red-100 rounded-full flex items-center justify-center">
+                            <i class='bx bx-x text-red-600 text-lg'></i>
+                        </div>
+                        <div x-show="toast.type === 'warning'" class="w-8 h-8 bg-yellow-100 rounded-full flex items-center justify-center">
+                            <i class='bx bx-error text-yellow-600 text-lg'></i>
+                        </div>
+                        <div x-show="toast.type === 'info'" class="w-8 h-8 bg-blue-100 rounded-full flex items-center justify-center">
+                            <i class='bx bx-info-circle text-blue-600 text-lg'></i>
+                        </div>
+                    </div>
+                    <div class="ml-3 flex-1">
+                        <h3 class="text-sm font-medium text-gray-900" x-text="toast.title"></h3>
+                        <p class="text-sm text-gray-700 mt-1" x-text="toast.message"></p>
+                    </div>
+                    <button @click="removeToast(toast.id)" class="ml-3 text-gray-400 hover:text-gray-600">
+                        <i class='bx bx-x text-lg'></i>
+                    </button>
+                </div>
+            </div>
+        </template>
+    </div>
+
+    <!-- Cart Badge -->
+    <div x-data="{ cartCount: 0 }" x-init="
+        updateCartCount();
+        setInterval(updateCartCount, 1000);
+        function updateCartCount() {
+            try {
+                const cart = JSON.parse(localStorage.getItem('meatshop_cart') || '[]');
+                cartCount = cart.length;
+            } catch (e) {
+                cartCount = 0;
+            }
+        }
+    " class="fixed bottom-4 right-4 z-40">
+        <a href="<?php echo base_url('keranjang'); ?>" 
+           class="relative bg-primary text-white p-4 rounded-full hover:bg-primary-700 transition-colors duration-200">
+            <i class='bx bx-shopping-bag text-2xl'></i>
+            <span x-show="cartCount > 0" 
+                  x-text="cartCount" 
+                  class="absolute -top-2 -right-2 bg-red-500 text-white text-xs font-bold rounded-full h-6 w-6 flex items-center justify-center">
+            </span>
+        </a>
+    </div>
+
+    <!-- Alpine.js -->
+    <script defer src="https://unpkg.com/alpinejs@3.x.x/dist/cdn.min.js"></script>
+    
+    <!-- Scripts -->
+    <script src="<?php echo base_url('js/script.js'); ?>"></script>
+    
+    <!-- Toast Functions -->
+    <script>
+        // Toast Component
+        function toastComponent() {
+            return {
+                toasts: [],
+                
+                addToast(type, title, message, duration = 5000) {
+                    const id = Date.now() + Math.random();
+                    const toast = {
+                        id: id,
+                        type: type,
+                        title: title,
+                        message: message,
+                        show: true
+                    };
+                    
+                    this.toasts.push(toast);
+                    
+                    // Auto remove after duration
+                    setTimeout(() => {
+                        this.removeToast(id);
+                    }, duration);
+                },
+                
+                removeToast(id) {
+                    const index = this.toasts.findIndex(toast => toast.id === id);
+                    if (index > -1) {
+                        this.toasts[index].show = false;
+                        setTimeout(() => {
+                            this.toasts.splice(index, 1);
+                        }, 200);
+                    }
+                }
+            }
+        }
+        
+        // Global toast functions
+        window.customAlert = {
+            success: function(message, title = 'Berhasil') {
+                const toast = document.querySelector('[x-data="toastComponent()"]').__x.$data;
+                toast.addToast('success', title, message);
+            },
+            
+            error: function(message, title = 'Error') {
+                const toast = document.querySelector('[x-data="toastComponent()"]').__x.$data;
+                toast.addToast('error', title, message);
+            },
+            
+            warning: function(message, title = 'Peringatan') {
+                const toast = document.querySelector('[x-data="toastComponent()"]').__x.$data;
+                toast.addToast('warning', title, message);
+            },
+            
+            info: function(message, title = 'Informasi') {
+                const toast = document.querySelector('[x-data="toastComponent()"]').__x.$data;
+                toast.addToast('info', title, message);
+            },
+            
+            confirm: function(message, title = 'Konfirmasi', onConfirm, onCancel) {
+                // Fallback to browser confirm for now
+                if (confirm(title + '\n\n' + message)) {
+                    if (onConfirm) onConfirm();
+                } else {
+                    if (onCancel) onCancel();
+                }
+            }
+        };
+    </script>
+    
+    <!-- Debug Script -->
+    <script>
+        // Debug: Check if functions are available
+        document.addEventListener('DOMContentLoaded', function() {
+            console.log('=== DEBUG: Checking function availability ===');
+            console.log('sendToWhatsApp available:', typeof window.sendToWhatsApp);
+            console.log('sendCartToWhatsApp available:', typeof window.sendCartToWhatsApp);
+            console.log('addToCart available:', typeof window.addToCart);
+            console.log('Cart buttons found:', document.querySelectorAll('.add-cart').length);
+            console.log('Pesan buttons found:', document.querySelectorAll('button[onclick*="sendToWhatsApp"]').length);
+            console.log('WhatsApp cart button found:', document.getElementById('whatsapp-order-btn'));
+            
+            // Test sendToWhatsApp function
+            if (typeof window.sendToWhatsApp === 'function') {
+                console.log('✅ sendToWhatsApp function is available');
+            } else {
+                console.error('❌ sendToWhatsApp function is NOT available');
+            }
+            
+            // Test sendCartToWhatsApp function
+            if (typeof window.sendCartToWhatsApp === 'function') {
+                console.log('✅ sendCartToWhatsApp function is available');
+            } else {
+                console.error('❌ sendCartToWhatsApp function is NOT available');
+            }
+            
+            // Test cart data
+            const cartData = localStorage.getItem('meatshop_cart');
+            console.log('Cart data from localStorage:', cartData);
+            if (cartData) {
+                try {
+                    const cart = JSON.parse(cartData);
+                    console.log('Parsed cart:', cart);
+                    console.log('Cart length:', cart.length);
+                } catch (e) {
+                    console.error('Error parsing cart data:', e);
+                }
+            }
+        });
+    </script>
 </body>
 </html>

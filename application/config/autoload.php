@@ -58,7 +58,7 @@ $autoload['packages'] = array();
 |	$autoload['libraries'] = array('users' => array('some_param'));
 |
 */
-$autoload['libraries'] = array('session');
+$autoload['libraries'] = array('session', 'database');
 
 /*
 | -------------------------------------------------------------------
@@ -135,4 +135,4 @@ $autoload['language'] = array();
 |	$autoload['model'] = array('first_model' => array('some_param'));
 |
 */
-$autoload['model'] = array();
+$autoload['model'] = array('Content_model');

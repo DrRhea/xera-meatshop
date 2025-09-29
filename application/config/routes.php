@@ -105,7 +105,16 @@ $route['admin/promo/delete/(:num)'] = 'promo/delete/$1';
 $route['admin/promo/update_status/(:num)'] = 'promo/update_status/$1';
 $route['admin/settings'] = 'admin/settings';
 
+// Content management routes
+$route['admin/content'] = 'admin/content';
+$route['admin/content/page/(:any)'] = 'admin/content/page/$1';
+$route['admin/content/update'] = 'admin/content/update';
+$route['admin/content/update_single'] = 'admin/content/update_single';
+$route['admin/content/toggle_status/(:num)'] = 'admin/content/toggle_status/$1';
+$route['admin/content/delete/(:num)'] = 'admin/content/delete/$1';
+
 $route['admin/settings/content'] = 'settings/content';
+$route['admin/settings/update_content'] = 'settings/update_content';
 $route['admin/settings/profile'] = 'admin/edit_profile';
 $route['admin/settings/password'] = 'admin/change_password';
 $route['admin/change_password'] = 'admin/change_password';

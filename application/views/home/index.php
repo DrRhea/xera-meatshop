@@ -6,18 +6,17 @@
                 <div class="w-full px-4 sm:px-6 lg:px-8 text-center">
                     <div class="max-w-4xl mx-auto space-y-8">
                         <h1 class="text-5xl md:text-7xl font-bold text-white leading-tight">
-                        Meat Shop &<br class="md:hidden"/> 
-                        <span class="text-primary">Grocery</span>
+                        <?php echo $content['hero']['title']; ?>
                     </h1>
                         <p class="text-xl md:text-2xl text-white/90 leading-relaxed">
-                        Daging segar, bumbu berkualitas, dan kebutuhan dapur lengkap untuk masakan terbaik Anda.
+                        <?php echo $content['hero']['subtitle']; ?>
                     </p>
                         <div class="flex flex-col sm:flex-row gap-4 justify-center pt-4">
                             <a href="#menu" class="bg-primary text-white px-8 py-4 rounded-lg font-semibold hover:bg-primary-700 transition-all duration-300 shadow-lg hover:shadow-xl transform hover:-translate-y-1">
-                            Lihat Produk
+                            <?php echo $content['hero']['button1_text']; ?>
                         </a>
                             <a href="#about" class="bg-transparent border-2 border-white text-white px-8 py-4 rounded-lg font-semibold hover:bg-white hover:text-gray-900 transition-all duration-300 transform hover:-translate-y-1">
-                            Kenapa Kami?
+                            <?php echo $content['hero']['button2_text']; ?>
                         </a>
                         </div>
                     </div>
@@ -42,10 +41,10 @@
                         <div class="order-1 lg:order-2 space-y-8">
                             <div class="space-y-6">
                                 <h2 class="text-4xl lg:text-5xl font-bold text-gray-900 leading-tight">
-                            Mengapa Memilih <span class="text-primary">Kami?</span>
+                            <?php echo $content['about']['title']; ?> <span class="text-primary">Kami?</span>
                         </h2>
                                 <p class="text-lg text-gray-600 leading-relaxed">
-                            Kami menyediakan produk berkualitas, bumbu berkualitas, dan kebutuhan dapur lengkap dengan harga terbaik. Setiap produk dipilih dengan teliti agar kualitas tetap terjaga.
+                            <?php echo $content['about']['description']; ?>
                         </p>
                             </div>
                             <div class="grid grid-cols-1 sm:grid-cols-2 gap-6">
@@ -159,10 +158,17 @@
                                             <div class="text-2xl font-bold text-primary">Rp <?php echo number_format($product->price, 0, ',', '.'); ?></div>
                                         </div>
                                         <div class="flex items-center space-x-2">
-                                            <button class="bg-primary text-white px-6 py-3 rounded-xl hover:bg-primary-700 transition-colors font-semibold flex-1">
+                                            <button class="bg-primary text-white px-6 py-3 rounded-xl hover:bg-primary-700 transition-colors font-semibold flex-1" 
+                                                    onclick="sendToWhatsApp('<?php echo htmlspecialchars($product->name, ENT_QUOTES); ?>', '<?php echo number_format($product->price, 0, ',', '.'); ?>', '<?php echo htmlspecialchars($product->category, ENT_QUOTES); ?>', '<?php echo $product->stock; ?>', '<?php echo $product->unit; ?>')">
                                                 Pesan
                                             </button>
-                                            <button class="bg-gray-100 text-gray-700 p-3 rounded-xl hover:bg-primary hover:text-white transition-colors">
+                                            <button class="bg-gray-100 text-gray-700 p-3 rounded-xl hover:bg-primary hover:text-white transition-colors add-cart" 
+                                                    onclick="addToCartDirect('<?php echo htmlspecialchars($product->name, ENT_QUOTES); ?>', '<?php echo number_format($product->price, 0, ',', '.'); ?>', '<?php echo htmlspecialchars($product->category, ENT_QUOTES); ?>', '<?php echo $product->stock; ?>', '<?php echo $product->unit; ?>')"
+                                                    data-product-name="<?php echo htmlspecialchars($product->name, ENT_QUOTES); ?>" 
+                                                    data-product-price="<?php echo number_format($product->price, 0, ',', '.'); ?>" 
+                                                    data-product-category="<?php echo htmlspecialchars($product->category, ENT_QUOTES); ?>" 
+                                                    data-product-stock="<?php echo $product->stock; ?>" 
+                                                    data-product-unit="<?php echo $product->unit; ?>">
                                                 <i class='bx bx-cart-add text-xl'></i>
                                             </button>
                                         </div>
@@ -198,10 +204,17 @@
                                         <div class="text-2xl font-bold text-primary">Rp 44.000</div>
                                     </div>
                                     <div class="flex items-center space-x-2">
-                                        <button class="bg-primary text-white px-6 py-3 rounded-xl hover:bg-primary-700 transition-colors font-semibold flex-1">
+                                        <button class="bg-primary text-white px-6 py-3 rounded-xl hover:bg-primary-700 transition-colors font-semibold flex-1" 
+                                                onclick="sendToWhatsApp('De Cecco Spaghetti 500gr', '44.000', 'Meat', '50', 'pcs')">
                                             Pesan
                                         </button>
-                                        <button class="bg-gray-100 text-gray-700 p-3 rounded-xl hover:bg-primary hover:text-white transition-colors">
+                                        <button class="bg-gray-100 text-gray-700 p-3 rounded-xl hover:bg-primary hover:text-white transition-colors add-cart" 
+                                                onclick="addToCartDirect('De Cecco Spaghetti 500gr', '44.000', 'Meat', '50', 'pcs')"
+                                                data-product-name="De Cecco Spaghetti 500gr" 
+                                                data-product-price="44.000" 
+                                                data-product-category="Meat" 
+                                                data-product-stock="50" 
+                                                data-product-unit="pcs">
                                             <i class='bx bx-cart-add text-xl'></i>
                                         </button>
                                     </div>
@@ -259,10 +272,17 @@
                                                 </div>
                                             </div>
                                             <div class="flex items-center space-x-2">
-                                                <button class="bg-white text-primary px-6 py-3 rounded-xl hover:bg-primary hover:text-white transition-colors font-semibold flex-1">
+                                                <button class="bg-white text-primary px-6 py-3 rounded-xl hover:bg-primary hover:text-white transition-colors font-semibold flex-1" 
+                                                        onclick="sendToWhatsApp('<?php echo htmlspecialchars($promo->title, ENT_QUOTES); ?>', '<?php echo number_format($promo->promo_price, 0, ',', '.'); ?>', '<?php echo htmlspecialchars($promo->product_category, ENT_QUOTES); ?>', 'Tersedia', 'pcs')">
                                                     Pesan Sekarang
                                                 </button>
-                                                <button class="bg-white/20 text-white p-3 rounded-xl hover:bg-white hover:text-primary transition-colors">
+                                                <button class="bg-white/20 text-white p-3 rounded-xl hover:bg-white hover:text-primary transition-colors add-cart"
+                                                        onclick="addToCartDirect('<?php echo htmlspecialchars($promo->title, ENT_QUOTES); ?>', '<?php echo number_format($promo->promo_price, 0, ',', '.'); ?>', '<?php echo htmlspecialchars($promo->product_category, ENT_QUOTES); ?>', 'Tersedia', 'pcs')"
+                                                        data-product-name="<?php echo htmlspecialchars($promo->title, ENT_QUOTES); ?>" 
+                                                        data-product-price="<?php echo number_format($promo->promo_price, 0, ',', '.'); ?>" 
+                                                        data-product-category="<?php echo htmlspecialchars($promo->product_category, ENT_QUOTES); ?>" 
+                                                        data-product-stock="Tersedia" 
+                                                        data-product-unit="pcs">
                                                     <i class='bx bx-cart-add text-xl'></i>
                                                 </button>
                                             </div>
@@ -290,10 +310,17 @@
                                              <div class="text-2xl font-bold text-white">Rp 56.000</div>
                                          </div>
                                          <div class="flex items-center space-x-2">
-                                             <button class="bg-white text-primary px-6 py-3 rounded-xl hover:bg-primary hover:text-white transition-colors font-semibold flex-1">
+                                             <button class="bg-white text-primary px-6 py-3 rounded-xl hover:bg-primary hover:text-white transition-colors font-semibold flex-1" 
+                                                     onclick="sendToWhatsApp('Bull-Dog Vegetable & fruit sauce 1 botol / 300 ml', '56.000', 'Minuman', 'Tersedia', 'botol')">
                                                 Pesan
                                             </button>
-                                             <button class="bg-white/20 text-white p-3 rounded-xl hover:bg-white hover:text-primary transition-colors">
+                                             <button class="bg-white/20 text-white p-3 rounded-xl hover:bg-white hover:text-primary transition-colors add-cart"
+                                                     onclick="addToCartDirect('Bull-Dog Vegetable & fruit sauce 1 botol / 300 ml', '56.000', 'Minuman', 'Tersedia', 'botol')"
+                                                     data-product-name="Bull-Dog Vegetable & fruit sauce 1 botol / 300 ml" 
+                                                     data-product-price="56.000" 
+                                                     data-product-category="Minuman" 
+                                                     data-product-stock="Tersedia" 
+                                                     data-product-unit="botol">
                                                 <i class='bx bx-cart-add text-xl'></i>
                                             </button>
                                         </div>

@@ -105,9 +105,24 @@
                 <div class="flex items-center space-x-4">
                     <a href="<?php echo base_url('keranjang'); ?>" 
                        class="relative p-2 text-gray-700 hover:text-primary transition-colors" 
-                       title="Keranjang Belanja">
+                       title="Keranjang Belanja"
+                       x-data="{ cartCount: 0 }" 
+                       x-init="
+                           updateCartCount();
+                           setInterval(updateCartCount, 1000);
+                           function updateCartCount() {
+                               try {
+                                   const cart = JSON.parse(localStorage.getItem('meatshop_cart') || '[]');
+                                   cartCount = cart.length;
+                               } catch (e) {
+                                   cartCount = 0;
+                               }
+                           }
+                       ">
                         <i class='bx bx-shopping-bag text-xl'></i>
-                        <span class="absolute -top-1 -right-1 bg-accent text-white text-xs rounded-full h-5 w-5 flex items-center justify-center">0</span>
+                        <span x-show="cartCount > 0" 
+                              x-text="cartCount" 
+                              class="absolute -top-1 -right-1 bg-accent text-white text-xs rounded-full h-5 w-5 flex items-center justify-center"></span>
                     </a>
 
                     <!-- Mobile Menu Button -->
