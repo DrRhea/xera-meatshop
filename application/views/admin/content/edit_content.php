@@ -340,6 +340,7 @@
             // Create form data
             const formData = new FormData();
             formData.append('page', activeTab);
+            console.log('Page parameter:', activeTab);
             
             // Get all inputs from current active tab
             const activeTabElement = document.querySelector('[x-show="activeTab === \'' + activeTab + '\'"]');
@@ -380,7 +381,11 @@
             .then(data => {
                 console.log('Response data:', data);
                 if (data.status === 'success') {
-                    alert('Konten berhasil diperbarui!');
+                    alert('Konten berhasil diperbarui! Silakan refresh halaman untuk melihat perubahan.');
+                    // Optionally reload the page
+                    setTimeout(() => {
+                        window.location.reload();
+                    }, 1000);
                 } else {
                     alert('Gagal memperbarui konten: ' + (data.message || 'Unknown error'));
                 }

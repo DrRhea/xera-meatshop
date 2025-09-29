@@ -55,6 +55,7 @@ console.log('sendToWhatsApp function defined and made global');
 function addToCartDirect(productName, productPrice, productCategory, productStock, productUnit) {
   console.log('=== ADD TO CART DIRECT ===');
   console.log('Parameters:', {productName, productPrice, productCategory, productStock, productUnit});
+  console.log('addToCartGlobal function available:', typeof window.addToCartGlobal);
   
   // Validate parameters
   if (!productName) {
@@ -91,9 +92,12 @@ function addToCartDirect(productName, productPrice, productCategory, productStoc
   
   // Call the global addToCart function
   if (typeof window.addToCartGlobal === 'function') {
+    console.log('Calling addToCartGlobal with:', productData);
     window.addToCartGlobal(productData);
+    console.log('addToCartGlobal called successfully');
   } else {
     console.error('addToCartGlobal function not available!');
+    console.log('Available functions:', Object.keys(window).filter(key => key.includes('cart')));
     if (typeof window.customAlert !== 'undefined' && window.customAlert.error) {
       window.customAlert.error('Fungsi keranjang tidak tersedia. Silakan refresh halaman.');
     } else {
@@ -136,6 +140,7 @@ function saveGlobalCart() {
 
 // Update cart badge
 function updateGlobalCartBadge() {
+  console.log('Updating cart badge, cart length:', globalCart.length);
   const cartBadge = document.querySelector('.cart-count');
   if (cartBadge) {
     cartBadge.textContent = String(globalCart.length);
@@ -143,6 +148,9 @@ function updateGlobalCartBadge() {
       cartBadge.classList.add('pulse');
       setTimeout(() => cartBadge.classList.remove('pulse'), 400);
     }
+    console.log('Cart badge updated to:', cartBadge.textContent);
+  } else {
+    console.log('Cart badge element not found');
   }
   
   // Also update Alpine.js cart count
