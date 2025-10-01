@@ -81,53 +81,48 @@ $route['admin/logout'] = 'admin/logout';
 $route['login'] = 'admin/login';
 $route['authenticate'] = 'admin/authenticate';
 $route['logout'] = 'admin/logout';
+
+// Products routes
 $route['admin/products'] = 'admin/products';
 $route['admin/products/add'] = 'admin/add_product';
 $route['admin/products/edit/(:num)'] = 'admin/edit_product/$1';
 $route['admin/products/delete/(:num)'] = 'admin/delete_product/$1';
-$route['admin/orders'] = 'orders';
-$route['admin/orders/add'] = 'orders/add';
-$route['admin/orders/edit/(:num)'] = 'orders/edit/$1';
-$route['admin/customers'] = 'customers';
-$route['admin/customers/add'] = 'customers/add';
-$route['admin/customers/edit/(:num)'] = 'customers/edit/$1';
-$route['admin/gallery'] = 'gallery/index';
-$route['admin/gallery/add'] = 'gallery/add';
-$route['admin/gallery/edit/(:num)'] = 'gallery/edit/$1';
-$route['admin/gallery/delete/(:num)'] = 'gallery/delete/$1';
-$route['gallery-delete/(:num)'] = 'gallery/delete/$1';
-
-// Promo routes
-$route['admin/promo'] = 'promo/index';
-$route['admin/promo/add'] = 'promo/add';
-$route['admin/promo/edit/(:num)'] = 'promo/edit/$1';
-$route['admin/promo/delete/(:num)'] = 'promo/delete/$1';
-$route['admin/promo/update_status/(:num)'] = 'promo/update_status/$1';
-$route['admin/settings'] = 'admin/settings';
-
-// Content management routes
-$route['admin/content'] = 'admin/content';
-$route['admin/content/page/(:any)'] = 'admin/content/page/$1';
-$route['admin/content/update'] = 'admin/content/update';
-$route['admin/content/update_single'] = 'admin/content/update_single';
-$route['admin/content/toggle_status/(:num)'] = 'admin/content/toggle_status/$1';
-$route['admin/content/delete/(:num)'] = 'admin/content/delete/$1';
-
-$route['admin/settings/content'] = 'settings/content';
-$route['admin/settings/update_content'] = 'settings/update_content';
-$route['admin/settings/profile'] = 'admin/edit_profile';
-$route['admin/settings/password'] = 'admin/change_password';
-$route['admin/change_password'] = 'admin/change_password';
-$route['admin/edit_profile'] = 'admin/edit_profile';
-$route['admin/update_profile'] = 'admin/update_profile';
-$route['admin/test-upload'] = 'admin/test_upload';
 
 // Gallery routes
+$route['admin/gallery'] = 'admin/gallery';
+$route['admin/gallery/add'] = 'admin/add_gallery';
+$route['admin/gallery/edit/(:num)'] = 'admin/edit_gallery/$1';
+$route['admin/gallery/delete/(:num)'] = 'admin/delete_gallery/$1';
+
+// Promo routes
+$route['admin/promo'] = 'admin/promo';
+$route['admin/promo/add'] = 'admin/add_promo';
+$route['admin/promo/edit/(:num)'] = 'admin/edit_promo/$1';
+$route['admin/promo/delete/(:num)'] = 'admin/delete_promo/$1';
+
+// Contact routes
+$route['admin/contact'] = 'admin/contact';
+$route['admin/contact/view/(:num)'] = 'admin/view_message/$1';
+$route['admin/contact/update_status/(:num)'] = 'admin/update_status/$1';
+$route['admin/contact/delete/(:num)'] = 'admin/delete_message/$1';
+
+// Settings routes
+$route['admin/settings'] = 'settings';
+$route['admin/settings/content'] = 'settings/content';
+$route['admin/settings/profile'] = 'settings/profile';
+$route['admin/settings/password'] = 'settings/password';
+$route['admin/settings/system'] = 'settings/system';
+$route['admin/settings/backup'] = 'settings/backup';
+$route['admin/settings/logs'] = 'settings/logs';
+
+// Test route
+$route['test-settings'] = 'settings';
+
+// Content management routes
+$route['admin/settings/update_content'] = 'settings/update_content';
+
+// Gallery public routes
 $route['gallery'] = 'gallery/public_gallery';
 
 // Contact routes
 $route['contact/submit'] = 'contact/submit';
-$route['admin/contact'] = 'admin/contact';
-$route['admin/contact/view/(:num)'] = 'admin/view/$1';
-$route['admin/contact/update_status/(:num)'] = 'admin/update_status/$1';
-$route['admin/contact/delete/(:num)'] = 'admin/delete_message/$1';
