@@ -13,6 +13,11 @@ class Settings extends CI_Controller {
 
     public function index()
     {
+        // Check if admin is logged in
+        if (!$this->session->userdata('admin_logged_in')) {
+            redirect('admin/login');
+        }
+        
         $data['title'] = 'Pengaturan - Meat Shop & Grocery';
         $data['page_title'] = 'Pengaturan';
         $data['content'] = $this->load->view('admin/content/settings', '', TRUE);
@@ -107,9 +112,134 @@ class Settings extends CI_Controller {
 
     public function password()
     {
+        // Check if admin is logged in
+        if (!$this->session->userdata('admin_logged_in')) {
+            redirect('admin/login');
+        }
+        
+        if ($this->input->method() === 'post') {
+            $this->load->library('form_validation');
+            $this->form_validation->set_rules('current_password', 'Password Lama', 'required');
+            $this->form_validation->set_rules('new_password', 'Password Baru', 'required|min_length[6]');
+            $this->form_validation->set_rules('confirm_password', 'Konfirmasi Password', 'required|matches[new_password]');
+            
+            if ($this->form_validation->run() == FALSE) {
+                $this->session->set_flashdata('error', validation_errors());
+                redirect('settings/password');
+                return;
+            }
+            
+            $current_password = $this->input->post('current_password');
+            $new_password = $this->input->post('new_password');
+            
+            // Get current user
+            $this->load->database();
+            $this->db->where('username', $this->session->userdata('admin_username'));
+            $user = $this->db->get('admin_users')->row();
+            
+            if ($user && password_verify($current_password, $user->password)) {
+                // Update password
+                $hashed_password = password_hash($new_password, PASSWORD_DEFAULT);
+                $this->db->where('id', $user->id);
+                if ($this->db->update('admin_users', array('password' => $hashed_password))) {
+                    $this->session->set_flashdata('success', 'Password berhasil diubah!');
+                } else {
+                    $this->session->set_flashdata('error', 'Gagal mengubah password!');
+                }
+            } else {
+                $this->session->set_flashdata('error', 'Password lama tidak benar!');
+            }
+            
+            redirect('settings/password');
+        }
+        
         $data['title'] = 'Ganti Password - Meat Shop & Grocery';
         $data['page_title'] = 'Ganti Password';
         $data['content'] = $this->load->view('admin/content/change_password', '', TRUE);
+        $this->load->view('admin/layout', $data);
+    }
+
+    public function edit_profile()
+    {
+        // Check if admin is logged in
+        if (!$this->session->userdata('admin_logged_in')) {
+            redirect('admin/login');
+        }
+        
+        if ($this->input->method() === 'post') {
+            $this->load->library('form_validation');
+            $this->form_validation->set_rules('full_name', 'Nama Lengkap', 'required|trim');
+            $this->form_validation->set_rules('email', 'Email', 'required|valid_email');
+            
+            if ($this->form_validation->run() == FALSE) {
+                $this->session->set_flashdata('error', validation_errors());
+                redirect('settings/profile');
+                return;
+            }
+            
+            $profile_data = array(
+                'full_name' => $this->input->post('full_name'),
+                'email' => $this->input->post('email')
+            );
+            
+            $this->load->database();
+            $this->db->where('username', $this->session->userdata('admin_username'));
+            if ($this->db->update('admin_users', $profile_data)) {
+                $this->session->set_flashdata('success', 'Profile berhasil diperbarui!');
+            } else {
+                $this->session->set_flashdata('error', 'Gagal memperbarui profile!');
+            }
+            
+            redirect('settings/profile');
+        }
+        
+        // Get current user data
+        $this->load->database();
+        $this->db->where('username', $this->session->userdata('admin_username'));
+        $data['user'] = $this->db->get('admin_users')->row();
+        
+        $data['title'] = 'Edit Profile - Meat Shop & Grocery';
+        $data['page_title'] = 'Edit Profile';
+        $data['content'] = $this->load->view('admin/content/edit_profile', $data, TRUE);
+        $this->load->view('admin/layout', $data);
+    }
+
+    public function system()
+    {
+        // Check if admin is logged in
+        if (!$this->session->userdata('admin_logged_in')) {
+            redirect('admin/login');
+        }
+        
+        $data['title'] = 'Pengaturan Sistem - Meat Shop & Grocery';
+        $data['page_title'] = 'Pengaturan Sistem';
+        $data['content'] = $this->load->view('admin/content/system_settings', '', TRUE);
+        $this->load->view('admin/layout', $data);
+    }
+
+    public function backup()
+    {
+        // Check if admin is logged in
+        if (!$this->session->userdata('admin_logged_in')) {
+            redirect('admin/login');
+        }
+        
+        $data['title'] = 'Backup Database - Meat Shop & Grocery';
+        $data['page_title'] = 'Backup Database';
+        $data['content'] = $this->load->view('admin/content/backup', '', TRUE);
+        $this->load->view('admin/layout', $data);
+    }
+
+    public function logs()
+    {
+        // Check if admin is logged in
+        if (!$this->session->userdata('admin_logged_in')) {
+            redirect('admin/login');
+        }
+        
+        $data['title'] = 'Log Sistem - Meat Shop & Grocery';
+        $data['page_title'] = 'Log Sistem';
+        $data['content'] = $this->load->view('admin/content/logs', '', TRUE);
         $this->load->view('admin/layout', $data);
     }
 }
