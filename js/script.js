@@ -16,7 +16,7 @@ function sendToWhatsApp(productName, productPrice, productCategory, productStock
     return;
   }
   
-  const phoneNumber = '6285724964731'; // +62 85724964731
+  const phoneNumber = '628112993400'; // +62 811-2993-400
   const message = `Halo! Saya tertarik dengan produk berikut:
 
 📦 *${productName}*
@@ -250,7 +250,7 @@ function sendCartToWhatsApp() {
     return;
   }
   
-  const phoneNumber = '6285724964731'; // +62 85724964731
+  const phoneNumber = '628112993400'; // +62 811-2993-400
   
   let message = `Halo! Saya ingin memesan produk berikut:\n\n`;
   

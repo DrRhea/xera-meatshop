@@ -159,7 +159,7 @@ class Cart extends CI_Controller {
 
     public function generateWhatsAppUrl($cart)
     {
-        $phoneNumber = '6285724964731';
+        $phoneNumber = '628112993400';
         $message = "Halo! Saya ingin memesan produk berikut:\n\n";
         
         $total = 0;
