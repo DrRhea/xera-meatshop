@@ -43,7 +43,7 @@ INSERT INTO content_settings (page, section, content_key, content_value, content
 ('contact', 'info', 'email', 'supplierdaging@mitraboga.com', 'text'),
 ('contact', 'info', 'email_response', 'Kami akan membalas dalam 24 jam', 'text'),
 ('contact', 'info', 'address', 'Jl. Suratmo No.59, Kalibanteng Kidul, Kec. Semarang Barat, Kota Semarang, Jawa Tengah 50147', 'textarea'),
-('contact', 'info', 'whatsapp', '6285724964731', 'text'),
+('contact', 'info', 'whatsapp', '628112993400', 'text'),
 ('contact', 'social', 'facebook', 'https://www.facebook.com/share/174RhAy1hY/', 'text'),
 ('contact', 'social', 'instagram', 'https://www.instagram.com/meatshopindoguna_semarang?igsh=bHQycjU4NTh2OTV3', 'text'),
 ('contact', 'social', 'tiktok', 'https://www.tiktok.com/@meatshopindoguna_smg?_t=ZS-8zwRsprvqbP&_r=1', 'text');

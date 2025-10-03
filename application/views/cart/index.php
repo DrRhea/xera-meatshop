@@ -162,7 +162,7 @@
                     // echo "<!-- DEBUG WhatsApp: Cart data: " . print_r($cart_whatsapp, true) . " -->";
                     
                     if (!empty($cart_whatsapp) && is_array($cart_whatsapp) && count($cart_whatsapp) > 0): 
-                        $phoneNumber = '6285724964731';
+                        $phoneNumber = '628112993400';
                         $message = "Halo! Saya ingin memesan produk berikut:\n\n";
                         
                         $total = 0;
